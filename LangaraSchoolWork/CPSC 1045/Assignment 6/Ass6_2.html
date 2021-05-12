@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="Ass6_2.js"></script>
+   <title>Archery Simulator</title>
+</head>
+
+<body>
+   <h1>Archery Simulator</h1>
+   <p>For this program there is an number box. When the user changes the number
+      your program should simulate that many arrows being shot at the target.
+      The simulation will need to do two things. It will use the use tag and the group#arrows to place arrows into 
+      image, and it will calculate the score. <br>
+      For every arrow whose centers land in the red circle they get 20 points. <br>
+      For every arrow whose centers land in the green  ring they get 15 points. <br>
+      For every arrow whose centers land in the white  ring they get 10 points. <br>
+      For every arrows whose centers land in the blue circle they get 5 points.<br>
+      All other arrows get 0 points.<br>
+      <br>
+      You will need to use pythagoras equation to calculate the distance from the center of the target to
+      the center of the circle. <a href="https://www.khanacademy.org/math/geometry/hs-geo-analytic-geometry/hs-geo-distance-and-midpoints/v/distance-formula#:~:text=Learn%20how%20to%20find%20the,distance%20between%20any%20two%20points.">tutorial</a><br>
+   </p>
+   <h2>Archery Target</h2>
+   <svg width="300px" height="300px" style="border: solid black thin">
+     <defs>
+         <g id="arrow">            
+            <line x1="0" y1="0" x2="0" y2="5" stroke="black" />
+            <line x1="0" y1="0" x2="4.3" y2="-2.4" stroke="black" />
+            <line x1="0" y1="0" x2="-4.3" y2="-2.4" stroke="black" />
+            <circle cx="0" cy="0" r="2.5" fill="brown" />
+         </g>
+     </defs>
+
+      <g id="target">
+         <circle cx="150" cy="150" r="125" fill="blue" />
+         <circle cx="150" cy="150" r="75" fill="white" />
+         <circle cx="150" cy="150" r="50" fill="green" />
+         <circle cx="150" cy="150" r="25" fill="red" />
+
+      </g>
+      <g id="ammunition">
+
+      </g>
+   </svg><br>
+   <input type="number" id="numArrows" ><input type="button" value="fire" onclick="fireArrows(event)"><br>
+   <label>Score</label><label id="score">
+      <!--The score can be inserted here from JavaScript --></label>
+</body>
+
+</html>

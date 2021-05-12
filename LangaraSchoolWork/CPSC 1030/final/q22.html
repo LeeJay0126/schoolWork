@@ -1,0 +1,104 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title> CPSC 1030 Final Exam</title>
+	<style>
+		body {
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		header {
+			background-color: lightgray;
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		nav {
+			float: left;
+			width: 20%;
+			border: 1px solid black;
+		}
+
+		nav ul li {
+			list-style-type: none;
+			padding-bottom: 3px;
+		}
+
+		nav a {
+			text-decoration: none;
+		}
+
+		main {
+			margin-left: 25%;
+			width: 75%;
+			border: 1px solid black;
+			background-color: linen;
+		}
+
+		@media only screen and (max-width:768px) {
+			body {
+				margin-left: auto;
+				margin-right: auto;
+				display:flex;
+				flex-direction:column;
+			}
+
+			header {
+				background-color: lightgray;
+				border: 1px solid black;
+				text-align: center;
+				flex:3;
+			}
+
+			nav {
+				flex:0.5;
+				border: 1px solid black;
+			}
+
+			nav ul li {
+				list-style-type: none;
+			}
+
+			nav a {
+				text-decoration: none;
+			}
+
+			main {
+				flex:3;
+				border: 1px solid black;
+				background-color: linen;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+	<header id="boxe">
+		<h2> The Header </h2>
+	</header>
+
+	<nav id="boxa">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Page</a></li>
+			<li><a href="#">Other</a></li>
+		</ul>
+	</nav>
+
+	<main id="boxb">
+		<h3>Some Title</h3>
+		<p>Content</p>
+		<dl>
+			<dt>HTML</dt>
+			<dd>HyperText Markup Language</dd>
+			<dt>CSS</dt>
+			<dd>Cascading Style Sheets</dd>
+		</dl>
+	</main>
+</body>
+
+</html>

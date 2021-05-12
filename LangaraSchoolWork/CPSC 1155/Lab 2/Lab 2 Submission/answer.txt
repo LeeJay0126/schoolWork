@@ -1,0 +1,137 @@
+//-------------------------------------------------------------
+// Lab 2: Elementary Programming
+// Answers for question 1,2,3, and 4 in Lab 2 in txt file
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 01 - 13
+//-------------------------------------------------------------
+
+CPSC 1155 Lab 2
+
+
+
+
+
+
+Practice Questions
+1.
+
+a. const int DAYSINWEEK = 7
+b. int remainingDays
+c. const float CMININCH = 2.54
+d. float tallestPerson
+
+
+
+
+
+
+
+Convert Algorithm to Pseudocode and C++ Program
+2.
+
+Double miles
+Input miles
+const double KILOMETERS_PER_MILE = 1.609
+double kilometers 
+set kilometers to miles * KILOMETERS_PER_MILE
+display kilometers + " kilometers are in miles"
+
+C++ code
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+
+    double miles;
+    cin >> miles;
+    const double KILOMETERS_PER_MILE = 1.609;
+    double kilometers;
+    kilometers = miles * KILOMETERS_PER_MILE;
+    cout << kilometers << " kilometers are in miles"  << endl;
+    return 0;
+
+}
+
+
+
+
+
+
+
+Reorder a Program
+3.
+
+Line 8
+Line 15
+Line 13
+Line 3
+18
+Line 2
+Line 4
+Line 1
+Line 12
+9
+14
+5
+6
+11
+17
+10
+16
+7
+19
+
+Program just incase. Should make marking easier.
+
+/*
+    This program computes the area of a wall with two windows.
+*/
+
+int main()
+{
+    int windows = 2;
+    double window_width = 3;
+    double wall_height = 8;
+    double wall_width = 4;
+    double window_height = 4;
+    /*
+    Dimensions of the wall and 
+    number and dimensions of the windows 
+    */
+    double area = wall_width * wall_height;
+    area = area - windows * window_width * window_height;
+    // Computation and display of the result
+    cout << "Area of wall with 2 windows is: " << area;
+}
+
+
+
+
+
+
+
+
+
+Problem Solving
+4.
+
+int main(){
+
+    float discountItem;
+    float regularPriceItem;
+    cout << "Enter the price of discounted item: ";
+    cin >> discountItem;
+    cout << "Enter the price of regular priced item: ";
+    cin >> regularPriceItem;
+    discountItem = discountItem * 0.8;
+    float price;
+    float totalPrice;
+    price = discountItem + regularPriceItem;
+    totalPrice = price * 1.12;
+    cout << totalPrice << " is your total price";
+
+}
+
+

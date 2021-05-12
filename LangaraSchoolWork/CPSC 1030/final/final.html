@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>final</title>
+    <meta charset="UTF-8">
+    <script>
+        function submit(){
+    
+            let studentIdValue = document.getElementById("studentId").value;
+            if(studentIdValue.length < 1){
+                alert("Please Do Not Leave Your Student Number Blank!");
+            }
+            
+            if (document.getElementById("certificate").checked){
+                alert("Good luck with your certificate!");
+            }else if (document.getElementById("diploma").checked){
+                alert("Good luck with your diploma!");
+            }else if (document.getElementById("degree").checked){
+                alert("Good luck with your degree!");
+            }
+    
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>
+                Collecting Student Information
+            </legend>
+            <lable> First Name: </lable>
+            <input type="text" id="firstName">
+            <br>
+            <lable> Last Name: </lable>
+            <input type="text" id="lastName">
+            <br>
+            <lable>Your Email: </lable>
+            <input type="text" id="email">
+            <br>
+            <lable>Student ID: </lable>
+            <input type="text" id="studentId">
+            <br>
+            <br>
+            <lable>Relation Status: </lable>
+            <select name="relationship" id="status">
+                <option value="single">Single</option>
+                <option value="married">married</option>
+                <option value="other">other</option>
+            </select>
+            <br>
+            <h3>Your Program: </h3>
+            <br>
+            <lable>Certificate</lable>
+            <input type="radio" id="certificate" value="certificate" name="program">
+            <br>
+            <lable>Diploma</lable>
+            <input type="radio" id="diploma" value="diploma" name="program">
+            <br>
+            <lable>Degree</lable>
+            <input type="radio" id="degree" value="degree" name="program">
+            <br>
+            <h3>Transportation</h3>
+            <input type="checkbox" id="Car">
+            <lable>Car</lable>
+            <br>
+            <input type="checkbox" id="bus">
+            <lable>Bus</lable>
+            <br>
+            <input type="checkbox" id="train">
+            <lable>Train</lable>
+            <br>
+            <input type="checkbox" id="walk">
+            <lable>Walk</lable>
+            <br>
+            <br>
+            <input type="button" value="Submit" onclick="submit()"> 
+            <br>
+            <input type="button" value="Reset">
+
+        </fieldset>
+    </form>
+</body>
+
+</html>

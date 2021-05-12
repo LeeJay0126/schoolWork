@@ -1,0 +1,47 @@
+#content {
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: thistle;
+}
+
+header {
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    width:100%;
+
+}
+
+header p {
+    float:right;
+}
+
+a {
+    text-decoration: none;
+    font-size: 3em;
+    margin-left: 5%;
+    margin-right: 3%;
+}
+
+a:hover {
+    background-color: red;
+}
+
+#players img{
+    float:right;
+    width:35%;
+    position: relative;
+    right: -15%;
+}
+
+#players ol {
+    font-family: sans-serif;
+}
+
+#teams img {
+    float: right;
+    width:35%;
+    position: relative;
+    right: -30%;
+}

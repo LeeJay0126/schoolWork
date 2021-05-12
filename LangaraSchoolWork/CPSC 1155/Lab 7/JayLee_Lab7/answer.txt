@@ -1,0 +1,199 @@
+//-------------------------------------------------------------
+// Lab 7 Repetition Statements
+// answer.txt for CPSC 1155 Lab 7
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 02 - 24
+//-------------------------------------------------------------
+
+1.
+
+num == 0
+while (num < 10){
+    print num (0)
+    set num to num + 2
+}
+
+print out :
+num:    output:
+0       0
+2       2
+4       4  
+6       6
+8       8
+
+
+
+
+num == 10
+while (num > 0){
+    print num
+    set num to num + 2
+}
+
+print out :
+num:    output:
+10      10
+12      12
+14      14
+16      16
+18      18
+...
+infinite loop
+
+
+set num to 0
+while (num > 10){
+    print num
+    sset num to num -2
+}
+
+print out :
+num:    output:
+0       0
+-2      -2
+-4      -4
+-6      -6
+-8      -8
+...
+infinite loop
+
+
+
+set num to 11
+while (num != 0){
+    print num
+    set num to num -2
+}
+
+print out :
+num:    output:
+11      11
+9       9
+7       7
+5       5
+3       3
+1       1
+-1      -1
+-3      -3
+...
+infinite loop
+
+
+2.
+string stars = "*****"
+string stripes = "====="
+int i = 0
+
+while(i < 5){
+    cout << stars.substr(0,1)
+}
+
+*
+**
+***
+****
+
+
+while(i<5){
+    cout << stars.substr(0,i)
+    cout << stripes.substr(i,5-i)
+}
+=====
+*===
+**=
+***
+****
+
+while(i<10){
+    if(i%2 == 0){cout<<stars<<endl;}
+    else{cout<<stripes<<endl;}
+}
+=====
+=====
+*****
+=====
+*****
+=====
+*****
+=====
+*****
+=====
+
+
+
+
+3.
+
+double input;
+cin >> input
+double largest = input;
+double smallest = input;
+while(cin >> input)
+{
+    if(input > largest){largest = input}
+    if(input < smallest){smallest = input}
+}
+cout<<"minimum: " << smallest << endl;
+cout<< maximum: " << largest << endl;
+
+
+8
+5
+2
+6
+1
+11
+7
+9
+10
+3
+4
+
+
+
+4.
+
+int main(){
+
+    int monthCount = 0;
+    double input;
+    double monthTemp;
+    cin >> monthTemp;
+    
+    while(monthCount < 11){
+
+        cout << "Next month's temperature: ";
+        cin >> input;
+        if(input > monthTemp){
+            monthTemp = input;
+        }
+
+        monthCount++;
+    }
+
+    cout << "Hottest month is: "<<monthTemp<<endl;
+}
+
+
+
+
+5.
+    a)
+        set sum to 0
+        for (int i = 2; i <= 100; i+2)
+            if(i%2=0)
+                set sum to sum + i
+        display sum
+            
+    b)
+        set sum to 0;
+        for (int i = 2; i <= 100; i++)
+            set sum to sum+pow(i,2)
+        display sum
+
+    c) set sum to 0;
+        for (int i = 1; i <= 100; i++)
+            set sum to sum+pow(i,1)
+        display sum
+
+

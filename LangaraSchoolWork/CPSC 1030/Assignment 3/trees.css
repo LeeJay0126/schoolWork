@@ -1,0 +1,12 @@
+#div1 {
+    background-color: yellow;
+}
+
+#trans{
+    opacity: 0.8;
+}
+#div2 {
+    background-image: url("tree3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

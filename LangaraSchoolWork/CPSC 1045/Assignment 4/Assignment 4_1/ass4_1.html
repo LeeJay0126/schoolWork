@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="ass4_1.js" defer></script>
+    <title>Assignment 4 Part 1</title>
+</head>
+<body>
+    <h1>Part A: Traversing Mountains</h1>
+    <svg width = "200px" height="200px">        
+        <polygon points="0,200 100,100 200,200" fill="green" />
+        <circle id="circleA" cx="0px" cy="200px" r="5px" fill="blue" />
+    </svg><br>
+    <input id="inputA" type="range" value="0" min="0" max="200" style="width: 200px" oninput="traverseMountain()">
+
+    <h1>Part B: Color Changing Circle</h1>
+    <svg width = "200px" height="200px">
+        <rect x="0" y="0" height="200" width="66" fill="blue" />
+        <rect x="133" y="0" height="200" width="66" fill="blue" />
+        <circle id="circleB" cx="100px" cy="100px" r="15px" fill="blue" />
+    </svg><br>
+    <input id="inputB" type="range" value="100" min="0" max="200" style="width: 200px" oninput="moveCircle()">
+</body>
+</html>

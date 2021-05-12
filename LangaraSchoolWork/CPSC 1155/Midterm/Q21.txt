@@ -1,0 +1,39 @@
+Display "Are you a prime member? (Enter 1 if yes, 2 if no): "
+read primeMember
+Display "Do you reside in United States? 1 if you live in states that are not Alaska or Hawaii, 2 if you live in Alaska or Hawaii, and 3 if you live out side of US: "
+read deliveryRegion;
+Display "Would you like express delivery service? 1 if yes 2 if no : "
+read deliveryOption
+
+if (primeMember == 1){
+    set deliveryPrice to 0
+    display "There is no shipping fee for you"
+}else{
+    if(deliveryRegion == 1){
+        if(deliveryOption == 1){
+            set deliveryPrice to 5 * 1.2;
+            display "Your delivery price is " + deliveryPrice
+        }else{
+            set deliveryPrice to 5
+            display "Your delivery price is " + deliveryPrice
+        }
+    }else if(deliveryRegion == 2){
+        if(deliveryOption == 1){
+            set deliveryPrice to 10 * 1.2
+            display "Your delivery price is " + deliveryPrice
+        }else{
+            if(deliveryOption == 2){
+                set deliveryPrice to 10
+                display "Your delivery price is " + deliveryPrice
+            }
+        }
+    }else{
+        if(deliveryOption == 1){
+            set deliveryPrice to 12 * 1.2
+            display "Your delivery price is " + deliveryPrice
+        }else{
+            set deliveryPrice to 12
+            display "Your delivery price is " + deliveryPrice
+        }
+    }
+}

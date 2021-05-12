@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="part5_2.js" defer></script>
+    <title>Color changing game.</title>
+</head>
+<body>
+<h1>Color Changing Game</h1>
+<p>
+The goal it to get all circles the same color. 
+When you click on a circle it changes color. <br>
+Red circles become blue, <br>
+blue circles become orange, <br>
+orange circles become green <br>
+and green circles become red.  <br>
+You are to use the same event listener for all the circles.
+When the circles are all the same color display the message "All the same color" below the svg graphic.
+</p>
+
+<svg width = "200px" height="200px">    
+    <circle id="circle1" cx="100px" cy="50px" r="10" fill="red" onclick="colorChange(event)" />
+    <circle id="circle2" cx="50px" cy="150px"  r="10" fill="orange" onclick="colorChange(event)"/>
+    <circle id="circle3" cx="150px" cy="150px" r="10" fill="green" onclick="colorChange(event)" />
+</svg>
+
+<p id="messageOutput"></p>
+</body>
+</html> 

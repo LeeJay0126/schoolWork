@@ -1,0 +1,254 @@
+body{
+    background-color: burlywood;
+}
+
+nav{
+    position:fixed;
+    top:0vh;
+    width: 100vw;
+    border-radius: 1px;
+    border-color: black;
+    background-color: cornsilk;
+
+}
+
+
+
+
+h3{
+    font-weight: bolder;
+    font-family: monospace, sans-serif;
+  
+  
+}
+
+#flag{
+    width:30vw; float:left;
+}
+#moonBunny{
+    width: 30vw; float:right;
+}
+
+@media only screen and (min-width:1000px){
+
+    h1{
+        position: fixed;
+        top:2vh;
+        font-weight: bolder;
+        font-family: monospace, sans-serif;
+        font-size: 1.5em;
+    }
+
+    nav a{
+        text-decoration: none;
+        color:black;
+        font-size: 1.5em;
+        margin-left: 13vw;
+    }
+    nav a:hover{
+        text-decoration: none;
+        color:black;
+        font-size: 2em;
+    }
+ 
+
+    footer {
+        position:fixed;
+        bottom:0;
+        width: 100vw;
+        background-color: darkgrey;
+    }
+    footer a{
+        text-decoration: none;
+        margin-left: 20vw;
+        font-size: 1.2em;
+        font-family: monospace, sans-serif;
+    
+    }
+
+    #landingPage img{
+        width: 30vw;
+        height: 75vh;
+        position: absolute;
+        right: 40vw;
+        top: 10vh;
+    }
+
+
+    #landingPage h3{
+        font-weight: bolder;
+        font-family: monospace, sans-serif;
+        position: absolute;
+        bottom:5vh;
+        left: 37vw;
+    }
+    
+  
+
+    #Myself{
+        display:flex;
+        flex-direction: row;
+        margin:10%;
+    }
+
+    .background{
+        float:left;
+        flex: 1;
+    }
+
+    #aboutMe{
+        float:right;
+        flex:1;
+    }
+
+    #education {
+        float: left;
+        margin-left: 25vw;
+        margin-top: 10%;
+        
+
+    }
+
+    #work{
+        float: right;
+        margin-right:25vw;
+        margin-top: 10%;
+        
+    }
+
+    #paragraph{
+        border-style: dotted;
+        border-width: 1px;
+        width:20vw;
+    }
+
+    #hobbies{
+        float:left;
+        width: 30vw;
+        margin-left: 15vw;
+        margin-top: 10%;
+
+    }
+
+    #nbafinal {
+        float:right;
+        width: 30vw;
+        margin-top: 15%;
+        margin-right:15%;
+    }
+  
+}
+@media only screen and (max-width:1000px){
+
+    nav a{
+        text-decoration: none;
+        color:black;
+        font-size: 1em;
+        margin-left: 10vw;
+    }
+    nav a:hover{
+        text-decoration: none;
+        color:black;
+        font-size: 1.2em;
+    }
+    
+    h1{
+        position: fixed;
+        top:2vh;
+        font-weight: bolder;
+        font-family: monospace, sans-serif;
+    }
+
+    footer {
+        position:fixed;
+        bottom:0;
+        width: 100vw;
+        background-color: darkgrey;
+    }
+    footer a{
+        text-decoration: none;
+        margin-left: 12vw;
+        font-size: 1.2em;
+        font-family: monospace, sans-serif;
+    
+    }
+
+    #landingPage img{
+        width: 40vw;
+        height: 75vh;
+        position: absolute;
+        right: 35vw;
+        top: 10vh;
+    }
+
+
+    #landingPage h3{
+        font-weight: bolder;
+        font-family: monospace, sans-serif;
+        position: absolute;
+        bottom:5vh;
+        left: 25vw;
+    }
+    
+    #Myself h1{
+        font-weight: bolder;
+        font-family: monospace, sans-serif;
+
+    }
+
+    #Myself{
+        display:flex;
+        flex-direction: column;
+        margin:10%;
+    }
+    .background{
+        flex: 1;
+    }
+    #aboutMe{
+        flex:1;
+    }
+    #education {
+        margin-left: 5vw;
+        margin-top: 10vh;
+        
+
+    }
+    #work{
+        margin-right:25vw;
+        margin-top: 10%;
+        
+    }
+    #paragraph{
+        border-style: dotted;
+        border-width: 1px;
+        width:60vw;
+        margin-bottom: 10vh;
+    }
+    #paragraph p{
+        margin-top: 10%;
+        margin-left:10%;
+        margin-right: 10%;
+        margin-bottom: 10%;
+    }
+    #hobbies{
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        margin-left: 15vw;
+        margin-top: 15%;
+
+    }
+    #flex1 {
+        flex:1;
+    }
+    #flex2{
+        flex:2;
+    }
+    #nbafinal {
+        width:100%;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+    }
+  
+
+}

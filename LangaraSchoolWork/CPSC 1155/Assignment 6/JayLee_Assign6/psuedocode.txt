@@ -1,0 +1,65 @@
+//-------------------------------------------------------------
+// Assignment 6 C++ Arrays
+// Psuedocodes for Assignment 6
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 03 - 31
+//-------------------------------------------------------------
+
+Question 2:
+
+display "Enter 10 numbers: "
+for(i = 0; i < 10; i++){
+    set array[i] to user input
+}
+
+for(j = 0; j < 10; j++){
+    set count to 0
+    for(k = 0; k < 10; k++){
+        if array[j] == array2[k]
+            set count to count++
+    }
+}
+
+if count == 0
+    array2[j] = array[j]
+else
+    array2[j] = 0
+
+display "Distinct numbers are: "
+
+for(Q = 0; Q < 10; Q++){
+    if !(array2[Q] == 0){
+        display array2[Q] + "   "
+    }
+}
+
+
+Question 4.
+
+int array[10]
+string aster[10]
+
+arrayMethod(int array[]){
+    for(int i = 0; i < 10; i++){
+        set array[i] to 1 + rand()%20
+    }
+}
+
+asterisks(string array[], int array2[]){
+    for(int i = 0; i < 10; i++){
+        set result to ""
+        for(int j = 0; j < array2[i]; j++){
+            set result to result + "*"
+        }
+        set array[i] to result
+    }
+}
+
+arrayMethod(array)
+asterisks(asterisks, array)
+
+display "Element    Value   Histogram"
+
+for(int i = 0; i < 10; i++){
+    display i   + array[i]  + asterisks[i]
+}

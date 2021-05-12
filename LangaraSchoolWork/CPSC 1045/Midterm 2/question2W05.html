@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <title>Midterm 2 question 2</title>
+        <script src="question2W05.js" defer></script>
+        <script>
+            function setup() {
+                const size = 29;
+                const radii = 5;
+
+                let grid = Array(size).fill(1).map(() => { return Array(size).fill(false) });
+                Array(Math.round(Math.random() * 5) + 1).fill(1).map(() => Math.floor(Math.random() * size)).forEach((row) => { grid[row].forEach((value, index, array) => { array[index] = true }) });
+                Array(Math.round(Math.random() * 5) + 1).fill(1).map(() => Math.floor(Math.random() * size)).forEach((col) => { grid.forEach((value, index, array) => { array[index][col] = true }) });
+                let circles = "";
+                grid.forEach((innerArray, idxRow) => { 
+                    innerArray.forEach((element, idxCol) => { circles += element ? `<circle class="tile" cx="${(1 + idxCol) * 2 * radii}" cy="${(1 + idxRow) * 2 * radii}" r="${radii}" fill="black" onclick="change(event)"/>`:""; } )
+                })
+            document.querySelector("#tiles").innerHTML = circles;
+            }
+        </script>
+</head>
+
+<body onload="setup()">
+    <h1>Midterm 2 Question 2</h1>
+    <p>
+        A random number of rows of circles and columns of circles are created when the pages loads.
+        When the user clicks on a circle, that circle shuould turn orange, all circles in the same row should be blue 
+        and all circles in the same column should be red. 
+    </p>
+    <svg width="300" height="300">
+        <g id="tiles"></g>
+
+    </svg><br>
+
+</body>
+
+</html>

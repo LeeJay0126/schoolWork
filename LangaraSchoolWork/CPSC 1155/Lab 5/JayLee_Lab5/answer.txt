@@ -1,0 +1,128 @@
+//-------------------------------------------------------------
+// CPSC 1155 Lab 5 Selection Statements
+// Answer txt for for lab 5 
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 02 - 03
+//-------------------------------------------------------------
+
+Question 1
+
+a. x == 0 && y == 0
+b. x == 0 || y == 0
+c. (x == 0 && y != 0) || ( x != 0 && y == 0) || ( x != 0 && y != 0)
+d. x != 0 && y != 0
+e. (x != 0 && y == 0)|| (x == 0 && y != 0)
+
+Question 2.
+
+Picture included (Q2.jpg)
+
+
+Question 3
+
+
+if (letter == a || letter == c || letter == e || letter == g){
+
+    if(number == 1 || number == 3 || number == 5 || number == 7){
+        cout << "square is purple";
+    }else if(number == 2 || number == 4 || number == 6 || number == 8){
+        cout << "squre is light purple";
+    }
+
+}else if (letter == b || letter == d || letter == f || letter == h){
+
+    if(number == 1 || number == 3 || number == 5 || number == 7){
+         cout << "squre is light purple";
+    }else if(number == 2 || number == 4 || number == 6 || number == 8){
+         cout << "square is purple";
+    }
+
+
+}
+
+
+Question 4
+
+if((year % 4) == 0){
+	if(year % 100 == 0){
+		if(year % 400 == 0){
+			cout << year << " is a leap year. Month of february has 29 days in this year.";
+		}else{
+			cout << year <<  "is not a leap year. Month of february has 28 days in this year.";
+		}
+		break;
+	}
+	else{
+		cout << year << " is a leap year. Month of february has 29 days in this year.";
+	}
+	break;
+}
+else {
+	cout << year <<  "is not a leap year. Month of february has 28 days in this year.";
+}
+
+In a single if statement form :
+
+((year % 4) == 0 && (year % 100) == 0 && (year % 400) == 0 ) || ((year % 4) == 0 && (year % 100) != 0)
+
+
+
+Question 5
+
+For Version 1:
+You need to use else if statement after first if statement, otherwise code will execute all the codes that follows the first if statement. 
+
+ex. if hour is 4, it will execute first if statement and print night, and since if hour is 5, all the following if statements will be true. 
+So the print out will be :nightmorningafternoonevening
+
+correct statement will be:
+
+int main(){
+
+    int hour;
+    
+    cout << "Enter hour: ";
+    cin >> hour;
+
+    if(hour < 6){
+        cout << "night";
+    }else if (hour < 12){
+        cout << "morning";
+    }else if (hour < 18){
+        cout << "afternoon";
+    }else if (hour < 24){
+        cout << "evening";
+    }
+
+}
+
+For version 2:
+
+else if is used correctly to execute one code at a time, but since hour < 18 if statement comes first, when an input like 3 is 
+inputted, it will execute the first block of code first and get a wrong result as intended.
+
+first if statement should be if((hour < 18) || hour > 12 ) or hour < 6 should come first.
+
+
+correct statement:
+
+
+int main(){
+
+    int hour;
+    
+    cout << "Enter hour: ";
+    cin >> hour;
+
+    if(hour < 6){
+        cout << "night";
+    }else if (hour < 12){
+        cout << "morning";
+    }else if (hour < 18){
+        cout << "afternoon";
+    }else if (hour < 24){
+        cout << "evening";
+    }
+
+}
+

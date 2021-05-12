@@ -1,0 +1,86 @@
+//-------------------------------------------------------------
+// Assignment 1 Sequential Programming
+// Pseudocodes for Assignment 1
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 01 - 22
+//-------------------------------------------------------------
+
+Question 3:
+
+int largePump
+int smallPump
+int poolcap
+double hours
+double smallPumpvalue
+double largePumpvalue
+
+display "Enter the number of large pumps: "
+read largePump
+display "Enter the number of small pumps: "
+read smallPump
+set poolcap to 1
+set largePumpValue to largePump * 0.1
+set smallPumpValue to smallPump * 0.05
+set hours to poolcap / (largePumpValue + smallPumpValue)
+
+display "It will take " + hours + " hours to fill up the pool with " 
++ largePump + " large pumps and " + smallPump + " small pumps."
+
+
+Question 5:
+
+double contributionAmount
+int years
+double futureValue
+double cinterest
+int principalInvestment
+double total
+
+display "Enter the monthly contribution amout: :
+read contributionAmount
+display "Enter the number of years: "
+read years
+
+set futureValue to contributionAmount*(pow(1+0.09/12,(12*years))-1)/(0.09/12);
+set cinterest to (1+0.09/12)^120 * principalInvestment
+set total to futureValue + cinterest
+set principalInvestment to 5000
+
+display "After " + years + " years, the portfolio value is " + total
+
+6.
+
+double tempFahr
+double speedMiles
+double windChill
+
+display "Enter the temperature in Fahrenheit (must be between -58F and 41F): "
+read tempFahr
+display "Enter the wind speed miles per hour (must be greater than or equal to 2): "
+read speedMiles
+windChill = (35.74 + (0.6215*Fahrenheit)-(35.75*pow(speedMiles,0.16))+(0.4275*Fahrenheit*pow(speedMiles,0.16)))
+display "The wind chill index is :" + windChill
+
+
+Pseudocodes for 7 and 8 (not for marks) :
+
+double bowBackDist
+double stiffness
+double arrowMass
+double Velocity
+double potentialEnergy
+double KineticEnergy
+
+display "Enter the pull back distance of bow in m: "
+read bowBackDist
+display "Enter the stiffness of bow in N/m: "
+read stiffness
+display "Enter the arrow's mass in g: "
+read arrowMass
+
+set potentialEnergy to (1/2*stiffness*pow(bowBackDist,2))
+set KineticEnergy to potentialEnergy
+set velocity to sqrt(kineticEnergy*2*mass)
+
+display "The velocity of arrow right after release is " + velocity + " m/s"
+

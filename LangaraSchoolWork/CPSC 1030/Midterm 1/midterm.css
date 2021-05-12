@@ -1,0 +1,97 @@
+h1 {
+
+    font-family: sans-serif,monospace;
+
+}
+
+h2{
+
+    font-family: monospace, sans-serif;
+
+}
+
+.normdiv{
+
+    border-style: dotted;
+    border-color: aqua;
+    margin: 5%;
+    background-color: rgb(9, 9, 37);
+
+    color: rgba(255,255,255);
+
+}
+
+
+
+div p {
+
+    color: rgba(255,255,255,0.8);
+    margin-left: 0.5%;
+
+}
+
+div ul {
+
+    color: rgba(255,255,255,0.8)
+
+}
+
+div ol{
+
+    color: rgba(255,255,255,0.8)
+
+}
+
+body {
+
+    background-color: pink;
+
+}
+
+#div3 {
+
+    overflow:hidden;
+
+}
+
+#pic1 {
+
+    float: left;
+    width: 9vw;
+   
+}
+
+#pic2 {
+   
+    float: left;
+    width: 9vw;
+    
+}
+
+#pic3 {
+
+    float: left;
+    width: 9vw;
+    
+}
+
+#div4 {
+   
+    
+    border-style: solid;
+    float:left;
+    height: 8vh;
+    width: 40vw;
+    margin-left: 1vw;
+    
+}
+
+#div5{
+    
+    float:right;
+    border-style: solid;
+    height:8vh;
+    width: 40vw;
+    margin-right: 1vw;
+    
+}

@@ -1,0 +1,69 @@
+//-------------------------------------------------------------
+// Assignment 2 Selection Statements/ Random Numbers
+// Pseudocode for Assignment 2 
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 02 - 02
+//-------------------------------------------------------------
+
+Question 1:
+
+int sideA
+int sideB
+int sideC
+
+display "What is the length of side A? : "
+read sideA
+display "What is the length of side B? : "
+read sideB
+display "What is the length of side C? : "
+read sideC 
+
+double cos
+
+set cos to (pow(sideB,2) + pow(sideC,2) - pow(sideA,2))/(2 * sideB * sideC)
+
+if (cos == 90)
+    display "The triangle with lengths" + " " + sideA + " "  + sideB + " "  + sideC + " is a right-side triangle"
+else 
+    display display "The triangle with lengths" + " " + sideA + " "  + sideB + " "  + sideC + " is not a right-side triangle"
+
+
+
+Question 5:
+
+int sixDigits
+int digit1
+int digit2
+int digit3
+int digit4
+int digit5
+int digit6
+
+display "Enter your six digits: "
+read sixDigits
+
+set digit1 to sixdigits % 10
+set sixdigits to /= 10
+set digit2 to sixdigits % 10
+set sixdigits to /= 10
+set digit3 to sixdigits % 10
+set sixdigits to /= 10
+set digit4 to sixdigits % 10
+set sixdigits to /= 10
+set digit5 to sixdigits % 10
+set sixdigits to /= 10
+set digit6 to sixdigits % 10
+
+if digit1 == digit6
+    if digit2 == digit5
+        if digit3 == digit4
+            display "These digits are palindrome."
+        else
+            display "These digits are not palindrome."
+        
+    else
+        display "These digits are not palindrome."
+    
+else
+    display "These digits are not palindrome."
+

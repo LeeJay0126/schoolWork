@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="questionW05.js" defer></script>
+    <title>Midterm Question</title>
+    <script>
+        function setup(){
+            let box = document.querySelector("#box");
+            let size = Math.random()*20 + 90;
+            let x = Math.random()*10 + 45;
+            let y = Math.random()*10 + 45;
+
+            box.setAttribute("x",x);
+            box.setAttribute("y",y);
+            box.setAttribute("width",size);
+            box.setAttribute("height", size);
+
+        }
+    </script>
+</head>
+<body onload="setup()">
+    <svg width="200px" height="200px">
+        <!-- the size and position of the rectangle changes randomly
+            when the page is reloaded -->
+        <rect id="box" x="50" y="50" width = "100" height="100" fill="green"/>
+
+        <g id="circles">
+            <circle id="xl" cx="0" r="10" cy="100" fill="black" />
+            <circle id="xr" cx="200" r="10" cy="100" fill="black" />
+            <circle id="yt" cx="100" r="10" cy="0" fill="black" />
+            <circle id="yb" cx="100" r="10" cy="200" fill="black" />
+        </g>
+        
+    </svg><br>
+    <label>X Slider</label><input id="xSlider" type="range" min="0" max="100" value="0" oninput="sliderXListener(event)"><br>
+    <label>Y Slider</label><input id="ySlider" type="range" min="0" max="100" value="0" oninput="sliderYListener(event)"><br>
+</body>
+</html>

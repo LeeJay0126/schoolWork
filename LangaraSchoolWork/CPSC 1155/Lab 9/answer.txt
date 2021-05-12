@@ -1,0 +1,115 @@
+1.
+a. cout << (3+4x)/(x+5) - ((10*(y-4)*(y*pow(x,2)))/5) + 9((4/x)+(sqrt(x+y))/12);
+b. cout << 9.5 * pow(x+5.5,2.5+y);
+c. cout << pow(e,-x) + sqrt(pow(e,-x)) + pow(e,-sqrt(x)); << should ask
+d. cout << x*(log(x)) + x*(log10(x)) + pow(x,(1.0/3));
+e. cout << y*((sin(x)/x)) + x*((sin(y)/y))
+f. 
+double output = 1.0;
+for(int i = 1; i <= 99; i++){
+
+    output += pow(x,i);
+
+}
+cout << output;
+g.
+double output = 1.0;
+int factorial;
+for(int i = 3; i <= 99; i += 2){
+    factorial = 1;
+    for (int j = 1; j <= i; j++){
+
+        factorial *= j;
+
+    }
+    output += ((pow(x,i))/factorial);
+}
+cout << output;
+
+2.
+    when output is 1:
+        range of x = 0 < x && x < 45
+    when output is 2: 
+        range of x = x > 120
+    when no printout:
+        range of x = x >= 45 && x <= 120
+
+3.
+    data types of switch variable can be various. It can be a boolean expression, integer, double etc. Advantage of using a switch statement is 
+    that you can assign output of the statement depending on the variable input in a list and you can always convert a switch statement to an equivalent if statement or vise versa.
+    when keyword break is not used after a case, it will continue to execute cases that comes after the executed case. You can implement compound conditions by 
+    using nested switch statement or using default case within switch statement.
+
+
+4.
+    a.
+        switch(x){
+            case 5:
+                switch(y){
+                    case 6:
+                         cout << x + y;
+                        break;
+                }
+        }
+
+    b.
+      switch(x){
+          case 5: 
+            cout << x -y;
+          default:
+            switch(y){
+                case 6:
+                    cout << x - y;
+            }
+      }
+     
+    
+    c. 
+        switch(x){
+            case 5:
+            case 6:
+                cout << x;
+                break;
+        }
+
+5.
+    inputValue      x       y       z
+    x = 2          2        3       1
+    x = 4          4        1       1       
+    x = 5          2.5      2       5
+    x = 8          8        2       2
+
+6.
+    int x, y, z;
+    cin >> x >> y >> z;
+
+    if(x == 5 && y == 6){
+        cout << x+y << endl;
+    }else if(x == 5){
+        cout << x - y;
+    }
+
+    if(y==6 && z == 2){
+        cout << z << endl;
+    }else if(y==6){
+        cout << z-y;
+    }else{
+        cout << x << " " << y << " " << z;
+    }
+
+    7.
+        in fstream library, ofstream open() allows user to store input values into text files and ifstream allows user to read 
+        input values from txt files.
+
+    8.
+        for(int i = 0; i < 10; i += 3){
+            cout << ((3*i) + (1 + rand()%1)) - 6;
+        }
+
+        b.
+        for(int i = 0; i <=20; i++){
+            cout << 5 * i;
+        }
+
+    9.
+        

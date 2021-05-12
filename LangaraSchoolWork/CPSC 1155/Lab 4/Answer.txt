@@ -1,0 +1,156 @@
+//-------------------------------------------------------------
+// Lab 4: Selection Statements/ Rnadom Numbers
+// Answer.txt for CPSC 1155 Lab 4
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 01 - 27
+//-------------------------------------------------------------
+
+
+1.
+
+int i = 1, j = 2, k = 5;
+
+cout << "1: " << (5 < 1 - 2) << endl;
+(5< -1) = false
+= "1: false"
+
+int i = 1, j = 2, k = 5;
+++1 == j
+++1 (2) == 2
+="2: true"
+
+int i = 2, j = 2, k = 5;
+((k - i-- > j) && ( i == k % j))
+5 - 2 > 2 AND 2 == 5 % 2
+3 > 2 (true) AND 2 == 5 % 2 (false)
+="3: false"
+
+^ gotta ask question about q3
+
+int i = 1, j = 2, k = 5;
+(!(k > j) || (i == k % j))
+!(5 > 2) || (1 == 5 % 2)
+NOT (true) OR True
+="4: true"
+
+int i = 1, j = 2, k = 5;
+(((k-i) && (j > 2)) || !i)
+((5 - 1) && (2 > 2)) || !1)
+ 4 && false || !1
+ false || !1
+ 
+ 
+2.
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+
+double price;
+
+cout << "What is the price? Enter :";
+cin >> price;
+if(price > 10){
+    price = price -3.14;
+}else if(price < 10){
+    price = price - 1;
+}
+cout << "Discounted price: " << price << endl;
+
+
+}
+
+Input value: 10
+Expected Output: 10
+comment: we need to include <= or >= for one of the ifs. because it is
+not properly included in the code item that costs exactly 10 dollars won't be getting a discount.
+
+Input value: 9
+Expected Output: 8
+comment: output was 8 because it was less than 10 dollars
+
+Input value: 11
+Expected Output: 7.86
+comment: output was 7.86 because 11 - 3.14 
+
+input value: -4
+expected output: -5
+comment: -4 is an invalid input, but since it is still less than 10 dollars, we are gettin -5 as a result.
+
+
+
+
+3.
+
+line 2
+line 7
+line 4
+line 9
+line 10
+line 8
+
+5.
+
+a. 
+inputs: current time (rush hour or not) and the route
+outputs: travelling time 
+constants: time it takes depending if its during rush hour or not and the route.
+conditions: user taking normal route/ baybridge route and travelling during rushhour/ regular hours
+
+b.
+normal route + rush hour = 60min
+normal route + regular hour = 40min
+bayBridge + rush hour = 45min
+bayBridge + regular hours = 30min
+
+
+c.
+int normalRoute
+int bayBridge
+const RUSHHOUR_B = 45
+const REGULARHOUR_N = 40
+const RUSHHOUR_N = 60
+const REGULARHOUR_B = 30
+int userinput
+
+d.
+
+Check lab4 Question 5 step 4.dox
+
+e. 
+
+int normalRoute
+int bayBridge
+int const RUSHHOUR_B = 45
+int const REGULARHOUR_N = 40
+int const RUSHHOUR_N = 60
+int const REGULARHOUR_B = 30
+int userInputRoute 
+int userInputHours
+
+display "Are you travelling by normal route or Bay bridge? Enter 1 for normal route and 2 for bay bridge. :"
+read userInputRoute
+display "Are you travelling during rush hour? Enter  1 if yes, 0 if not. : "
+read userInputeHours
+
+if (userInputRoute == 1){
+
+    if (userInputHours == 1){
+        display "Your travelling time will be " + RUSHHOUR_N
+    }else{
+        display "Your travelling time will be " + REGULARHOUR_N
+    }
+
+}else if (userInputRoute == 2){
+
+     if (userInputeHours == 1){
+        display "Your travelling time will be " + RUSHHOUR_B
+    }else{
+        display "Your travelling time will be " + REGULARHOUR_B
+    }
+
+}
+
+

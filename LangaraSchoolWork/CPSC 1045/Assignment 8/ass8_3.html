@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygon Accent</title>
+    <script src="ass8_3.js"defer></script>
+    <script>
+        function setup(){
+            let points = 2*Math.round(Math.random()*7 + 3);
+            let pointString ="";
+            const r1 = 150;
+            const r2 = 100;
+            const cx = 250;
+            const cy = 250;
+            for(let i = 0; i < points; i++){
+                let r = i%2==0?r1:r2;
+                let x = cx + r*Math.cos(i*2*Math.PI/points);
+                let y = cy + r*Math.sin(i*2*Math.PI/points);
+                pointString += `${x},${y} `;
+            }
+            let str = `<polygon points="${pointString}" style="fill:orange" />"`;
+            document.querySelector("#star").innerHTML = str;
+        }
+    </script>
+</head>
+<body onload="setup()">
+    <h1>Accent Points</h1>
+    <svg width = "500" height = "500">
+        <g id="star">
+        </g>
+        <g id="decorations">
+        </g>
+
+    </svg><br>
+    <input type="button" value="circle" onclick="accentCircle()">
+    <input type="button" value="sqaure" onclick="accentSquare()">
+</body>
+</html>

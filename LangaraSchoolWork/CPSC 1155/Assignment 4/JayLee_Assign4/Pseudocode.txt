@@ -1,0 +1,30 @@
+//-------------------------------------------------------------
+// Assignment 4 Loops
+// Pseudocode for Assignment 4
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 03 - 03
+//-------------------------------------------------------------
+
+Question 7.
+
+display "Enter your input"
+read userInput
+set i to 2
+
+
+do{
+
+   if (userInput % i == 0){
+       set number to i
+       display number + "       "
+       set userInput to userInput / number
+       set i to 2
+   }else{
+       i++
+   }
+   if(i > userInput){
+       set validator to 1
+   }
+
+}while(!(validator == 1))
+

@@ -1,0 +1,101 @@
+//-------------------------------------------------------------
+// Lab 3: Elementary Programming
+// Answer.txt for CPSC 1155 Lab 3
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 01 - 20
+//-------------------------------------------------------------
+
+1. 
+
+int x = 4, y = 3, z = 6
+
+step 6:
+y *= x * 4 / (z - 1) + (x + 5);
+
+(z - 1) = 5
+(x + 5) = 9
+x * 4 = 16
+16 / 5 = 3
+3 + 9 = 12
+y * 12  = 36
+
+y = 35 x = 4 z = 6 at step 6
+
+step 8:
+
+int x = 4 y = 35 z = 6
+
+z = (2 * z - y % 3 + x++);
+
+2 * z = 12
+35 % 3 = 2
+12 - 2 = 10
+10 + 4 = 14
+
+x = 5 y = 35 z = 14 at step 8
+
+step 10
+// add 1 to z after calculation
+x -= (2.6 * z ++);
+2.6 * 14 = 36
+5 - 36 = -31
+
+in the print out it has ++x, making x -30.
+
+x = -30, y = 35, z = 15 at step 10.
+
+
+
+2.
+
+Line # 8
+Syntax error/ Runtime error
+Delete this line
+
+3.
+
+step 1: 
+Inputs are the amount of money you insert into the vending machine.
+Desired output is the number of first-class stamps and penny stamps you get.
+Constant is the price of the first-class stamps.
+
+step 2:
+
+All negative numbers and 0.
+
+step 3: 
+int dollarInput
+double const FIRST_CLASS_STAMP = 0.47;
+
+
+step 4:
+int dollarInput
+double const FIRST_CLASS_STAMP = 0.47;
+display "How much dollar bills are you inserting?: "
+read dollarInput
+int firstClassStampNumber
+set firstClassStampNumber to dollarInput / FIRST_CLASS_STAMP
+int pennyStampNumber 
+set pennyStampNumber to dollarInput % FIRST_CLASS_STAMP
+display "You can purchase " + firstClassStampNumber + " first class stamps and " + pennyStampNumber + " of penny stamps."
+
+step 5: 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    
+    int dollarInput;
+    double const FIRST_CLASS_STAMP = 0.47;
+    cout << "How many dollar bills are you inserting?: ";
+    cin >> dollarInput;
+    int firstClassStampNumber;
+    firstClassStampNumber = dollarInput / FIRST_CLASS_STAMP;
+    int pennyStampNumber;
+    pennyStampNumber = (dollarInput * 100) % (int)(FIRST_CLASS_STAMP * 100);
+    //convert const FIRST_CLASS_STAMP in to an integer so % can be used.
+    //also * 100 both values so they are both integers.
+    cout << "You can purchase " << firstClassStampNumber << " first class stamps and " << pennyStampNumber << " of penny stamps.";
+
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="clickgame.js" defer></script>
+   <title>Clicking game</title>
+</head>
+
+<body>
+   <h1>Simple Clicking game</h1>
+   <p>This is a simple clicking game. You get 1 point for clicking a red square,
+      and -1 point a non red square. The square will move after you
+      clicked it.
+   </p>
+   <div>Score:<label id="score">0</label></div>
+   <svg width="100px" height="100px">
+
+      <rect fill="red" x="10" y="10" width="10" height="10" onclick="gameListener(event)"></rect>
+      <rect fill="red" x="40" y="90" width="10" height="10" onclick="gameListener(event)"></rect>
+      <rect fill="yellow" x="70" y="50" width="10" height="10" onclick="gameListener(event)"></rect>
+      <rect fill="yellow" x="60" y="60" width="10" height="10" onclick="gameListener(event)"></rect>
+
+   </svg>
+
+   <p>
+      This example demonstrates the use of event.target, and using
+      same event listner for multiple elements, but still being
+      able to know which one to use.
+   </p>
+</body>
+
+</html>

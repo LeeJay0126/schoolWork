@@ -1,0 +1,58 @@
+//-------------------------------------------------------------
+// Lab 8 Loops
+// answer.txt for CPSC 1155 Lab 8
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 03 - 03
+//-------------------------------------------------------------
+
+1.
+
+    for (int left_stars = n-2; left_stars >= 0; left_stars--)
+    {
+        for (int column = 0; column < 2 * n - 1; column++)
+        {
+            int first_star = n - 1 - left_stars;
+            int last_star = n - 1 + left_stars;
+            if (column < first_star || column > last_star)
+            {
+                cout << "-";
+            }
+            else
+            {
+                cout << "*";
+            }
+        }
+        cout << endl;
+    }
+
+
+2.
+a)
+  Value   Product     output    
+    1       1           96    
+    8       8       
+    4       32       
+    3       96       
+    -2      end of the loop
+
+Purpose of this loop:
+    Purpose of this loop is while value is greater than 0, it will multiply by product,
+    and print the product.
+
+b)
+    p       n       output
+    1       2       2        
+    2       2       4
+    4       2       8
+    1       3       3
+    ...
+
+Purpose of this loop:
+    This loop goes through nested if statement 3 times while p *= n with n value of 2 3 times. Then nested loop will repeat itself 3 times
+    again with n value as 3, but value of p will be resetted to 1. This loop will repeat itself 6 times.
+
+
+
+
+    
+    

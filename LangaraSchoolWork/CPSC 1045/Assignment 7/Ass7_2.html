@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="Ass7_2.js"></script>
+  <title>Circle counting</title>
+  <script>
+    function setup() {
+      let n = Math.floor(Math.random() * 9 +1);
+      let container = document.querySelector("#cluster");
+      let circleString = "";
+      for (let i = 0; i < n; i += 1) {
+          circleString += `<circle r ="5"
+                                   cx="${Math.random()*390 + 10}" 
+                                   cy="${Math.random()*390 + 10}" 
+                                   fill="${Math.random() > 0.5? "red":"purple"}"/>`
+      }
+      container.innerHTML = circleString;
+    }
+  </script>
+</head>
+
+<body onload="setup()">
+  <h1> Circle Counting</h1>
+  <p>
+    Please fill in the count event listener in JavaScript, such that it counts<br>
+    the total number of circles, the number of red circles, and the number of purple circles <br>
+    when the user clicks on the count button<br>
+    The number of circles is random and changes everytime you reload the page.<br>
+    Use querySelectorAll to get all the circles, and use a loop for counting.
+  </p>
+  <svg width="400px" height="400px">
+    <g id="cluster">
+      <!--Circles will be inserted here by setup function-->
+    </g>
+  </svg><br>
+  <input value="count" type="button" onclick="count()"><br>
+  <label>Number of Circles</label><label id="numCircles"></label><br>
+  <label>Number of Red Circles</label><label id="numRedCircles"></label><br>
+  <label>Number of Purple Circles</label><label id="numPurpleCircles"></label><br>
+</body>
+
+</html>

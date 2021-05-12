@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="question1W05.js" defer></script>
+    <title>Question 2 text analysis</title>
+</head>
+<body>
+    <style>
+        p > b {
+        color: red
+        }
+    </style>
+    <p>For this part of the midterm, you will have write a short program to check if a secret message has been encoded correctly in a larger block of text</p>
+    <p>The cipher works as follows. It encodes a letter of the secret a word every <b>n</b>th word of a sentence at the <b>j</b>th letter. Each sentence encodes 1 word.
+        Sentence ends with the punctuation &quot;.&quot;</p>
+    <h2>Example:</h2>
+    <p>For the secret message &quot;hi mom&quot;, with n=2, and j=1 the following message would be valid</p>
+    <p>
+        &quot;The <b>h</b>idden small <b>i</b>nvertebrate hides. It <b>m</b>eanders slowly <b>o</b>n the <b>m</b>ountain pass.&quot;
+    </p>
+    <p>For the secret message &quot;it is nice&quot;, with n=3, and j=2 the following message would be valid</p>
+    <p>
+        &quot;Moms is d<b>i</b>gging for an i<b>t</b>alian doubloon.  She has n<b>i</b>ne holes and i<b>s</b> not stopping.
+        The neighbors s<b>n</b>arky remarks are s<b>i</b>nister, mean and s<b>c</b>athing but not p<b>e</b>rtinent.&quot;
+    </p>
+
+    <h2> Cipher verifier</h2>
+    <label><b>Text</b></label><input id="message" type="text" size="130"><br>
+    <label><b>Secret Message</b></label><input id="secretMessage" type="text" size="50"><br>
+    <label>n:</label><input id="n" type="text" size="3"><label>&nbsp;&nbsp;&nbsp;&nbsp;j:</label><input id="l" type="text" size="3">
+    <input type="button" onclick="verify()" value="Verify"><br>
+    <div id="output"></div>
+    <br>
+
+
+</body>
+</html>

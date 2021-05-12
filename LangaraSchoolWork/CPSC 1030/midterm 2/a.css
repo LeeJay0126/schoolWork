@@ -1,0 +1,105 @@
+@media only screen and (min-width:800px){
+
+#bigdiv{
+    border-style: dashed;
+    border-color: blue;
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    border-width: 0.3em;
+}
+
+.boxes{
+    border-style: dotted;
+    border-color: red;
+    margin: 5%;
+
+}
+
+#firstBox{
+
+    flex:1;
+
+
+}
+
+#secondBox{
+    flex:1.1;
+}
+
+#thirdBox{
+    flex:1.2;
+}
+
+
+.boxes p {
+    font-size: 3vmax;
+
+}
+
+}
+
+@media only screen and (max-width:799px){
+
+    #bigdiv{
+        border-style: dashed;
+        border-color: blue;
+        display: flex;
+        flex-direction: column;
+        border-width: 0.4em;
+        height: 70vh;
+    }
+    
+    .boxes{
+        border-style: dotted;
+        border-color: red;
+        margin: 5%;
+    
+    }
+    
+    #firstBox{
+    
+        flex:1;
+    
+    
+    }
+    
+    #secondBox{
+        flex:1.1;
+        background-color: red;
+        color: seagreen;
+    }
+    
+    #thirdBox{
+        flex:1.2;
+    }
+    
+
+    
+    .boxes p {
+        font-size: 3vmax;
+    }
+    
+}
+
+#helloBox{
+    
+    position:fixed;
+    bottom: 4%;
+    right:0;
+    background-color: black;
+    color: white;
+    border-style: solid;
+    border-color: red;
+    width: 300px;
+    text-align: center;
+    border-width: 1px;
+    font-size: 60px;
+    
+}
+
+
+.boxes p{
+   
+    font-family: serif;
+}

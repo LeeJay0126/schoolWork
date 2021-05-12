@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="classExample.js" defer></script>
+    <title>Class Example</title>
+</head>
+<body onload="setup()">
+    <svg id="graphics" width="500" height="500" style="border: 1px black solid">
+        <g id="ships"></g>
+    </svg>
+    <div id="s1Controls">
+        <input shipID="0" value="Rotate Left"  type="button" onclick="rotateLeft(event)";>
+        <input shipID="0" value="Forward"      type="button" onclick="forward(event)">
+        <input shipID="0" value="Rotate right" type="button" onclick="rotateRight(event)">
+        <input shipID="0" value="Cloak" type="button" onclick="cloak(event)">
+    </div>
+    <div id="s2Controls">
+        <input shipID="1" value="Rotate Left"  type="button" onclick="rotateLeft(event)";>
+        <input shipID="1" value="Forward"      type="button" onclick="forward(event)">
+        <input shipID="1" value="Rotate right" type="button" onclick="rotateRight(event)">
+    </div>
+</body>
+</html>

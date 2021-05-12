@@ -1,0 +1,51 @@
+//-------------------------------------------------------------
+// Assignment 3 Math, Characters, Strings, and Files
+// Psuedocode for CPSC 1155 Assignment 3
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 02 - 20
+//-------------------------------------------------------------
+
+3.
+
+int decimalValue
+string hexValue
+
+if(decimalValue >= 0 && decimalValue <= 15)
+
+    switch(decimalValue)
+        case 1: set hexValue to 1
+        break
+        case 2: set hexValue to 2
+        break
+        case 3: set hexValue to 3
+        break
+        case 4: set hexValue to 4
+        break
+        case 5: set hexValue to 5
+        break
+        case 6: set hexValue to  6
+        break
+        case 7: set hexValue to  7
+        break
+        case 8: set hexValue to  8
+        break
+        case 9: set hexValue to  9
+        break
+        case 10: set hexValue to A
+        break
+        case 11: set hexValue to B
+        break
+        case 12: set hexValue to C
+        break
+        case 13: set hexValue to D 
+        break
+        case 14: set hexValue to E
+        break
+        case 15: set hexValue to F
+        break
+
+    print "The corresponding number is: " + hexValue
+else
+    print decimalValue + "is an invalid input"
+
+    

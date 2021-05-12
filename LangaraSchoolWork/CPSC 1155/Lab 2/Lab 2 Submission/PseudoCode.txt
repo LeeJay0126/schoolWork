@@ -1,0 +1,46 @@
+//-------------------------------------------------------------
+// Lab 2: Elementary Programming
+// PseudoCodes for Lab 2 Question 5 and 7
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 01 - 13
+//-------------------------------------------------------------
+
+
+
+
+
+Question 5:
+
+/* 
+    Pseudocode:
+    float feet
+    float meters
+    read feet
+    set meters = feet * 0.305
+    display meters
+*/
+
+
+
+
+
+
+Question 7:
+
+/*
+
+    Pseudocode:
+    double rectHeight
+    double rectWidth
+    double area
+    double perimeter
+    read rectHeight
+    read rectWidth
+    set area to rectHeight * rectWidth
+    set  perimeter to rectHeight * 2 + rectWidth * 2
+    display perimeter
+    display area
+
+
+*/
+

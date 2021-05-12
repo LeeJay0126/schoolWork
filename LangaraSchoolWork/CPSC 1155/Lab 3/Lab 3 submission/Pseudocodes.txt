@@ -1,0 +1,23 @@
+//-------------------------------------------------------------
+// Lab 3: Elementary Programming
+// Pseudocodes for CPSC 1155 Lab 3
+//
+// Author: Jay Seung Yeon Lee  	 	 	 	Date: 2021 - 01 - 20
+//-------------------------------------------------------------
+
+Question 5.
+
+double distance
+double milesPerGallon
+double pricePerGallon
+double costOfDriving
+display "Enter the driving distance"
+read distance
+display "Enter miles per gallon"
+read milesPerGallon
+display "Enter price per gallon"
+read pricePerGallon
+set precision to 2
+set costOfDriving to (distance / milesPerGallon) * pricePerGallon
+// include <iomanip> and add std::cout<< std::setprecision(n)<< x << '\n';
+display "The cost of driving is $" + costOfDriving

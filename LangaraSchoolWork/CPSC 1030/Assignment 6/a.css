@@ -1,0 +1,106 @@
+@media only screen and (min-width:800px){
+
+    .two-column {
+        display: flex;
+        flex-direction: row;
+        margin: 10%;
+        
+    }
+    .column1 {
+        flex: 5;
+        margin-right: 2.5%;
+        background-color: aliceblue;
+        
+    
+    }
+    
+    .column2 {
+        flex: 5;
+        margin-left: 2.5%;
+        float: right;
+        background-color: aliceblue;
+    }
+    
+
+
+}
+
+@media only screen and (max-width:800px){
+
+    .two-column {
+        display: flex;
+        flex-direction: column;
+        border-style: solid;
+        background-color: aliceblue;
+        margin: 10%;
+        
+    }
+    .column1 {
+        flex: 5;
+        margin-bottom: 2.5%;
+      
+        
+    
+    }
+    
+    .column2 {
+        flex: 5;
+        margin-top: 2.5%;
+        float: bottom;
+    }
+    
+
+}
+
+body{
+    background-color: black;
+}
+
+h1 {
+    background-color: blue;
+    opacity: 0.7;
+    color:white;
+    font-family: sans-serif, monospace;
+}
+
+img {
+    height: 20vh;
+    margin: 1%;
+    
+
+}
+
+#citation {
+    position: fixed;
+    bottom: 0;
+    background-color: tomato;
+    opacity: 0.7;
+    text-align: center;
+    font-size: 2em ;
+}
+
+#citation a {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.cite {
+        display: flex;
+        flex-direction: row;
+        border-style: solid;
+        background-color: aliceblue;
+        opacity: 0.7;
+        margin: 10%;
+        
+    
+}
+
+.cite p{
+    float: right;
+    margin-left: 5%;
+}
+
+p a{
+    margin:0.5%;
+    
+}

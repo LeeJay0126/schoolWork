@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="ass8_2.js" defer></script>
+    <title>Sentence visualizer</title>
+    <style>
+        div {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentence visualizer </h1>
+<svg width ="1000" height="100">
+    <g id="visualization"></g>
+
+</svg><br>
+<label>Sentence</label><input size="100"type="text" id="sentence"><input type="button" value="visualize" onclick="visualize()"><br>
+<label>Vowel Color</label><input id ="vowelColor" type="color" oninput="changeVowelColor(event)">
+<label>Consonant Color</label><input id="consonantColor" type="color" oninput="changeConsonantColor(event)"><br>
+    
+</body>
+</html>

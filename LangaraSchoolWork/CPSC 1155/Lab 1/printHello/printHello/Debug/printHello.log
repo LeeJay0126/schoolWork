@@ -1,0 +1,3 @@
+﻿  printHello.cpp
+C:\CPSC 1155\Lab 1\printHello\printHello\printHello.cpp(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  printHello.vcxproj -> C:\CPSC 1155\Lab 1\printHello\Debug\printHello.exe

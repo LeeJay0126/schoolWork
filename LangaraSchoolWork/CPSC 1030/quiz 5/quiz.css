@@ -1,0 +1,31 @@
+
+
+@media only screen and (min-width:800px){
+    nav{
+        background-color: red;
+        position: fixed;
+        right: 0px;
+        height: 100%;
+        width: 15vw;
+
+    }
+
+    section{
+        margin-right: 15vw;
+    }
+
+}
+
+@media only screen and (max-width:800px){
+    nav{
+        background-color: green;
+        position: fixed;
+        bottom:0px;
+        height:15vh;
+        width:100%;
+    }
+
+    section{
+        margin-bottom: 15vh;
+    }
+}

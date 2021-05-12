@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="menu.js"></script>
+   <title>Hamburger ordering</title>
+</head>
+<body>
+<h1>CPSC 1045, Carcinogenic cafe</h1>
+
+<div>
+   Hamburger: $5.00
+</div>
+
+<div>
+      Cheese: $1.00 <input type="checkbox" id="cheese">
+</div>
+<div>
+      Tomatoe: $0.75 <input type="checkbox" id="tomatoe">
+</div>
+<div>
+      Lettuce: $2.00 <input type="checkbox" id="lettuce">
+</div>
+<div>
+      mushrooms: $1.50 <input type="checkbox" id="mushrooms">
+</div>
+<input type="button" onclick="calculate()" value="Calculate">
+<div>
+   Total:$<label id="total"></label>
+</div>
+
+</body>
+</html>

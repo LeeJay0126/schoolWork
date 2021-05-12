@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="BioCard">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BioCard/BioCard.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script defer src="assignment3_2.js"></script>
+   <title>Assignment 3 Part 2</title>
+</head>
+
+<body> 
+   <h1>Assignment 3 Part 2</h1>
+   <svg width="600px" height="300px" style="border: solid 1px blue">
+      <!-- the transform group is used to fix the coordinate system
+           for the simulation, also scale y by -1 so positive y is up.
+           orgin set at the middle of the box in the y direction, and 
+           the left edge of the box in the x direction.
+         -->
+      <g transform="translate(0 150) scale(1 -1) ">
+         <!-- vx, vym and mass attributes are not part of svg, 
+              we will use them for our software
+         -->
+         <circle id="ball" cx="0" cy="0" vx="10" vy="15" mass="10" r="10"></circle>
+      </g>
+   </svg><br>
+   <input type="button" onclick="start(event)" value="Start">
+   <input type="text" id="textbox" size="90" >
+</body>
+
+</html>

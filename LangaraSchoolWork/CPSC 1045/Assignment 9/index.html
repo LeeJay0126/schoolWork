@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Assignment 9</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="a.js" defer></script>
+    </head>
+    <body>
+        <h1>
+            Assignment 9, cat maker
+        </h1>
+        <lable>Name: </lable><input type="text" id="name"><br>
+        <lable>Color: </lable><input type="color" id="color"><br>
+        <lable>Size: </lable><input type ="text" id="size"><br>
+        <lable>Sound: </lable><input type="text" id="sound"><br>
+        <input type="button" value="Add Cat" onclick="addingCat()">
+        <br>
+        <br>
+        <h1>
+            Your Saved Cats
+        </h1>
+        <ul>
+           <div id="savedCats">
+
+           </div>
+        </ul>
+        <h1>
+            Cat information
+        </h1>
+        <div id="catInfo">
+
+        </div>
+        <input type="button" value="Remove Cat" id="catRemove" onclick="redrawDiv()">
+    </body>
+</html>
