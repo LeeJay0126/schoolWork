@@ -1,4 +1,0 @@
-The number of electrons in a Carbon atom is 6 
-ls g*
-pwd
-cat g*

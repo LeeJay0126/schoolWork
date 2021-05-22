@@ -12,26 +12,26 @@ public class Student {
     private int quizCounter;
 
     // Constructor
-    Student(String firstName, String surName, int studentNum){
+    public Student(String firstName, String surName, int studentNum){
         name = firstName;
         surname = surName;
         studentNumber = studentNum;
 
     }
 
-    void setName(String firstName, String surName){
+    public void setName(String firstName, String surName){
         name = firstName + "," + surName;
     }
 
-    String getName(){
+    public String getName(){
         return name;
     }
 
-    long getStudentNumber(){
+    public long getStudentNumber(){
         return studentNumber;
     }
 
-    String getInfo(){
+    public String getInfo(){
         return name + "(" + loginID + ", " + studentNumber + ")";
     }
 
@@ -39,11 +39,11 @@ public class Student {
         address = number + street + ", " + city + ", " + province + ", " + postalCode;
     }
 
-    String getAddress(){
+    public String getAddress(){
         return address;
     }
 
-    String getLoginId(String firstName, String surname, int studentNumber){
+    public String getLoginId(String firstName, String surname, int studentNumber){
 
         firstName = firstName.toLowerCase();
         char FirstLetter = firstName.charAt(0);
@@ -63,14 +63,22 @@ public class Student {
 
     }
 
-    void addQuiz(double quiz){
+    public void addQuiz(double quiz){
         quizGrade += quiz;
         quizCounter++;
     }
 
-    double getQuizAverage(){
+    public double getQuizAverage(){
         quizAverage = quizGrade / quizCounter;
         return quizAverage;
     }
+
+    public String toString(){
+        String login = loginID;
+        double quizScore = quizAverage;
+
+        return "Student information is : " + login + " and quiz average score is : " + quizScore;
+    }
+
 
 }
