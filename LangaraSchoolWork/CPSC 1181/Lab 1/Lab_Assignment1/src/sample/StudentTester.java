@@ -60,6 +60,13 @@ public class StudentTester extends Application {
         String postalCodeName = s.nextLine();
 
         //testing address class
+        Address myAddress = new Address(aptNumber, streetName, cityName, provinceName, postalCodeName);
+        System.out.println(myAddress);
+
+        //testing address method in student class
+        student.setAddress(myAddress.getNumber(), myAddress.getStreet(), myAddress.getCity(), myAddress.getProvince(),myAddress.getPostalCode());
+        String studentAddress = student.getAddress();
+        System.out.println(studentAddress);
 
     }
 

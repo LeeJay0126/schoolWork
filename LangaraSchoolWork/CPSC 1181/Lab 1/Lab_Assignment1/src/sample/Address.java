@@ -9,34 +9,37 @@ public class Address {
     private String postalCode;
 
     //constructor
-    public Address(String number, String street, String city, String province, String postalCode){
+    public Address(String aptNumber, String streetName, String cityName, String provinceName, String postalCodeName){
 
-
+        number = aptNumber;
+        street = streetName;
+        city = cityName;
+        province = provinceName;
+        postalCode = postalCodeName;
 
     }
-    public String number(String aptNumber){
-        number = aptNumber;
+    public String getNumber(){
         return number;
     }
 
-    public String street(String streetName){
-        street = streetName;
+    public String getStreet(){
         return street;
     }
 
-    public String city(String cityName){
-        city = cityName;
+    public String getCity(){
         return city;
     }
 
-    public String province(String provinceName){
-        province = provinceName;
+    public String getProvince(){
         return province;
     }
 
-    public String getPostalCode(String postalCodeName){
-        postalCode = postalCodeName;
+    public String getPostalCode(){
         return postalCode;
     }
+
+     public String toString(){
+         return number + ", " + street + ", " + city + ", " + province + ", " + postalCode;
+     }
 
 }
