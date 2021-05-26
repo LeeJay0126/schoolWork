@@ -26,44 +26,39 @@ public class StudentTester extends Application {
         Student student = new Student(firstname,lastname,studentNo);
 
 
-        // test Student getName, geyStudentNumber(), getLoginId()
+        //** test Student getName, geyStudentNumber(), getLoginId()
         student.setName(firstname,lastname);
         System.out.println(student.getName());
         System.out.println(student.getStudentNumber());
         System.out.println(student.getLoginId(firstname,lastname,studentNo));
 
-        // test Student getInfo()
+        //** test Student getInfo()
         System.out.println(student.getInfo());
 
-        // test Student addQuiz and getAverage
+        //** test Student addQuiz and getAverage
         student.addQuiz(6.0);
         student.addQuiz(8.5);
         student.addQuiz(9.8);
         System.out.println(student.getQuizAverage());
 
-        //test String toString
+        //**test String toString
         System.out.println(student);
 
-        // testing address class and set/getAddress method from student class
-        // reading variables
+        //** testing address class and set/getAddress method from student class
+        //** reading variables
         System.out.println();
         System.out.println("We will test address class and address methods from student class now.");
-        System.out.println("Enter your building number: ");
-        String aptNumber = s.nextLine();
-        System.out.println("Enter your streetNumber: ");
-        String streetName = s.nextLine();
-        System.out.println("Enter your city: ");
-        String cityName = s.nextLine();
-        System.out.println("Enter your province: ");
-        String provinceName = s.nextLine();
-        System.out.println("Enter your postal code: ");
-        String postalCodeName = s.nextLine();
+        String aptNumber = "5989";
+        String streetName = "Iona Dr";
+        String cityName = "Vancouver";
+        String provinceName = "BC";
+        String postalCodeName = "V6T2Q2";
 
-        //testing address class
+        //**testing address class
         Address myAddress = new Address(aptNumber, streetName, cityName, provinceName, postalCodeName);
         System.out.println(myAddress);
 
-        //testing address method in student class
+        //**testing address method in student class
         student.setAddress(myAddress.getNumber(), myAddress.getStreet(), myAddress.getCity(), myAddress.getProvince(),myAddress.getPostalCode());
         String studentAddress = student.getAddress();
         System.out.println(studentAddress);
