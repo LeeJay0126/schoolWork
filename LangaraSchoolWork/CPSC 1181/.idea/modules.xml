@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab 2/Bankaccount/Bankaccount.iml" filepath="$PROJECT_DIR$/Lab 2/Bankaccount/Bankaccount.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CPSC 1181.iml" filepath="$PROJECT_DIR$/CPSC 1181.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 0/Lab 0.iml" filepath="$PROJECT_DIR$/Lab 0/Lab 0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 3/Lab 3.iml" filepath="$PROJECT_DIR$/Lab 3/Lab 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 2/Lab2/Lab2.iml" filepath="$PROJECT_DIR$/Lab 2/Lab2/Lab2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 2/Tutorial/Tutorial.iml" filepath="$PROJECT_DIR$/Lab 2/Tutorial/Tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 1/Tutoriall1/Tutoriall1.iml" filepath="$PROJECT_DIR$/Lab 1/Tutoriall1/Tutoriall1.iml" />
+    </modules>
+  </component>
+</project>

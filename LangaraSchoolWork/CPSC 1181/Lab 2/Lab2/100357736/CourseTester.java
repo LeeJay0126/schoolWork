@@ -1,11 +1,8 @@
 package sample;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-
 import java.util.Scanner;
 
-public class CourseTester extends Application {
+public class CourseTester{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
