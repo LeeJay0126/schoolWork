@@ -31,6 +31,9 @@ public class Faculty extends Employee{
 	@Override
 	public String toString(){
 		
+		super();
+		System.out.print( ", Status: " + status);
+		
 	}
 	
 }

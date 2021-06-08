@@ -10,9 +10,9 @@ public class Staff extends Employee{
 		Staff(name,email,phoneNumber,"office",0,"position");
 	}
 	
-	public Staff(String name, String email, String phoneNumber, String office, double salary, String position){
+	public Staff(String name, String email, String phoneNumber, String office, double salary){
 		super(name,email,phoneNumber,office, salary);
-		this.position = position;
+		
 	}
 	
 	public void setPosition(String position){
@@ -25,7 +25,7 @@ public class Staff extends Employee{
 	
 	@Override
 	String toString(){
-		
+		super();
 	}
 	
 }

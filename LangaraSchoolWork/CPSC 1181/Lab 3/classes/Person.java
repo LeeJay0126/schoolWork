@@ -15,9 +15,7 @@ public class Person{
 	
 	public Person(){
 		
-		this.name = "name";
-		this.email = "email";
-		this.phoneNumber = "phone number";
+		this("name", "email","phoneNumber");
 		
 	}
 	
@@ -53,7 +51,7 @@ public class Person{
 	
 	@Override
 	public String toString(){
-		
+		System.out.print("name : " + name + ", email: " + email + ", phoneNumber: " + phoneNumber);
 	}
 	
 }
