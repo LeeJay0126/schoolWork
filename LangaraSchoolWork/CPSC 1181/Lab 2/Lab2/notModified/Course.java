@@ -19,7 +19,7 @@ public class Course {
      * @param familyName
      * @return null or reference of added student
      */
-    Student addStudent(String name, String familyName) {
+    public Student addStudent(String name, String familyName) {
         try {
             Student newStudent = new Student(name, familyName);
             students.add(newStudent);
@@ -36,7 +36,7 @@ public class Course {
      * @param studentId
      * @return null or reference of found student
      */
-    Student findStudent(long studentId) {
+    public Student findStudent(long studentId) {
         for(int i = 0; i < students.size(); i++){
             if(students.get(i).getStudentNumber() == studentId ){
                 return students.get(i);
@@ -53,7 +53,7 @@ public class Course {
      * @param studentId
      * @return null if not found and reference of deleted student if found
      */
-    Student deleteStudent(long studentId) {
+    public Student deleteStudent(long studentId) {
         Student foundStudent = findStudent(studentId);
         if(!(findStudent(studentId) == null)){
             students.remove(foundStudent);
@@ -72,7 +72,7 @@ public class Course {
      * @param studentGrade
      * @return true or false
      */
-    boolean addQuiz(String StudentId, double scale, double studentGrade) {
+    public boolean addQuiz(String StudentId, double scale, double studentGrade) {
         int intStudentId = Integer.parseInt(StudentId);
         if(!(findStudent(intStudentId) == null)){
             Student foundStudent = findStudent(intStudentId);
