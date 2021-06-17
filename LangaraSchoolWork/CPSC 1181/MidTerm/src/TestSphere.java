@@ -27,12 +27,12 @@ class Circle{
 		return radius;
 	}
 
-	@Override
-	public boolean equals(Circle otherCircle){
-		if(this.getXc() == otherCircle.getXc() && this.getYc() == otherCircle.getYc() && this.getRadius() == otherCircle.getRadius()){
+	public boolean equals(Circle otherCircle) {
+		if (this.getXc() == otherCircle.getXc() && this.getYc() == otherCircle.getYc() && this.getRadius() == otherCircle.getRadius()) {
 			return true;
 		}
-	return false;
+		return false;
+	}
 }
 
 class Sphere extends Circle{
@@ -50,10 +50,10 @@ class Sphere extends Circle{
 
 	}
 
+
 	public int getZ(){
 		return z;
 	}
-}
 
 
 	public boolean equals(Sphere otherSphere){
