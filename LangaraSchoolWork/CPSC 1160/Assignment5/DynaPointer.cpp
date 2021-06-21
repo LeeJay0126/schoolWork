@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <string>
+#include <time.h>
 using namespace std;
 
 int * addData(int *data,int *count);
@@ -16,7 +17,7 @@ int main() {
     Origdata[0] = 10;
     
     for (int x=0; x < 5; x++) {
-        Origdata = addData(Origdata,&count);
+        Origdata = addData(Origdata, &count);
         display(Origdata,count);
     }
     
