@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="657bd3bb-b999-420b-bccc-5175afacd4b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../CPSC 1160/Assignment5/DynaPointer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CPSC 1160/Assignment5/DynaPointer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Lab5_1_2" />
@@ -79,6 +90,7 @@
       <workItem from="1624220498725" duration="1072000" />
       <workItem from="1624229044583" duration="4029000" />
       <workItem from="1624263987824" duration="34000" />
+      <workItem from="1624302442155" duration="755000" />
     </task>
     <servers />
   </component>
