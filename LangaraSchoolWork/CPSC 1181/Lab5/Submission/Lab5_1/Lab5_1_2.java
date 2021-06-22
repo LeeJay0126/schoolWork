@@ -8,10 +8,9 @@ public class Lab5_1_2
     {
         Dog d1 = new Dog("Fred");
         d1.speak();
-        Dog obj = new Dog("Connie");
+        Object obj = new Dog("connie");
         Dog d2 = obj;
-
-         d2.speak();
+        d2.speak();
     }
 
 }
