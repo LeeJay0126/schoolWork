@@ -96,7 +96,7 @@ public class Main extends Application {
         eye1 = new Circle(345, 45, 5);
         eye2 = new Circle(315, 45, 5);
         mouth = new Arc(330, 75, 20, 20, 0, 100);
-
+        //Have to learn how to draw a proper arc
         mouth.setType(ArcType.CHORD);
 
         sunBase.setFill(Color.TRANSPARENT);
