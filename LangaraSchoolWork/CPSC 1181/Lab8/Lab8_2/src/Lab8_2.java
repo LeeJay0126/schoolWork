@@ -25,7 +25,6 @@ import java.util.Random;
 public class Lab8_2 extends Application {
     private Text label1 = new Text("");
 
-    private TextField numOfRotate;
     private TextField numOfCircles;
     private TextField duration;
 
@@ -33,6 +32,7 @@ public class Lab8_2 extends Application {
 
     private final int WIDTH=800;
     private final int HEIGHT=600;
+    private Random random = new Random();
 
 
     @Override
@@ -83,6 +83,15 @@ public class Lab8_2 extends Application {
 
     }
 
+    private Color randomColor(){
+        return Color.rgb(random.nextInt(256),random.nextInt(256),random.nextInt(256));
+    }
+
+    private Circle createCircle(){
+        int radius = random.nextInt(60) +30;
+        return new Circle(random.nextInt(WIDTH-100)+100,random.nextInt(HEIGHT-100)+100,radius);
+    }
+
     private class startButton implements EventHandler<ActionEvent>{
 
         @Override
@@ -91,11 +100,11 @@ public class Lab8_2 extends Application {
             int circleValue = Integer.parseInt(numOfCircles.getText());
             int durationValue = Integer.parseInt(duration.getText());
 
-            Random random = new Random();
 
             for(int i = 0; i < circleValue; i++){
-                Circle temp = new Circle(random.nextInt(800),random.nextInt(600),random.nextInt(80));
-                temp.setFill(Color.rgb(random.nextInt(256),random.nextInt(256),random.nextInt(256)));
+                Color tempColor = randomColor();
+                Circle temp = createCircle();
+                temp.setFill(tempColor);
             }
 
         }
