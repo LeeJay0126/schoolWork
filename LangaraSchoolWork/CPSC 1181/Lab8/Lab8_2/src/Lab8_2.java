@@ -1,7 +1,10 @@
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.shape.Circle;
+import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -19,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import javafx.util.Duration;
 import java.util.Random;
 
 
@@ -77,6 +81,9 @@ public class Lab8_2 extends Application {
 
         Button start = new Button("   Start    ");
 
+        startButton startB = new startButton();
+        start.setOnAction(startB);
+
         VBox leftMenu = new VBox(30,gridPane,start);
         leftMenu.setAlignment(Pos.TOP_CENTER);
         return leftMenu;
@@ -100,12 +107,32 @@ public class Lab8_2 extends Application {
             int circleValue = Integer.parseInt(numOfCircles.getText());
             int durationValue = Integer.parseInt(duration.getText());
 
+            Circle circleArray[] = new Circle[circleValue];
+            ScaleTransition scaleTr = new ScaleTransition();
+            SequentialTransition sequence = new SequentialTransition();
 
             for(int i = 0; i < circleValue; i++){
                 Color tempColor = randomColor();
                 Circle temp = createCircle();
                 temp.setFill(tempColor);
+                circleArray[i] = temp;
+                display.getChildren().add(temp);
+
+                scaleTr= new ScaleTransition(Duration.millis(durationValue),temp);
+                scaleTr.setFromX(1);
+                scaleTr.setFromY(1);
+                scaleTr.setToX(0.001);
+                scaleTr.setToY(0.001);
+                scaleTr.setCycleCount(3);
+                scaleTr.setAutoReverse(true);
+
+                sequence.getChildren().add(scaleTr);
+
             }
+
+            sequence.play();
+
+
 
         }
     }
