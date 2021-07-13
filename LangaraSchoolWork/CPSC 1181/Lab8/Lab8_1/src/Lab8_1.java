@@ -13,6 +13,7 @@ public class Lab8_1 extends Application {
     private Line line;
     private Pane root;
     private Circle selected = null;
+    boolean flag = false;
 
     /**
      * start method (somewhat like a main method in regular java)
@@ -55,21 +56,28 @@ public class Lab8_1 extends Application {
         @Override
         public void handle(MouseEvent e) {
 
-            Circle circle = new Circle(e.getX(),e.getY(),0);
-            selected = circle;
-            selected.requestFocus();
-            circle.setFill(Color.TRANSPARENT);
+            if(flag == false){
+                flag = true;
+
+                Circle circle = new Circle(e.getX(),e.getY(),0);
+                selected = circle;
+                selected.requestFocus();
+                circle.setFill(Color.TRANSPARENT);
 
 
-            line.setStartX(e.getX());
-            line.setEndX(e.getX());
-            line.setStartY(e.getY());
-            line.setEndY(e.getY());
+                line.setStartX(e.getX());
+                line.setEndX(e.getX());
+                line.setStartY(e.getY());
+                line.setEndY(e.getY());
 
-            root.setOnMousePressed(new MouseClickEventHandler());
-            root.setOnMouseMoved(new MouseMoveEventHandler());
+                root.setOnMouseMoved(new MouseMoveEventHandler());
+                root.setOnMousePressed(new MouseClickEventHandler());
 
-            root.getChildren().add(selected);
+                root.getChildren().add(selected);
+            }else {
+                flag = false;
+            }
+
         }
     }
 
