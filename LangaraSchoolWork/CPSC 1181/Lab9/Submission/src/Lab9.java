@@ -9,10 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public class Lab9 extends Application{
 
@@ -20,6 +25,7 @@ public class Lab9 extends Application{
         private TextField endDate;
         private Button startButton;
         private VBox root;
+        private DateVerifier verifier;
 
         public static void main(String[]args){
         launch(args);
@@ -66,6 +72,8 @@ public class Lab9 extends Application{
                 root.getChildren().add(startButton);
                 VBox box = root;
                 VBox.setMargin(startButton,new Insets(10,10,10,10));
+                ButtonEventHandler buttonE = new ButtonEventHandler();
+                startButton.setOnAction(buttonE);
 
         }
 
@@ -76,10 +84,40 @@ public class Lab9 extends Application{
                 }
 
                 public void handle(ActionEvent e){
+                        String textField1 = startDate.getText();
+                        String textField2 = endDate.getText();
+                        String displayString = "";
+                        String outPutString = "";
 
+                        try {
+                                verifier = new DateVerifier();
+                                LocalDate date1 = verifier.verify(textField1, "Start Date : ");
+                                LocalDate date2 = verifier.verify(textField2, "End Date : ");
+                                Period datesBetween = Period.between(date1, date2);
+                                long daysBetween = ChronoUnit.DAYS.between(date1, date2);
+                                outPutString = datesBetween.getDays() + " days \n" + datesBetween.getMonths() + " months \n" + datesBetween.getYears() + " years \n" + daysBetween + " total days";
+                                popUpWindow(outPutString);
+                        }catch (DateTimeException o){
+                                displayString = o.getMessage();
+                                popUpWindow(displayString);
+                        }catch (CPSC1181Exception p){
+                                displayString = p.getMessage();
+                                popUpWindow(displayString);
+                        }
                 }
 
 
+        }
+
+        private void popUpWindow(String input){
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                VBox popUpBox = new VBox(10);
+                Text inputText = new Text(input);
+                popUpBox.getChildren().add(inputText);
+                Scene scene = new Scene(popUpBox,400,250);
+                stage.setScene(scene);
+                stage.show();
         }
 
 
