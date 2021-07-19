@@ -67,15 +67,15 @@ public class Lab9 extends Application {
         this.root.setAlignment(Pos.CENTER);
         VBox var10000 = this.root;
         VBox.setMargin(var1, new Insets(10.0D, 10.0D, 10.0D, 10.0D));
-        var1.setOnAction(new Lab9.MyEeventHandler());
+        var1.setOnAction(new Lab9.MyEventHandler());
     }
 
     public static void main(String[] var0) {
         Application.launch(var0);
     }
 
-    private class MyEeventHandler implements EventHandler<ActionEvent> {
-        private MyEeventHandler() {
+    private class MyEventHandler implements EventHandler<ActionEvent> {
+        private MyEventHandler() {
         }
 
         public void handle(ActionEvent var1) {
