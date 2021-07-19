@@ -31,6 +31,12 @@ public class Lab9 extends Application{
         launch(args);
         }
 
+        /**
+         * Initializing basic features/ visuals We need for javafx
+         * including setting a title, setting a root, setting a scene
+         * and showing primary stage.
+         * @param primaryStage
+         */
         @Override
         public void start(Stage primaryStage){
 
@@ -45,6 +51,10 @@ public class Lab9 extends Application{
 
         }
 
+        /**
+         * Creating first row (first text box and it's label)
+         * and adding it to the root.
+         */
         private void createFirstRow(){
 
                 Label label = new Label("Start Date: ");
@@ -54,6 +64,10 @@ public class Lab9 extends Application{
                 root.getChildren().add(firstBox);
         }
 
+        /**
+         * Second row (second text box and it's label)
+         * and adding it to the root
+         */
         private void createSecondRow(){
 
                 Label label = new Label("End Date: ");
@@ -65,6 +79,10 @@ public class Lab9 extends Application{
 
         }
 
+        /**
+         * Creates button that handles event.
+         * create/add/ and links event handler to the button
+         */
         private void createButton(){
 
                 startButton = new Button("Count");
@@ -77,23 +95,28 @@ public class Lab9 extends Application{
 
         }
 
+        /**
+         *event handler method for the button
+         */
         private class ButtonEventHandler implements EventHandler<ActionEvent> {
-
-                private ButtonEventHandler(){
-
-                }
-
+                /**
+                 * Get the string value from the text boxes.
+                 * run it through check method in DateVerifier class and get return value of LocalDate.
+                 * If failed, throws an exception and displayin the message in a popup window.
+                 * If succeeded, store the result in to a string and display in a popup window.
+                 * @param e
+                 */
                 public void handle(ActionEvent e){
                         String textField1 = startDate.getText();
                         String textField2 = endDate.getText();
                         String displayString = "";
                         String outPutString = "";
-
                         try {
                                 verifier = new DateVerifier();
-                                LocalDate date1 = verifier.verify(textField1, "Start Date : ");
-                                LocalDate date2 = verifier.verify(textField2, "End Date : ");
+                                LocalDate date1 = verifier.check(textField1, 1);
+                                LocalDate date2 = verifier.check(textField2, 2);
                                 Period datesBetween = Period.between(date1, date2);
+                                System.out.println(datesBetween.getDays() + "days" + datesBetween.getYears() + datesBetween.getMonths());
                                 long daysBetween = ChronoUnit.DAYS.between(date1, date2);
                                 outPutString = datesBetween.getDays() + " days \n" + datesBetween.getMonths() + " months \n" + datesBetween.getYears() + " years \n" + daysBetween + " total days";
                                 popUpWindow(outPutString);
@@ -109,6 +132,11 @@ public class Lab9 extends Application{
 
         }
 
+        /**
+         * takes in a string as an input
+         * and displays it in a popup window.
+         * @param input
+         */
         private void popUpWindow(String input){
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
