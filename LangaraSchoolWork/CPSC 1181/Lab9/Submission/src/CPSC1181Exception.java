@@ -1,5 +1,8 @@
 /**
  * public class CPSC1181Exception
+ *
+ *   Referred from Lab9.zip from lab notes
+ *
  */
 public class CPSC1181Exception extends Exception{
         public CPSC1181Exception() {
