@@ -18,7 +18,7 @@ public class SortTest{
 			System.out.println(arr[i].returnDistance());
 		}
 
-	}	
+	}
 	private void initialize(){
 		Random rand = new Random();
 		int m = rand.nextInt(20);
@@ -35,9 +35,17 @@ public class SortTest{
 	}
 }
 
+class sortByDistance implements Comparator<Point>{
+
+    public int compare(Point a, Point b){
+        return a.returnDistance().compareTo(b.returnDistance());
+    }
+
+}
 
 
-class Point implements Comparator<Point>{
+
+class Point implements{
 	private double x;
 	private double y;
 	private double distance;
@@ -59,16 +67,4 @@ class Point implements Comparator<Point>{
 		return "[x= "+ x + ", y= "+ y +"]";
 	}
 
-	@Override
-	public int compare(Point o1, Point o2) {
-		double distance1 = o1.returnDistance();
-		double distance2 = o2.returnDistance();
-
-		if(distance1 > distance2){
-			return 1;
-		}else if(distance1 < distance2){
-			return -1;
-		}
-		return 0;
-	}
 }
