@@ -1,4 +1,4 @@
-/**
+-/**
 *   A withdraw runnable makes periodic withdrawals from a bank account.
 */
 public class WithdrawRunnable implements Runnable
