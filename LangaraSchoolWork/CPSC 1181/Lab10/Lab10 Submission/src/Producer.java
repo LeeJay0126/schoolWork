@@ -2,7 +2,7 @@
  * public class producer
  */
 public class Producer extends Thread{
-    private Bucket bucket;;
+    private Bucket bucket;
 
     /**
      * constructor
@@ -17,16 +17,17 @@ public class Producer extends Thread{
      * after that, it sleeps for 1 milliseconds.
      */
     public void run(){
-        while(!Thread.interrupted()) {
+        while(!isInterrupted()) {
             try {
                 int random = (int) (Math.random() * 256);
                 System.out.println(random);
                 bucket.add(random);
                 Thread.sleep(1);
             } catch (InterruptedException exception) {
-
+                break;
             }
         }
 
     }
+
 }

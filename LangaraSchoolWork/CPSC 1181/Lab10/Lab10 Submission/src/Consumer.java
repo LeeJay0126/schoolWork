@@ -19,13 +19,13 @@ public class Consumer extends Thread{
      */
     public void run(){
         int[] data;
-        while(!Thread.interrupted()) {
+        while(!isInterrupted()) {
             try {
                 data = bucket.median();
                 System.out.println("median : " + data[0] + ", size: " + data[1]);
                 Thread.sleep(5);
             } catch (InterruptedException exception) {
-
+                break;
             }
         }
     }
