@@ -3,6 +3,7 @@
 using namespace std;
 
 int binarySearch(int array[], int number, int n);
+int recursiveBinary(int array[], int number, int n, int left, int right);
 
 int main(){
     
@@ -12,6 +13,7 @@ int main(){
     //This step is necessary.
     int n = sizeof(arr) / sizeof(arr[0]);
     while(number != -99){
+        cout << "Testing iterative Binary Search" << endl;
         cout << "Enter a number you want to find and enter -99 if you want to quit : " << endl;
         cin >> number;
         int result = binarySearch(arr,number,n);
@@ -21,6 +23,37 @@ int main(){
             cout <<"Number you want to find is not found" << endl;
         }
     }
+    number = 0;
+    while(number != -99){
+        cout << "Testing recursive Binary Search" << endl;
+        cout << "Enter a number you want to find and enter -99 if you want to quit : " << endl;
+        cin >> number;
+        int result = recursiveBinary(arr,number,n,0,n-1);
+        if(result != -1){
+            cout << "Number you want to find is at index " << result  << endl;
+        }else{
+            cout <<"Number you want to find is not found" << endl;
+        }
+    }
+}
+
+//recurisve binary search
+int recursiveBinary(int array[], int number, int n, int left, int right){
+
+    if(left > right){
+        return -1;
+    }
+
+    int mid = (right + left) /2;
+
+    if(array[mid] == number){
+        return mid;
+    }else if(array[mid] > number){
+        recursiveBinary(array,number,n,left,mid-1);
+    }else{
+        recursiveBinary(array,number,n,mid+1,right);
+    }
+
 }
 
 int binarySearch(int array[], int number, int n){
@@ -34,7 +67,7 @@ int binarySearch(int array[], int number, int n){
     //Loop that iterates until left is greater than right, which should not happen.
     while(left <= right){
         // setting a new mid point
-        mid = left + right /2;
+        mid = (left + right) /2;
         if(array[mid] == number){
             return mid;
         }else if(number > array[mid]){
