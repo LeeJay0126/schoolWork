@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="db2011d6-f807-4949-a4c9-dc07e9218c06" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/100357736.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/1003577361.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/1003577362.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/1003577363.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/100357736_tut3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/BioCard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Tutorial.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bankaccount.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CPSC 1181.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CPSC 1181.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/100357736/100357736.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/100357736/Doc1.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/Lab0.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/out/production/Lab0/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 0/src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/.idea/libraries/100357736_tut3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab 3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/.idea/libraries/Lab3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/Lab3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/Lab3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/.idea/libraries/Lab3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/Lab3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Lab3/out/production/Lab3/Lab3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/.idea/Tut 3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab 3/Tut 3/100357736_tut3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/.idea/libraries/100357736.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/100357736.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/100357736.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/.idea/libraries/100357736.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/100357736.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_Assignment1/testCase.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tutorial/100357736.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tutorial/core-wordnet.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tutoriall1/sample/sample.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1wowC9XJ1u6GNEzGvJOcwFQiv2w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db2011d6-f807-4949-a4c9-dc07e9218c06" name="Default Changelist" comment="" />
+      <created>1629138120875</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629138120875</updated>
+      <workItem from="1629138125550" duration="34000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
