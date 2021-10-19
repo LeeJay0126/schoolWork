@@ -15,38 +15,57 @@ public class Client implements Protocol {
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out= new DataOutputStream(socket.getOutputStream());
 
-            playGame(in, out);
+            Calculate(in, out);
         }
         catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
-    public void playGame(DataInputStream in,DataOutputStream out) throws IOException {
+    public void Calculate(DataInputStream in,DataOutputStream out) throws IOException {
         Scanner fromUser = new Scanner(System.in);
-        boolean done = false;
-        System.out.println("guess a number from 1 (inclusive) up to and including 50");
-        do {
-            System.out.print("> ");
-            int guessNumber = fromUser.nextInt();
-            out.writeInt(guessNumber);
-            out.flush();
-            switch (in.readInt()){
-                case WASLOWER:
-                    System.out.println(guessNumber+ " was lower than mysteryNum");
+        System.out.println("Enter 1 if you want to know your salary and taxes based on $/hr and hours of work per week or 2 if you already know your annual salary : ");
+        int choice = fromUser.nextInt();
+
+        out.writeInt(choice);
+        out.flush();
+
+        int command = 0;
+        double wage = 0;
+        double hours = 0;
+        double initialSalary = 0;
+        String result = "";
+
+        do{
+            command = in.readInt();
+            switch(command){
+                case WAGES:
+                    System.out.println("Enter your wage per hour : ");
+                    wage = fromUser.nextDouble();
+                    out.writeDouble(wage);
+                    out.flush();
                     break;
-                case WASHIGHER:
-                    System.out.println(guessNumber+ " was higher than mysteryNum");
+                case HOURS:
+                    System.out.println("Enter how many hours of work you do per week: ");
+                    hours = fromUser.nextDouble();
+                    out.writeDouble(hours);
+                    out.flush();
                     break;
-                case LOST:
-                    System.out.println("You lost; the number was "+in.readInt());
-                    done = true;
+                case INITSALARY:
+                    System.out.println("Enter your annual salary : ");
+                    initialSalary = fromUser.nextDouble();
+                    out.writeDouble(initialSalary);
+                    out.flush();
                     break;
-                case CORRECT:
-                    int numOfTries = in.readInt();
-                    System.out.println("You won after "+numOfTries+" tries");
-                    done = true;
+                case RESULT:
+                    result = in.readUTF();
+                    System.out.println(result);
+                    out.writeInt(DONE);
+                    out.flush();
             }
-        } while (!done);
+
+        } while(command != DONE);
+
+        System.out.println("Thank you for using Salary and Tax Calculator!");
 
     }
 } 
