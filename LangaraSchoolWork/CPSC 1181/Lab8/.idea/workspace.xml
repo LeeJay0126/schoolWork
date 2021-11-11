@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../EXPE2300/JobPackage/CoverLetter.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../EXPE2300/JobPackage/CoverLetter.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../EXPE2300/JobPackage/Targetted_Resume.docx" beforeDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +134,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Lab8_1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RunManager">
@@ -232,6 +229,7 @@
       <workItem from="1625960507608" duration="98000" />
       <workItem from="1626814921101" duration="19000" />
       <workItem from="1635239305036" duration="27000" />
+      <workItem from="1635639228065" duration="5000" />
     </task>
     <servers />
   </component>
