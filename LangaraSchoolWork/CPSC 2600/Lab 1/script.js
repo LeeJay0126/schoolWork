@@ -17,7 +17,7 @@ const grizzlyBear = {
 };
 
 const winnieThePoo = {
-    name: "Winnie the Poo",
+    name: "Winnie The Poo",
     location: "TV",
     numberOfLegs: 2
 };
@@ -40,7 +40,10 @@ const renderButtons = () => {
     });
 };
 
-const showDetails = () => {
-    let displayDetails = document.getElementById("details");
-    
+const showDetails = (name) => {
+    const displayDetails = document.getElementById("details");
+    const animal = data.animals.find(d => d.name === name);
+    let {numberOfLegs, location} = animal;
+    const string = `The animal ${name} lives in the ${location} and has ${numberOfLegs} legs.`;
+    displayDetails.innerHTML = string;
 };
