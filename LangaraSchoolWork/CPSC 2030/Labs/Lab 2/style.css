@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600|Quattrocento:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: slategrey;
+    text-transform: capitalize;
+}
+
