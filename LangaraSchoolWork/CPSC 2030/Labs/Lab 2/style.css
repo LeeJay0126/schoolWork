@@ -76,3 +76,43 @@ nav a{
     width: 50%;
     background-color: black;
 }
+
+/**
+    Desktop Version
+**/
+
+@media only screen and (min-width: 600px) {
+
+
+    main {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    ul li {
+        display: inline;
+        
+    }
+    
+    nav ul::after {
+        clear: both;
+    }
+
+    figure {
+        position: relative;
+    }
+
+    figure img {
+        height: 250px;
+        float: left;
+    }
+
+    figure:first-child::after {
+        clear: after;
+    }
+
+} 
