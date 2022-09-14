@@ -1,13 +1,78 @@
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600|Quattrocento:400,700');
 
+/**
+    General
+**/
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-h2 {
-    color: slategrey;
-    text-transform: capitalize;
+main {
+    max-width: 800px;
 }
 
+/**
+    Color and font specifics
+**/
+
+h2 {
+    color: slategrey;
+    text-transform: uppercase;
+}
+
+footer {
+    background-color: slategrey;
+}
+
+html {
+    font-family: "Crimson Text";
+}
+
+h1, h2 {
+    font-family: "Quattrocento";
+}
+
+/**
+    Header Section
+**/
+
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+nav ul {
+    text-align: center;
+}
+
+nav a{
+    text-decoration: none;
+    color: red;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.settings {
+    position: fixed;
+    top: 10px;
+    right: 25px;
+}
+
+/** 
+    Selectors section
+**/
+
+#selectors {
+    margin: 20px 30px;
+    width: 40%;
+}
+
+#selectors::after {
+    position: relative;
+    height: 1px;
+    width: 50%;
+    background-color: black;
+}
