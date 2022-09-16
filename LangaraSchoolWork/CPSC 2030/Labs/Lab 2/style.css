@@ -55,26 +55,89 @@ nav a{
     margin: 20px 0;
 }
 
+nav li {
+    border-right: 1px black solid;
+    padding: 0 30px;
+}
+
+nav li:last-child {
+    border-right: none;
+}
+
 .settings {
     position: fixed;
     top: 10px;
     right: 25px;
 }
 
-/** 
-    Selectors section
+/**
+    Advanced Selectors
 **/
 
-#selectors {
-    margin: 20px 30px;
-    width: 40%;
+p:first-of-type {
+    font-size: large;
 }
 
-#selectors::after {
+p:first-of-type::first-line {
+    color: crimson;
+}
+
+p:first-of-type::first-letter {
+    font-size: 64px;
+    margin-top: -15px;
+    float: left;
+}
+
+h2 ~ p:nth-of-type(1)::first-letter{
+    font-style: italic;
+}
+
+#selectors ~ p:nth-of-type(1)::first-letter {
+    font-style: normal;
+}
+
+/**
+    Positioning
+**/
+
+span {
+    background-color: white;
+}
+
+span::after {
+    display: block;
     position: relative;
+    z-index: -1;
+    bottom: 15px;
+    content: "";
     height: 1px;
-    width: 50%;
+    width: 100%;
     background-color: black;
+}
+
+figure {
+    position: relative;
+}
+
+figure img {
+    width: 100%;
+}
+
+figcaption {
+    color: white;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+}
+
+
+figure:nth-of-type(1) figcaption {
+    width: 100%;
+}
+
+figure:nth-of-type(2) figcaption {
+    width: 100%;
 }
 
 /**
@@ -82,7 +145,6 @@ nav a{
 **/
 
 @media only screen and (min-width: 600px) {
-
 
     main {
         width: 800px;
@@ -108,11 +170,31 @@ nav a{
 
     figure img {
         height: 250px;
+        width: auto;
         float: left;
     }
 
-    figure:first-child::after {
-        clear: after;
+    figcaption {
+        position: absolute;
+        color: white;
+        text-align: center;
+        background: rgba(0,0,0,0.5);
     }
 
+    figure:nth-of-type(1) img {
+        margin-right: 50px;
+    }
+    
+    figure:nth-of-type(2) img {
+        margin-right: 30px;
+    }
+
+    figure:nth-of-type(1) figcaption {
+        width: 375px;
+    }
+    
+    figure:nth-of-type(2) figcaption {
+        width: 187.5px;
+        left: 425px;
+    }
 } 
