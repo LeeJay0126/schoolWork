@@ -141,6 +141,55 @@ figure:nth-of-type(2) figcaption {
 }
 
 /**
+    Links
+**/
+
+nav a:link{
+    text-decoration: none;
+}
+
+nav a:hover, nav a:active{
+    text-decoration: underline;
+    text-decoration-color: crimson;
+}
+
+nav a:active {
+    color: white;
+    background-color: crimson;
+}
+
+nav a:visited {
+    color: slategray;
+    text-decoration: none;
+}
+
+/**
+    General pixel pushing edits
+**/
+
+p {
+    margin-bottom: 25px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 0;
+}
+
+footer li {
+    margin: 0 20px 20px;
+}
+
+footer li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li {
+    display: inline;
+}
+
+/**
     Desktop Version
 **/
 
