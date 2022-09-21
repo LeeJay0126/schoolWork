@@ -25,12 +25,13 @@ function App(props) {
       key={task.id}
       toggleTaskCompleted={toggleTaskCompleted}
       deleteTask={deleteTask}
+      editTask={editTask}
     />
   )
   );
 
   const filterList = FILTER_NAMES.map((name) => (
-    <FilterButton key={name} name={name}/>
+    <FilterButton key={name} name={name} />
   ));
 
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
@@ -39,6 +40,16 @@ function App(props) {
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
+  }
+
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map((task) => {
+      if (id === task.id) {
+        return { ...task, name: newName }
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
   }
 
   function toggleTaskCompleted(id) {
