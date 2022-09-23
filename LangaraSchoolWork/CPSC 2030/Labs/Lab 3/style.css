@@ -1,0 +1,345 @@
+/**
+    General
+**/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./images/inspirationgeometry.png');
+    background-size: cover;
+    animation-name: backmove;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes backmove {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 500px 0%;
+    }
+}
+
+main {
+    border: 1px;
+    border-style: solid;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    font-size: 24px;
+    display: block;
+    margin: 20px 10px;
+    font-weight: 500;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: brown;
+}
+
+footer {
+    background-color: bisque;
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+}
+
+/**
+    Main Section
+**/
+
+.mainSection {
+    background-color: bisque;
+    height: 510px;
+    overflow: hidden;
+    display: flex;
+}
+
+/**
+    Main Section - Header
+**/
+
+.logo {
+    float: left;
+    height: 100%
+}
+
+.info {
+    float: right;
+    background-color: bisque;
+    padding: 3px;
+}
+
+header {
+    background-image: url('./images/inspirationgeometry.png');
+    background-size: repeat;
+    height: 100px;
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.headerImgContainer {
+    display: flex;
+    position: absolute;
+    left: 0;
+    animation-name: headermove;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes headermove {
+    0% {
+       transform: translateX(0);
+    }
+    50% {
+        transform: translateX(600px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.headerImgContainer img {
+    height: 50%;
+}
+
+/**
+    Main Section - Main content
+**/
+
+nav {
+    height: 500px;
+    flex: 0 0 200px;
+}
+
+nav li{
+    transition: all 2s;
+}
+
+nav li:hover {
+    background-color: yellow;
+}
+
+.middleContent {
+    height: 500px;
+    flex: 0 0 400px;
+    background-color: white;
+}
+
+.hotDeals {
+    height: 500px;
+    flex: 0 0 200px;
+}
+
+.headings {
+    color: orange;
+    margin: 20px 10px;
+}
+
+.headingArticle {
+    padding: 0 15px;
+}
+
+.hotDealHeader {
+    color: orange;
+    margin: 10px ;
+    font-size: 20px;
+    background-color: antiquewhite;
+}
+
+.dealList {
+    font-size: 15px;
+    margin: 0 0 0 0;
+}
+
+.dealsLi {
+    margin: 0 0 10px 20px;
+}
+
+
+
+/**
+    Home Page Content
+**/
+
+.Container {
+    margin: 0 25px;
+    text-align: center;
+}
+
+.homeImgContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.imgTag {
+    margin: 5px 0 0 15px;
+    font-size: 15px;
+}
+
+.homeImg {
+    transition: all 0.5s;
+}
+
+.homeImg:hover {
+    transform: scale(1.1);
+}
+
+/**
+    Categories page
+**/
+
+.categoryList li {
+    margin: 0 0 20px 40px;
+    
+}
+
+.categoryNav {
+    font-size: 24px;
+    display: block;
+    margin: 0 60px;
+    font-weight: 500;
+}
+
+.categoryNav li {
+    margin: 20px 0;
+}
+
+.categoryUL {
+    margin: 0 40px;
+}
+
+.categoryUL li {
+    margin: 10px 0;
+}
+
+.productLink {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+/**
+    Product page
+**/
+
+table, th, td {
+    border:1px solid black;
+    padding: 1px;
+}
+
+table {
+    background-color: blanchedalmond;
+    margin: auto;
+}
+
+
+/**
+    Contact page
+**/
+
+.contactForm {
+    background-color: rgb(202, 199, 199);
+    margin: auto;
+    width: 90%;
+    padding: 10px 20px;
+}
+
+.contactForm div {
+    display: flex;
+    justify-content: space-between;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+/**
+    media query
+**/
+
+@media only screen and (max-width:786px){
+
+
+    body{
+        min-width: 580px;
+    }
+
+    main {
+        width: 100%;
+        margin: 0;
+        height: auto;
+    }
+
+    header{
+        width: 100%;
+    }
+
+    footer {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    nav li {
+        border: 1px solid black;
+        background-color: rgb(214, 214, 214);
+        display: block;
+    }
+
+    .mainSection {
+        display: inline;
+    }
+
+    .headerImgContainer {
+        display: none;
+    }
+
+    .hotDeals {
+        display: none;
+    }
+
+
+    .middleContent {
+        height: auto;
+        overflow: hidden;
+    }
+
+    .categoryNav{
+        display: none;
+    }
+
+    .headings {
+        font-size: 14px;
+    }
+
+    .headingArticle {
+        font-size: 12px;
+    }
+
+}

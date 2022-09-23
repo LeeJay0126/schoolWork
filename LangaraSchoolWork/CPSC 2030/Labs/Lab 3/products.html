@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CPSC 2030 Lab 1</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body onload="footerDate()">
+    <main>
+        <header>
+            <div class="logo">
+                <img src="./images/futurebuylogo.gif" />
+            </div>
+            <div class="info">
+                <p>
+                    Phone: (604) 123-4567 <br>
+                    Hours: Mon-Sun: 10am-9pm
+                </p>
+            </div>
+            <div class="headerImgContainer">
+                <a href="./categories/drones.html">
+                    <img  src="./images/drone.gif" alt="image of a drone" />
+                </a>
+                <a href="./categories/robots.html">
+                    <img src="./images/robot.gif" alt="image of a robot" />
+                </a>
+            </div>
+        </header>
+        <section class="mainSection">
+            <nav class="mainContent">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./categories.html">Categories</a></li>
+                    <li><a href="./products.html">Products</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="middleContent mainContent">
+                <h1 class="headings">All Products</h1>
+                <table>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th> Quantity</th>
+                        <th>Price</th>
+                        <th>Deal?</th>
+                    </tr>
+                    <tr>
+                        <td>Flying Bird</td>
+                        <td>Robot</td>
+                        <td>1</td>
+                        <td>$40,000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Mini Puppies</td>
+                        <td>Robot</td>
+                        <td>2</td>
+                        <td>$10,000</td>
+                        <td></td>
+                    </tr>
+                    <tr id="talkingMan">
+                        <td>Talking Man 3</td>
+                        <td>Robot</td>
+                        <td>1</td>
+                        <td>$50,000</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Talking Man 4</td>
+                        <td>Robot</td>
+                        <td>1</td>
+                        <td>$80,000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Walking Giant</td>
+                        <td>Robot</td>
+                        <td>1</td>
+                        <td>$100,000</td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="driver">
+                        <td>Diver Limited</td>
+                        <td>Drone</td>
+                        <td>1</td>
+                        <td>$25,000</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Spoiling FBI</td>
+                        <td>Drone</td>
+                        <td>1</td>
+                        <td>$30,000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Soaring Drone I</td>
+                        <td>Drone</td>
+                        <td>1</td>
+                        <td>$10,000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Soaring Drone II</td>
+                        <td>Drone</td>
+                        <td>1</td>
+                        <td>$20,000</td>
+                        <td></td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="hotDeals mainContent">
+                <div class="hotDealHeader">Hot Deals</div>
+                <div class="hotDealMain">
+                    <ul>
+                        <li class="dealsLi"><a class="dealList" href="#talkingMan">Talking Man 3</a></li>
+                        <li class="dealsLi"><a class="dealList" href="#driver">Driver Limited</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="firstLine footerLine">Copy right &copy; 2021 Future Buy</div>
+            <div id="secondLine" class="secondLine footerLine"></div>
+        </footer>
+    </main>
+</body>
+
+</html>
