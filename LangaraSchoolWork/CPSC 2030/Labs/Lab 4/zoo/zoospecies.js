@@ -1,10 +1,13 @@
 //Create an empty array to store the zoo's info
 let zooArray = [];
 //Creaete a constructor for the species
+
 function species(name, count) {
 	this.name = name;
 	this.count = count;
 }
+// const gorila = new species("gorila", 10);
+// zooArray.push(gorila);
 
 //Create a new species object and push it onto the array.  Then update the zoo list.
 //You do not need to do any input validation
@@ -18,7 +21,8 @@ function addSpecies() {
 	}
 
 	if(specie == undefined){
-		zooArray.push(species(name,count));
+		const newAnimal = new species(name,count);
+		zooArray.push(newAnimal);
 	}
 
 	console.log(zooArray[0]);
