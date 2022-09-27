@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 10px 0 0 15px;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+.inputs div {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100px;
+    height: 30px;
+}
+
+.flexbox {
+    display: flex;
+    margin-bottom: 20px;
+}

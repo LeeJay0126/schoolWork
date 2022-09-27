@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CPSC 2030 Lab 4 part 1</title>
+        <meta charset="UTF-8"/>
+        <link href="style.css" rel="stylesheet"/>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Your Shopping Receipt</h1>
+        </header>
+        <main>
+            <section class="inputs">
+                <div>
+                    <label>Item: </label>
+                    <input type="text"/>
+                </div>
+                <div>
+                    <label>Unit Price: </label>
+                    <input id="price" type="number"/>
+                </div>
+                <div>
+                    <label>Quantity: </label>
+                    <input id="quantity" type="number"/>
+                </div>
+                <button onclick="calculate()">Calculate</button>
+            </section>
+            <section>
+                <div class="flexbox">
+                    <label>Subtotal: </label>
+                    <div id="subtotalDisplay"></div>
+                </div>
+                <div class="flexbox">
+                    <label>GST (5%): </label>
+                    <div id="gstDisplay"></div>
+                </div>
+                <div class="flexbox">
+                    <label>PST (7%): </label>
+                    <div id="pstDisplay"></div>
+                </div>
+                <div class="flexbox">
+                    <label>Total: </label>
+                    <div id="totalDisplay"></div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
