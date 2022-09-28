@@ -12,27 +12,37 @@ function usePrevious(value) {
   return ref.current;
 }
 
-
 const FILTER_MAP = {
   All: () => true,
   Active: (task) => !task.completed,
   Completed: (task) => task.completed
-};
+}
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-function App(props) {
+// const temp = {
+//   id: "todo-0",
+//   name: "Eat",
+//   completed: true
+// };
 
-  const [tasks, setTasks] = useState(props.tasks);
+
+function App() {
+  
+  // localStorage.setItem('listOfTasks', JSON.parse(temp));
+  const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
 
-  const FILTER_MAP = {
-    All: () => true,
-    Active: (task) => !task.completed,
-    Completed: (task) => task.completed
-  }
+  useEffect(() => {
+    const data = localStorage.getItem('listOfTasks');
+    if (data) {
+      setTasks(JSON.parse(data));
+    }
+  }, [])
 
-  const FILTER_NAMES = Object.keys(FILTER_MAP);
+  useEffect(() => {
+    localStorage.setItem('listOfTasks', JSON.stringify(tasks));
+  },[tasks]);
 
   const taskList = tasks.filter(FILTER_MAP[filter]).map((task) => (
     <Todo
@@ -44,8 +54,7 @@ function App(props) {
       deleteTask={deleteTask}
       editTask={editTask}
     />
-  )
-  );
+  ));
 
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton key={name} name={name} isPressed={name === filter} setFilter={setFilter} />
@@ -90,7 +99,7 @@ function App(props) {
 
   const prevTaskLength = usePrevious(tasks.length);
   useEffect(() => {
-    if(tasks.length - prevTaskLength === -1) {
+    if (tasks.length - prevTaskLength === -1) {
       listHeadingRef.current.focus();
     }
   }, [tasks.length, prevTaskLength]);
