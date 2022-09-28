@@ -32,6 +32,8 @@ function App() {
   // localStorage.setItem('listOfTasks', JSON.parse(temp));
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
+  const [theme, setTheme] = useState(false);
+  const [themeDesc, setThemeDesc] = useState('Light Theme');
 
   useEffect(() => {
     const data = localStorage.getItem('listOfTasks');
@@ -104,10 +106,19 @@ function App() {
     }
   }, [tasks.length, prevTaskLength]);
 
+  function switchHandler() {
+    setTheme(!theme);
+    if(theme){
+      setThemeDesc('Dark Theme')
+    }else{
+      setThemeDesc("Light Theme");
+    }
+  }
+
 
   return (
     <div className="todoapp stack-large">
-      <h1>TodoMatic</h1>
+      <h1 >TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
         {filterList}
@@ -122,6 +133,7 @@ function App() {
       </ul>
       <div className="btn-group">
         <button className="btn" onClick={() => localStorage.clear()}>Clear</button>
+        <button className="btn" onClick={() => switchHandler()}>{themeDesc}</button>
       </div>
     </div>
   );
