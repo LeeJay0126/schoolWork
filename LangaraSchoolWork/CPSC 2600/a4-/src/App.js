@@ -104,6 +104,7 @@ function App() {
     }
   }, [tasks.length, prevTaskLength]);
 
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
@@ -119,6 +120,9 @@ function App() {
       >
         {taskList}
       </ul>
+      <div className="btn-group">
+        <button className="btn" onClick={() => localStorage.clear()}>Clear</button>
+      </div>
     </div>
   );
 }
