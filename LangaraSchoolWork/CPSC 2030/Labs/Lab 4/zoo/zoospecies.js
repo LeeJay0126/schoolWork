@@ -25,7 +25,6 @@ function addSpecies() {
 		zooArray.push(newAnimal);
 	}
 
-	console.log(zooArray[0]);
 	createList();
 
 }
@@ -34,8 +33,6 @@ function addSpecies() {
 //Create and set the HTML for the zoo unordered list
 function createList() {
 	let html = "";
-
-	console.log(zooArray[0]);
 
 	//loop through array adding a list item for each species
 	for (let i = 0; i < zooArray.length; i++) {
