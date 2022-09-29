@@ -4,7 +4,7 @@ let zooArray = [];
 
 function species(name, count) {
 	this.name = name;
-	this.count = count;
+	this.count = Number(count);
 }
 // const gorila = new species("gorila", 10);
 // zooArray.push(gorila);
@@ -17,7 +17,7 @@ function addSpecies() {
 	const specie = zooArray.find((element) => element.name === name);
 
 	if(specie != undefined){
-		specie.count += count;
+		specie.count += Number(count);
 	}
 
 	if(specie == undefined){
@@ -36,11 +36,26 @@ function createList() {
 
 	//loop through array adding a list item for each species
 	for (let i = 0; i < zooArray.length; i++) {
-		html += "<li>" + zooArray[i].name + zooArray[i].count + "</li>";
+		html += `<li>${zooArray[i].name}  :  ${zooArray[i].count} </li>`;
 	}
 	document.getElementById("zoo").innerHTML = html;
 }
 
 function removeSpecies() {
+	const name = document.getElementById("name").value;
+	const count = document.getElementById("count").value;
+	
+	for(var i = 0; i < zooArray.length; i++){
+		if(zooArray[i].name == name){
+			zooArray[i].count = zooArray[i].count -  count;
+			break;
+		}
+	}
+
+	if(zooArray[i].count <= 0){
+		zooArray.splice(i,1);
+	}
+
+	createList();
 
 }

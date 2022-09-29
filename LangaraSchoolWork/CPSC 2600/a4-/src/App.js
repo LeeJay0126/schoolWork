@@ -28,7 +28,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 
 function App() {
-  
+
   // localStorage.setItem('listOfTasks', JSON.parse(temp));
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
@@ -44,7 +44,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('listOfTasks', JSON.stringify(tasks));
-  },[tasks]);
+  }, [tasks]);
 
   const taskList = tasks.filter(FILTER_MAP[filter]).map((task) => (
     <Todo
@@ -108,9 +108,9 @@ function App() {
 
   function switchHandler() {
     setTheme(!theme);
-    if(theme){
+    if (theme) {
       setThemeDesc('Dark Theme')
-    }else{
+    } else {
       setThemeDesc("Light Theme");
     }
   }
@@ -118,6 +118,9 @@ function App() {
 
   return (
     <div className="todoapp stack-large">
+      <div className="toggleContainer">
+        <input type="checkbox" className="switchToggle" name="toggleSwitch" id="toggleSwitch"></input>
+      </div>
       <h1 >TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
