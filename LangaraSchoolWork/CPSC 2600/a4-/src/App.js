@@ -118,9 +118,9 @@ function App() {
 
   return (
     <div className="todoapp stack-large">
-      <div className="toggleContainer">
+      <label className="toggleContainer">
         <input type="checkbox" className="switchToggle" name="toggleSwitch" id="toggleSwitch"></input>
-      </div>
+      </label>
       <h1 >TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
