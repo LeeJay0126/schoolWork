@@ -115,6 +115,11 @@ function App() {
     }
   }
 
+  function clearData(){
+    localStorage.clear();
+    setTasks([]);
+  };
+
 
   return (
     <div className="todoapp stack-large">
@@ -135,7 +140,7 @@ function App() {
         {taskList}
       </ul>
       <div className="btn-group">
-        <button className="btn" onClick={() => localStorage.clear()}>Clear</button>
+        <button className="btn" onClick={() => clearData()}>Clear</button>
         <button className="btn" onClick={() => switchHandler()}>{themeDesc}</button>
       </div>
     </div>
