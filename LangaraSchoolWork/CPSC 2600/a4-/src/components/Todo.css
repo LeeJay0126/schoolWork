@@ -1,9 +1,0 @@
-.importantEnabled input {
-    border: red;
-}
-
-.importantEnabled label {
-    color: red;
-    font-size: 2rem;
-    text-decoration: underline;
-}
