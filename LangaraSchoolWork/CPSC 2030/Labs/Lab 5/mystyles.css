@@ -1,6 +1,6 @@
 
 .visible {
-    display: block;
+    display: grid;
 }
 
 aside {
@@ -9,19 +9,35 @@ aside {
     bottom: 0;
     right: 0;
     left: 0;
+    height: 50vw;
     background-color: palevioletred;
+    align-items: center;
 }
 
 .aside-wrapper {
     width: 40vw;
     margin: 0 auto;
-    height: 50vw;
-    display: grid;
-    align-items: center;
 }   
 
 #close {
     position: absolute;
     right: 100px;
     top: 35px;
+}
+
+.subtitle:nth-of-type(2) {
+    display: block;
+}
+
+@media only screen and (min-width: 900px) {
+    #subjects ul {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+        justify-content: stretch;
+    }
+    
+    #subjects ul li {
+        flex: 1 1;
+    }
 }
