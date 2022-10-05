@@ -1,4 +1,3 @@
-
 /* RESETS */
 *,
 *::before,
@@ -32,7 +31,7 @@ button {
   line-height: normal;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
-  -webkit-appearance: none;
+  appearance: none;
 }
 button::-moz-focus-inner {
   border: 0;
@@ -62,6 +61,25 @@ body {
   background-color: #f5f5f5;
   color: #4d4d4d;
 }
+
+/*
+  Dark Theme
+*/
+
+.darkTheme {
+  color: white;
+  background: black !important;
+}
+
+/**
+  Custom elements
+**/
+
+.homeNav {
+  display: flex;
+  gap: 10px;
+}
+
 @media screen and (min-width: 620px) {
   body {
     font-size: 1.9rem;
@@ -128,12 +146,14 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .stack-small > * + * {
   margin-top: 1.25rem;
 }
 .stack-large > * + * {
   margin-top: 2.5rem;
 }
+
 @media screen and (min-width: 550px) {
   .stack-small > * + * {
     margin-top: 1.4rem;
@@ -144,6 +164,57 @@ body {
 }
 .stack-exception {
   margin-top: 1.2rem;
+}
+
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 /* END GLOBAL STYLES */
 .todoapp {
@@ -266,7 +337,7 @@ body {
 .c-cb > label::before {
   content: "";
   position: absolute;
-  border: 2px solid currentColor;
+  border: 2px solid currentcolor;
   background: transparent;
 }
 .c-cb > input[type="checkbox"]:focus + label::before {
