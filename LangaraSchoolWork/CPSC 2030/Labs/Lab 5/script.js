@@ -1,20 +1,17 @@
+
 const infoButton = document.getElementById('info');
 const infoCloseButton = document.getElementById("close");
 const aside = document.querySelector("aside");
-let flag = false;
+const photoDiv = document.getElementById("photos");
 
-function handleInfoToggle(){
-    flag = !flag;
-    if(flag){
-        console.log(flag);
-        aside.style.display = "block";
-    }
-    if(!flag){
-        aside.style.display = "none";
-    }
+infoButton.addEventListener("click", handleInfoToggle);
+infoCloseButton.addEventListener("click", handleInfoToggle);
+
+
+function handleInfoToggle() {
+    aside.classList.toggle("visible");
 }
 
-console.log(infoButton);
-
-infoButton.addEventListener("click",handleInfoToggle);
-infoCloseButton.addEventListener("click",handleInfoToggle);
+function populateImages(subject){
+    
+}
