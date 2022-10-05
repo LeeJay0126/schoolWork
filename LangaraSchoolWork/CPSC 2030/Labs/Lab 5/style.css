@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@200;300;400;600&display=swap');
+
+html {
+    font-family: "Fraunces", serif;
+}
+
+header {
+    position: relative;
+}
+
+#info {
+    position: absolute;
+    right:0;
+    top:0;
+    font-size: 2rem;
+    color: rgba(100,115,130);
+    background-color: transparent;
+    border:none;
+    cursor:pointer;
+}
+
+#info:active {
+    color:palevioletred;
+}
+
+h1 {
+    font-size:4rem;
+    color:white;
+    text-shadow:2px 2px 0 palevioletred, -2px 2px 0 palevioletred,2px -2px 0 palevioletred,-2px -2px 0 palevioletred
+}
+
+.subtitle:first-of-type {
+    font-family: "arial", sans-serif;
+    font-size:2rem;
+    color: palevioletred;
+}
+
+.subtitle:nth-of-type(2) {
+    color:rgba(100,115,130);
+    font-family: "Fraunces", serif;
+    text-transform: lowercase;
+    font-size:1.5rem;
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right; 
+    position:absolute;
+    right:-2em;
+    bottom:0;
+    height:max-content;
+    display:none;
+}
+
+.wrapper {
+    border-left:1px solid rgba(255,200,140);
+    border-right:1px solid rgba(255,200,140);
+    padding:1rem;
+    max-width:600px; 
+    margin:auto;
+}
+
+header {
+    padding-top:1px;
+}
+
+#photos img {
+    object-fit: cover;
+    width:100%;
+    height:300px;
+}
+
+
+#subjects {
+    border-bottom: 1px solid rgba(100,115,130);
+}
+
+#subjects ul {
+    list-style-type: none;
+    padding:0;
+}
+
+#subjects ul li button {
+    background-color: rgba(100,115,130);
+    color:white;
+    padding:.5em;
+    border:none;
+    font-size: 1rem;
+    cursor:pointer;
+    width:100%;
+}
+
+#subjects button:active {
+    background-color: palevioletred;;
+}
+
+aside {
+    display: none;
+}
+
+@media screen and (min-width:900px) {
+
+    h1 {
+        font-size:8vw;
+    }
+}
+
+/* @media screen and (min-width:1080px) { */
+    /* .subtitle:nth-of-type(2) { */
+        /* display:block; */
+    /* } */
+/* } */
+
