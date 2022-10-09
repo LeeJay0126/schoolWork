@@ -5,18 +5,19 @@ import Error from "./components/Error";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 
-function App(){
+function App() {
 
   return (
-    
-    <div className="todoapp stack-large">
+    <div>
       <Navbar />
+    <div className="todoapp stack-large">
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/about" component={About} />
         <Route component={Error} />
       </Switch>
     </div>
+      </div>
   );
 }
 

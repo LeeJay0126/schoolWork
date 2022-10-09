@@ -37,8 +37,6 @@ function Home() {
 
   useEffect(()=> {
     const themeData = localStorage.getItem('themes');
-    console.log(themeData);
-    console.log(themeData === "true");
     if(themeData === "true"){
       setTheme(true);
     }else{
