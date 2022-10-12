@@ -29,6 +29,27 @@ function Form(props) {
                 autoComplete="off"
                 value={name}
                 onChange={handleChange}
+                placeholder="Song Name"
+            />
+            <input
+                type="text"
+                id="new-todo-input"
+                className="input input__lg"
+                name="text"
+                autoComplete="off"
+                value={name}
+                onChange={handleChange}
+                placeholder="Artist Name"
+            />
+            <input
+                type="text"
+                id="new-todo-input"
+                className="input input__lg"
+                name="text"
+                autoComplete="off"
+                value={name}
+                onChange={handleChange}
+                placeholder="Genre"
             />
             <button type="submit" className="btn btn__primary btn__lg">
                 Add
