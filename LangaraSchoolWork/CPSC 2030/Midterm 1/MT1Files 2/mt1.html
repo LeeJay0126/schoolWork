@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>MT1</title>
+	<meta charset="utf-8">
+	<script src="https://kit.fontawesome.com/39cbf8668b.js" crossorigin="anonymous"></script>
+
+	<style>
+		main {
+			text-align: center;
+			display: none;
+		}
+
+		#smallImages {
+			display: flex;
+			gap: 30px;
+		}
+
+		#smallImages img {
+			transition: all 0.5s;
+
+			animation-name: sidemove;
+			animation-duration: 5s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		@keyframes sidemove {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(70vw);
+			}
+		}
+
+		#smallImages img:hover {
+			scale: 1.2;
+		}
+
+		.visible {
+			display: block;
+			margin: 0 auto;
+			border: solid 1px black;
+		}
+
+		#close {
+			position: absolute;
+			right: 30px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="smallImages">
+
+	</div>
+
+	<main>
+		<button id="close"><i class="fas fa-times"></i></button>
+		<h1>Images On Langara College</h1>
+		<br><button id="prev">Prev</button>
+		<button id="next">Next</button><br><br>
+		<figure>
+			<img id="langara" src="LangaraImages/langara.jpg" width="250" height="166">
+			<figcaption id="caption">Beautiful Langara College</figcaption>
+		</figure>
+	</main>
+</body>
+<script>
+	// Create an array of images and another array of captions
+	let images = ["langara.jpg", "golfcourse.jpg", "students.jpg", "t-building.jpg", "c-building.jpg"];
+	let captions = ["Beautiful Langara College", "What a beautiful day!", "Student Union", "The T Building", "The C Building"];
+
+	let imageNo = 0;
+
+	// Go to the next image and caption
+	function nextImage() {
+		imageNo++;
+		if (imageNo == images.length)
+			imageNo = 0;
+
+		document.getElementById("langara").src = "LangaraImages/" + images[imageNo];
+		document.getElementById("caption").innerHTML = captions[imageNo];
+	}
+
+	// Go to the previous image and caption
+	function prevImage() {
+		imageNo--;
+		if (imageNo < 0)
+			imageNo = images.length - 1;
+
+		document.getElementById("langara").src = "LangaraImages/" + images[imageNo];
+		document.getElementById("caption").innerHTML = captions[imageNo];
+	}
+
+	function displayMain(e){
+		document.querySelector("main").classList.add("visible");
+		const target = e.currentTarget.src;
+		for(let i = 0; i < images.length; i++){
+			if(target.endsWith(images[i])){
+				imageNo = i;
+				document.getElementById("langara").src=`LangaraImages/${images[i]}`;
+				document.getElementById("caption").innerHTML = captions[i];
+			}
+		}
+
+	}
+
+	const smallImageAdder = () => {
+		for (let i = 0; i < images.length; i++) {
+			let img = document.createElement("img");
+			const src = `LangaraImages/${images[i]}`;
+			img.src = src;
+			img.width = img.width / 2;
+			img.height = img.height / 2;
+			img.addEventListener("click", displayMain);
+			document.getElementById("smallImages").appendChild(img);
+		}
+	}
+
+	const addCloseToCloseButton = () => {
+		document.querySelector('main').classList.remove('visible');
+	}
+
+	function checkKey(e) {
+		if(e.keyCode == 39){
+			nextImage();
+		}
+		if(e.keyCode == 37){
+			prevImage();
+		}
+
+	}
+
+	smallImageAdder();
+	document.getElementById('close').addEventListener("click",addCloseToCloseButton);
+	document.getElementById('next').addEventListener("click",nextImage);
+	document.getElementById('prev').addEventListener("click",prevImage);
+	document.addEventListener('keydown', checkKey);
+</script>
+
+</html>
