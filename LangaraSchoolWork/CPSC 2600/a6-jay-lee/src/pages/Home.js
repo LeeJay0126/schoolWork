@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Posts from '../components/Posts';
 import axios from 'axios';
+import Spinner from '../components/Spinner';
 
 function Home() {
   const [appState, setAppState] = useState({
@@ -13,13 +14,15 @@ function Home() {
       setAppState({ loading: true });
       const apiURL = "https://jsonplaceholder.typicode.com/posts";
       const arrayList = await axios.get(apiURL);
-      setAppState({ loading: false, posts: arrayList.data.slice(0,5)});
+      setAppState({ loading: false, posts: arrayList.data.slice(0, 5) });
     }
     fetchData();
   }, [setAppState]);
 
   return (
-    <Posts isLoading={appState.loading} posts={appState.posts} />
+    <div>
+      {appState.loading ? <Spinner/> : <Posts isLoading={appState.loading} posts={appState.posts} />}
+    </div>
   );
 
 }
