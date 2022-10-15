@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       setAppState({ loading: true });
-      const apiURL = "https://jsonplaceholder.typicode.com/posts";
+      const apiURL = "https://jsonplaceholder.typicode.com/todos";
       const arrayList = await axios.get(apiURL);
       setAppState({ loading: false, posts: arrayList.data.slice(0, 5) });
     }
