@@ -33,7 +33,7 @@ export const addTech = tech => async dispatch => {
 
     const res = await fetch("/techs", {
       method: "POST",
-      body: JSON.stringify(log),
+      body: JSON.stringify(tech),
       headers: {
         "Content-Type": "application/json"
       }
