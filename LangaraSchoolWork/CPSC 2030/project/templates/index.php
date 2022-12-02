@@ -1,3 +1,9 @@
+<?php
+    if($login){
+        header("Location: http://localhost/project/main.php",true, 301);
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +11,9 @@
     <title>Sign in Page</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="general.css">
 
-    <script>
+    <!-- <script>
         $(function() {
             $("form").validate({
 
@@ -34,7 +41,7 @@
                 }
             });
         });
-    </script>
+    </script> -->
 
 </head>
 
@@ -44,12 +51,24 @@
                 LeeJay
             </a></div>
     </div>
-    <section class="card">
+    <form class="card" action="http://localhost/project/index.php" METHOD="get">
         <h1 class="cardHeading">Sign In</h1>
         <div class="inputFlexbox">
             <ion-icon name="person-outline" class="inputIcon"></ion-icon>
+            <label>Username: </label>
+            <input class="inputbox" name="username" placeholder="username123" />
         </div>
-    </section>
+        <div class="inputFlexbox">
+            <ion-icon name="keypad" class="inputIcon"></ion-icon>
+            <label>Password: </label>
+            <input class="inputbox" name="password" placeholder="password123" />
+        </div>
+        <section class="buttonFlex">
+            <button type="submit" name="button" class="submitButton">Sign In</button>
+            <button type="nav" class="submitButton"><a href="signup.php">or.. Sign Up</a></button>
+        </section>
+    </form>
+
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
