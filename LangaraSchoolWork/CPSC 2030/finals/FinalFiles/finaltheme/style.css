@@ -1,0 +1,42 @@
+/*
+Theme Name: Final Theme
+ */
+
+nav ul {
+  border:10px solid #B0D0E6;
+}
+
+article {
+  background-color: #FFE4E2;
+  display: none;
+
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+main {
+  position: relative;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+}
+
+header {
+  grid-column: 1/-1;
+}
+
+nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  list-style-type: none;
+  padding:0;
+}
+
+nav button {
+  width:100%;
+}
