@@ -1,0 +1,78 @@
+body {background-image: url(images/course.jpg);
+	color: white;
+}
+
+
+#wrapper {margin-left: auto;
+		margin-right: auto;
+		margin-top: 0;
+		width: 60%;
+		background-color: #eeffee;
+		color: darkblue;
+		padding: 0 10px;
+		position: relative;
+}
+
+div#banner {background-image: url(images/house.jpg);
+	height: 60px;
+}
+
+h1 {padding: 5px;
+	margin: 0;
+}
+main {	
+	display: none;
+}
+
+#close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+		
+table {border: 2px solid blue;
+		background-color: pink;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		
+}
+caption {font-size: 1.5rem;
+	color: blue;
+	margin: 10px 0;
+}
+
+th, td {border: 1px solid black;
+	padding: 5px;
+	
+}
+
+form { 
+	   font-family: Arial, sans-serif;
+	   padding: 10px;	
+}
+label { 
+		font-size: 1.05rem;
+		text-align: right; 
+		padding-right: 10px;
+		margin-top: 10px; 
+}
+input { margin-top: 10px; 
+		margin-right: 10px;
+} 
+.submit {
+	border: none;
+	font-size: 1.1rem;
+	background-color: green;
+}
+
+.error
+{
+	color: red;
+}
+.failure-message
+{
+  color: red; /*deeppink;*/
+  font-style: italic;
+}
+
