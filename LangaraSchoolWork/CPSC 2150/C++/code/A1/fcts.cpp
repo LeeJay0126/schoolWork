@@ -53,9 +53,54 @@ void swapPairsLeftToRight(int A[], int n)
 //------------------------------------------------------------------------------
 //
 //
+// helper function for returning the right hexadecimal for the given input
+char toHexDecimal(int n)
+{
+
+   char result = n;
+
+   switch (n)
+   {
+   case 10:
+      n = 'A';
+      break;
+   case 11:
+      n = 'B';
+      break;
+   case 12:
+      n = 'C';
+      break;
+   case 13:
+      n = 'D';
+      break;
+   case 14:
+      n = 'E';
+      break;
+   case 15:
+      n = 'F';
+      break;
+   case 16:
+      n = 'G';
+      break;
+   default:
+      n = n;
+   }
+
+   return n;
+}
+
 void outputAsHex(unsigned int n, ostream &out)
 {
-   cerr << "+++++++++++++ outputAsHex not implemented ++++++++++++++++++++++\n";
+   if (!(n >= 16))
+   {
+      int remainder = n % 16;
+      int nextInt = n / 16;
+      char newHex = toHexDecimal(remainder);
+
+      out << newHex;
+
+      outputAsHex(nextInt, out);
+   }
 }
 
 //------------------------------------------------------------------------------
@@ -63,7 +108,7 @@ void outputAsHex(unsigned int n, ostream &out)
 //
 void outInOctal(unsigned int n, ostream &out)
 {
-   cerr << "000000 outInOctal not implemented 000000000000000000000000000000\n";
+   
 }
 
 //------------------------------------------------------------------------------
