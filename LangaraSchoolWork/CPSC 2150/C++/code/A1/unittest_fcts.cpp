@@ -1,4 +1,4 @@
-// Name: 
+// Name: Jay Lee
 
 // CPSC 2150, Assignment #1 by Gladys Monagan
 // Do not post anywhere.

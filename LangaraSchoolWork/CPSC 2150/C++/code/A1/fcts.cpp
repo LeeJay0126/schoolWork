@@ -54,10 +54,10 @@ void swapPairsLeftToRight(int A[], int n)
 //
 //
 // helper function for returning the right hexadecimal for the given input
-char toHexDecimal(int n)
+char toHexDecimal(int result)
 {
 
-   char result = n;
+   char n = result;
 
    switch (n)
    {
@@ -83,7 +83,7 @@ char toHexDecimal(int n)
       n = 'G';
       break;
    default:
-      n = n;
+      n = result + '';
    }
 
    return n;
@@ -91,11 +91,11 @@ char toHexDecimal(int n)
 
 void outputAsHex(unsigned int n, ostream &out)
 {
-   if (!(n >= 16))
+   if (!(n == 0))
    {
       int remainder = n % 16;
       int nextInt = n / 16;
-      char newHex = toHexDecimal(remainder);
+      char *newHex = toHexDecimal(remainder);
 
       out << newHex;
 
@@ -108,15 +108,46 @@ void outputAsHex(unsigned int n, ostream &out)
 //
 void outInOctal(unsigned int n, ostream &out)
 {
-   
+   if (!(n == 0))
+   {
+      int octal = n & 7;
+      int octalChar = octal + '';
+      out << octalChar;
+
+      outInOctal(octal << 3, out);
+   }
 }
 
 //------------------------------------------------------------------------------
 //
 //
+int patternCounter(const string pattern, const string str, int counter, int index)
+{
+   if (index >= pattern.length)
+   {
+      return count;
+   }
+   if (pattern[index] == str[0] && pattern.length - index - 1 >= 3)
+   {
+      if (pattern[index + 1] == str[1] && pattern[index + 2] == str[2])
+      {
+         patternCounter(pattern, str, counter + 1, index + 3);
+      }
+   }
+   else
+   {
+      patternCounter(pattern, str, counter, index + 1);
+   }
+}
+
 bool insideInOrder(const string &pattern, int m, const string &str)
 {
-   cerr << "-------- insideInOrder not implemented -------------------------\n";
+   int valid = patternCounter(pattern, m, str);
+   if (valid >= m)
+   {
+      return true;
+   }
+   return false;
 }
 
 //------------------------------------------------------------------------------
@@ -125,4 +156,24 @@ bool insideInOrder(const string &pattern, int m, const string &str)
 bool insideInOrderI(const string &pattern, int m, const string &str)
 {
    cerr << "________ insideInOrder not implemented _________________________\n";
+   int count = 0;
+   for (int i = 0; i < pattern.length; i++)
+   {
+      if (pattern[i] == str[0] && pattern[i + 1] == str[1] && pattern[i + 2] == str[2])
+      {
+         count += 1;
+         i += 2;
+      }
+      else
+      {
+         i += 1;
+      }
+   }
+
+   if (count >= m)
+   {
+      return true;
+   }
+
+   return false;
 }
