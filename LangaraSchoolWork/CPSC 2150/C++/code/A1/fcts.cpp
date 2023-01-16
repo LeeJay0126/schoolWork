@@ -54,17 +54,10 @@ void swapPairsLeftToRight(int A[], int n)
 //
 //
 // helper function for returning the right hexadecimal for the given input
-string toHexDecimal(int number, string resultString)
+char toHexDecimal(int number)
 {
 
-   if(number == 0){
-      return resultString;
-   }
-
-   int remainder = number % 16;
-   int nextInt = number / 16;
-
-   char n = remainder;
+   int n = number;
 
    switch (n)
    {
@@ -90,18 +83,23 @@ string toHexDecimal(int number, string resultString)
       n = 'G';
       break;
    default:
-      n = char(remainder);
+      n = char(n);
    }
 
-   toHexDecimal(nextInt, resultString + n);
+   return n;
 }
 
 void outputAsHex(unsigned int n, ostream &out)
 {
-      string newHex = toHexDecimal(n, "");
-
-      out << newHex;
-
+   if (!(n == 0))
+   {
+      int remainder = n % 16;
+      int nextInt = n / 16;
+      char newChar = toHexDecimal(remainder);
+      out << newChar;
+      
+      outputAsHex(nextInt, out);
+   }
 }
 
 //------------------------------------------------------------------------------
