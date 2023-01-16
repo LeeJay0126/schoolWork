@@ -18,11 +18,11 @@ using std::string, std::cerr, std::ostream;
 //    A[0] > A[1] > ... > A[n-1]
 bool isStrictlyDescending(const int A[], int n)
 {
-   if (n - 1 == 0 & A[n] > A[n - 1])
+   if ((n - 1) == 0 & A[n] > A[n - 1])
    {
       return true;
    };
-   if (n - 1 == 0 & A[n] < A[n - 1])
+   if ((n - 1) == 0 & A[n] < A[n - 1])
    {
       return false;
    }
@@ -54,10 +54,17 @@ void swapPairsLeftToRight(int A[], int n)
 //
 //
 // helper function for returning the right hexadecimal for the given input
-char toHexDecimal(int result)
+string toHexDecimal(int number, string resultString)
 {
 
-   char n = result;
+   if(number == 0){
+      return resultString;
+   }
+
+   int remainder = number % 16;
+   int nextInt = number / 16;
+
+   char n = remainder;
 
    switch (n)
    {
@@ -83,24 +90,18 @@ char toHexDecimal(int result)
       n = 'G';
       break;
    default:
-      n = result + '';
+      n = char(remainder);
    }
 
-   return n;
+   toHexDecimal(nextInt, resultString + n);
 }
 
 void outputAsHex(unsigned int n, ostream &out)
 {
-   if (!(n == 0))
-   {
-      int remainder = n % 16;
-      int nextInt = n / 16;
-      char *newHex = toHexDecimal(remainder);
+      string newHex = toHexDecimal(n, "");
 
       out << newHex;
 
-      outputAsHex(nextInt, out);
-   }
 }
 
 //------------------------------------------------------------------------------
@@ -111,7 +112,7 @@ void outInOctal(unsigned int n, ostream &out)
    if (!(n == 0))
    {
       int octal = n & 7;
-      int octalChar = octal + '';
+      char octalChar = char(octal);
       out << octalChar;
 
       outInOctal(octal << 3, out);
@@ -123,11 +124,11 @@ void outInOctal(unsigned int n, ostream &out)
 //
 int patternCounter(const string pattern, const string str, int counter, int index)
 {
-   if (index >= pattern.length)
+   if (index >= pattern.length())
    {
-      return count;
+      return counter;
    }
-   if (pattern[index] == str[0] && pattern.length - index - 1 >= 3)
+   if (pattern[index] == str[0] && pattern.length() - index - 1 >= 3)
    {
       if (pattern[index + 1] == str[1] && pattern[index + 2] == str[2])
       {
@@ -142,7 +143,7 @@ int patternCounter(const string pattern, const string str, int counter, int inde
 
 bool insideInOrder(const string &pattern, int m, const string &str)
 {
-   int valid = patternCounter(pattern, m, str);
+   int valid = patternCounter(pattern, str, 0, 0);
    if (valid >= m)
    {
       return true;
@@ -157,7 +158,7 @@ bool insideInOrderI(const string &pattern, int m, const string &str)
 {
    cerr << "________ insideInOrder not implemented _________________________\n";
    int count = 0;
-   for (int i = 0; i < pattern.length; i++)
+   for (int i = 0; i < pattern.length(); i++)
    {
       if (pattern[i] == str[0] && pattern[i + 1] == str[1] && pattern[i + 2] == str[2])
       {
