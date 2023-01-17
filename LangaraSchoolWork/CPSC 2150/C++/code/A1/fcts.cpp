@@ -39,12 +39,13 @@ bool isStrictlyDescending(const int A[], int n)
 // precondition: n > 0
 void swapPairsLeftToRight(int A[], int n)
 {
-   if (!(n <= 0))
+   if (n > 1)
    {
       int temp;
-      temp = A[n - 1];
-      A[n - 1] = A[n - 2];
-      A[n - 2] = temp;
+      int length = sizeof(A)/sizeof(A[0]);
+      temp = A[length - 1];
+      A[length - 1] = A[length - 2];
+      A[length - 2] = temp;
 
       swapPairsLeftToRight(A, n - 2);
    }
@@ -91,19 +92,19 @@ char toHexDecimal(int number)
 
 void outputAsHex(unsigned int n, ostream &out)
 {
-   if (!(n == 0))
+   if (n != 0)
    {
       int remainder = n % 16;
       int nextInt = n / 16;
       char newChar = toHexDecimal(remainder);
-      out << newChar;
-      
       outputAsHex(nextInt, out);
+      
+      out << newChar;
    }
 }
 
 //------------------------------------------------------------------------------
-//
+// 
 //
 void outInOctal(unsigned int n, ostream &out)
 {
@@ -111,9 +112,9 @@ void outInOctal(unsigned int n, ostream &out)
    {
       int octal = n & 7;
       char octalChar = char(octal);
-      out << octalChar;
-
       outInOctal(octal << 3, out);
+
+      out << octalChar;
    }
 }
 
@@ -154,7 +155,7 @@ bool insideInOrder(const string &pattern, int m, const string &str)
 //
 bool insideInOrderI(const string &pattern, int m, const string &str)
 {
-   cerr << "________ insideInOrder not implemented _________________________\n";
+   // cerr << "________ insideInOrder not implemented _________________________\n";
    int count = 0;
    for (int i = 0; i < pattern.length(); i++)
    {
