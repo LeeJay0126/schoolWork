@@ -10,7 +10,7 @@
 using std::string, std::cerr, std::ostream;
 
 //---------------------------------------------------------------------------//
-//
+// Function that verifies if an array is in strictly descending order
 //
 // precondition:
 //    0 <= n <= declared size of A
@@ -18,36 +18,45 @@ using std::string, std::cerr, std::ostream;
 //    A[0] > A[1] > ... > A[n-1]
 bool isStrictlyDescending(const int A[], int n)
 {
-   if ((n - 1) == 0 & A[n] > A[n - 1])
+   if (n == 0 || n == 1)
    {
       return true;
-   };
-   if ((n - 1) == 0 & A[n] < A[n - 1])
+   }
+
+   if (n == 2 && A[n - 1] > A[n - 2])
+   {
+      return true;
+   }
+
+   if (A[n - 1] >= A[n - 2])
    {
       return false;
    }
-   if (A[n - 2] > A[n - 1])
-   {
-      return false;
-   };
 
-   return isStrictlyDescending(A, n - 1);
+   isStrictlyDescending(A, n - 1);
 }
 
 //---------------------------------------------------------------------------//
-//
+// function that swap pairs from left to right
 // precondition: n > 0
+//
 void swapPairsLeftToRight(int A[], int n)
 {
-   if (n > 1)
-   {
-      int temp;
-      int length = sizeof(A)/sizeof(A[0]);
-      temp = A[length - 1];
-      A[length - 1] = A[length - 2];
-      A[length - 2] = temp;
 
-      swapPairsLeftToRight(A, n - 2);
+   if (n >= 2)
+   {
+      if (n % 2 == 1)
+      {
+         swapPairsLeftToRight(A, n - 1);
+      }
+      else
+      {
+         int temp;
+         temp = A[n - 1];
+         A[n - 1] = A[n - 2];
+         A[n - 2] = temp;
+         swapPairsLeftToRight(A, n - 2);
+      }
    }
 }
 
@@ -84,70 +93,100 @@ char toHexDecimal(int number)
       n = 'G';
       break;
    default:
-      n = char(n);
+      n = n + 48;
    }
 
    return n;
 }
+//------------------------------------------------------------------------------
+//
+//
+// helper function for returning the right hexadecimal for the given input
 
-void outputAsHex(unsigned int n, ostream &out)
+void helperHex(unsigned int n, ostream &out)
 {
    if (n != 0)
    {
       int remainder = n % 16;
       int nextInt = n / 16;
-      char newChar = toHexDecimal(remainder);
+      char newChar;
+      newChar = toHexDecimal(remainder);
       outputAsHex(nextInt, out);
-      
+
       out << newChar;
    }
 }
+//------------------------------------------------------------------------------
+//
+//
+// Function that takes unsigned int n and ostream &out to convert decimal number
+// to a hexadecimal
+void outputAsHex(unsigned int n, ostream &out)
+{
+   // if (n == 0)
+   // {
+   //    out << 0;
+   // }
+   // else
+   // {
+   helperHex(n, out);
+   // }
+}
 
 //------------------------------------------------------------------------------
-// 
 //
+// function that takes decimal number and returns it in octal
 void outInOctal(unsigned int n, ostream &out)
 {
    if (!(n == 0))
    {
       int octal = n & 7;
-      char octalChar = char(octal);
       outInOctal(octal << 3, out);
 
-      out << octalChar;
+      out << octal;
    }
 }
 
 //------------------------------------------------------------------------------
 //
-//
-int patternCounter(const string pattern, const string str, int counter, int index)
+// helper function that counts the number of patterns in a string
+int patternCounter(const string pattern, const string str, int counter, int strCount, int index, int validCount)
 {
-   if (index >= pattern.length())
+   if (index == pattern.length())
    {
       return counter;
    }
-   if (pattern[index] == str[0] && pattern.length() - index - 1 >= 3)
+   if (pattern[index] == str[strCount])
    {
-      if (pattern[index + 1] == str[1] && pattern[index + 2] == str[2])
+      if (strCount + 1 == str.length())
       {
-         patternCounter(pattern, str, counter + 1, index + 3);
+         patternCounter(pattern, str, counter + 1, 0, index + 1, 0);
+      }
+      else
+      {
+         patternCounter(pattern, str, counter, strCount + 1, index + 1, validCount + 1);
       }
    }
    else
    {
-      patternCounter(pattern, str, counter, index + 1);
+      patternCounter(pattern, str, counter, 0, index + 1, 0);
    }
+
+   return 0;
 }
 
 bool insideInOrder(const string &pattern, int m, const string &str)
 {
-   int valid = patternCounter(pattern, str, 0, 0);
+   int valid = patternCounter(pattern, str, 0, 0, 0, 0);
+   cerr << valid;
    if (valid >= m)
    {
       return true;
    }
-   return false;
+   else
+   {
+      return false;
+   }
 }
 
 //------------------------------------------------------------------------------
