@@ -123,14 +123,8 @@ void helperHex(unsigned int n, ostream &out)
 // to a hexadecimal
 void outputAsHex(unsigned int n, ostream &out)
 {
-   // if (n == 0)
-   // {
-   //    out << 0;
-   // }
-   // else
-   // {
+
    helperHex(n, out);
-   // }
 }
 
 //------------------------------------------------------------------------------
