@@ -229,7 +229,7 @@ class  List {
       // you can overload the functions above as well
 
       // Return last node of the list with given head
-      static Node* tailNode(Node *start);
+      // static Node* tailNode(Node *start);
 
 
 };

@@ -152,17 +152,60 @@ List::Node *List::copyList(const Node *p)
 //    returns a new list with the odd positioned values of this->head
 List List::odds() const
 {
+   if (head == NULL)
+   {
+      return;
+   };
+
    Node *newNode;
    newNode = head;
+
+   List newList = List();
+   newList.head = head;
+
    int count = 1;
 
-   while()
+   while (newNode->link != nullptr)
+   {
+      count += 1;
+      newNode = newNode->link;
+      if (count % 2 == 1)
+      {
+         newList.insert(newNode->val);
+      }
+   }
+
+   return newList;
 }
 
 // postcondition:
 //    returns a new list with the even positioned values of this->head
 List List::evens() const
 {
+   if (head == NULL)
+   {
+      return;
+   };
+
+   Node *newNode;
+   newNode = head;
+
+   List newList = List();
+   newList.head = head;
+
+   int count = 1;
+
+   while (newNode->link != nullptr)
+   {
+      count += 1;
+      newNode = newNode->link;
+      if (count % 2 == 0)
+      {
+         newList.insert(newNode->val);
+      }
+   }
+
+   return newList;
 }
 
 // postcondition:
