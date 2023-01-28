@@ -56,7 +56,12 @@ bool List::isEmpty() const
 
 void List::insert(short x)
 {
-
+   Node *temp;
+   temp = insert(x, head);
+   if (temp != head)
+   {
+      head = temp;
+   }
 }
 
 // precondition:
@@ -65,32 +70,93 @@ void List::insert(short x)
 //    x is inserted into p in order and the beginning of the list is returned
 List::Node *List::insert(short x, Node *p)
 {
-   if(p->val <= x && p->link->val >= x ){
-      
+   Node *start = p;
+   Node *newNode;
+   newNode->val = x;
+
+   if (start->val > x)
+   {
+      newNode->link = p;
+      return newNode;
    }
+
+   while (start->link != nullptr)
+   {
+      if (start->val <= x && start->link->val >= x)
+      {
+         newNode->link = start->link;
+         start->link = newNode;
+         return p;
+      }
+      start = start->link;
+   }
+
+   start->link = newNode;
+   newNode->link = nullptr;
+   return p;
 }
+
+// List::Node *List::tailNode(Node *start)
+// {
+//    Node *temp;
+//    temp = start;
+//    if (temp->val == NULL)
+//    {
+//       return temp;
+//    };
+//    while (temp->link != NULL)
+//    {
+//       temp = temp->link;
+//    };
+//    return temp;
+// }
 
 // calculate and return the number of elements in the list this->head
 int List::length() const
 {
-   return length(this->head);
+   return length(head);
 }
 
 // return the number of elements in p
 int List::length(const Node *p)
 {
+   const Node *cursor;
+   int answer;
+
+   answer = 0;
+   for (cursor = p; cursor != NULL; cursor = cursor->link)
+      ++answer;
+
+   return answer;
 }
 
 // postcondition:
 //    return a copy of the linked list pointed to by p
 List::Node *List::copyList(const Node *p)
 {
+   if (p == NULL)
+   {
+      return;
+   }
+   else
+   {
+      Node *newList;
+      newList->val = p->val;
+      newList->link = copyList(p->link);
+
+      return newList;
+   }
 }
 
 // postcondition:
 //    returns a new list with the odd positioned values of this->head
 List List::odds() const
 {
+   Node *newNode;
+   newNode = head;
+   int count = 1;
+
+   while()
 }
 
 // postcondition:

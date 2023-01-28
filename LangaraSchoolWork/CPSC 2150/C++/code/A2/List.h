@@ -228,6 +228,9 @@ class  List {
       // you can declare other constructors too
       // you can overload the functions above as well
 
+      // Return last node of the list with given head
+      static Node* tailNode(Node *start);
+
 
 };
  
