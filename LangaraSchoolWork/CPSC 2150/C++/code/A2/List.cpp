@@ -96,21 +96,6 @@ List::Node *List::insert(short x, Node *p)
    return p;
 }
 
-// List::Node *List::tailNode(Node *start)
-// {
-//    Node *temp;
-//    temp = start;
-//    if (temp->val == NULL)
-//    {
-//       return temp;
-//    };
-//    while (temp->link != NULL)
-//    {
-//       temp = temp->link;
-//    };
-//    return temp;
-// }
-
 // calculate and return the number of elements in the list this->head
 int List::length() const
 {
@@ -215,19 +200,82 @@ bool List::removeAll(short x)
 {
    Node *temp = head;
    Node *prev = head;
-   if (head->val == x)
+   Node *current = head;
+
+   bool validator = false;
+
+   while (current->link != nullptr)
    {
-      temp = head->link;
-      delete head;
-      head = prev;
-   }
-   while (temp->link != nullptr)
-   {
-      if (temp->val == x)
+      if (current->val == x)
       {
-         
+         if (current == head)
+         {
+            head = head->link;
+            current = head;
+            prev = head;
+         }
+         else
+         {
+            temp = current->link;
+            prev->link = temp;
+            delete current;
+            current = temp;
+            validator = true;
+         }
       }
    }
+
+   return validator;
+}
+
+bool List::search(short x) const
+{
+   return search(x, head);
+}
+
+bool List::search(short x, const Node *p)
+{
+   if (p->link == nullptr || p == NULL)
+   {
+      return false;
+   }
+   if (x == p->val)
+   {
+      return true;
+   }
+   if (x < p->val)
+   {
+      return false;
+   }
+   search(x, p->link);
+}
+
+short List::first() const
+{
+   if (head == NULL)
+   {
+      return List::NOT_DEFINED;
+   };
+
+   return head->val;
+}
+
+short List::last() const
+{
+   Node *temp;
+   temp = head;
+
+   if (head == NULL)
+   {
+      return List::NOT_DEFINED;
+   };
+
+   while (temp->link != nullptr)
+   {
+      temp = temp->link;
+   };
+
+   return temp->val;
 }
 
 // postcondition:
@@ -249,6 +297,15 @@ std::ostream &operator<<(std::ostream &out, const List &list)
 {
    out << List::START;
    List::Node *p = list.head;
+
+   if (!(p == NULL))
+   {
+      while (p->link != nullptr)
+      {
+         out << p->val << std::endl;
+         p = p->link;
+      }
+   }
 
    out << List::END;
    return out;

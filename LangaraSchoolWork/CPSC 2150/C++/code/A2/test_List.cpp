@@ -7,6 +7,7 @@
 * hardwired a blank instead of using sep()
 */
 #include "List.h"
+#include "List.cpp"
 #include <iostream>
 #include <string>
 using std::cout, std::cin, std::endl, std::string;
