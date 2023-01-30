@@ -13,7 +13,7 @@ using std::string;
 
 // CPSC2150 define NOT_DEFINED, do not use 0 (!!!!!!!!!!) edit the code below
 // with a value unlikely to occur in the list
-const short List::NOT_DEFINED = -3298721;
+const short List::NOT_DEFINED = -21921;
 
 // for output (static variables)
 // CPSC2150: nothing to do
@@ -134,13 +134,14 @@ int List::length(const Node *p)
 //    return a copy of the linked list pointed to by p
 List::Node *List::copyList(const Node *p)
 {
+   Node *newList;
+
    if (p == NULL)
    {
-      return;
+      return newList;
    }
    else
    {
-      Node *newList;
       newList->val = p->val;
       newList->link = copyList(p->link);
 
@@ -152,15 +153,16 @@ List::Node *List::copyList(const Node *p)
 //    returns a new list with the odd positioned values of this->head
 List List::odds() const
 {
+   List newList = List();
+
    if (head == NULL)
    {
-      return;
+      return newList;
    };
 
    Node *newNode;
    newNode = head;
 
-   List newList = List();
    newList.head = head;
 
    int count = 1;
@@ -182,15 +184,16 @@ List List::odds() const
 //    returns a new list with the even positioned values of this->head
 List List::evens() const
 {
+   List newList = List();
+
    if (head == NULL)
    {
-      return;
+      return newList;
    };
 
    Node *newNode;
    newNode = head;
 
-   List newList = List();
    newList.head = head;
 
    int count = 1;
@@ -206,6 +209,25 @@ List List::evens() const
    }
 
    return newList;
+}
+
+bool List::removeAll(short x)
+{
+   Node *temp = head;
+   Node *prev = head;
+   if (head->val == x)
+   {
+      temp = head->link;
+      delete head;
+      head = prev;
+   }
+   while (temp->link != nullptr)
+   {
+      if (temp->val == x)
+      {
+         
+      }
+   }
 }
 
 // postcondition:
@@ -238,6 +260,7 @@ std::ostream &operator<<(std::ostream &out, const List &list)
 // CPSC2150: a stand-alone operator function, not a member function
 bool operator==(const List &lfSide, const List &rtSide)
 {
+   return List::equalLists(lfSide.head, rtSide.head);
 }
 
 // return true if at least one element of lfSide differs in value or order
@@ -246,27 +269,91 @@ bool operator==(const List &lfSide, const List &rtSide)
 // CPSC2150: a stand-alone operator function, not a member function
 bool operator!=(const List &lfSide, const List &rtSide)
 {
+   bool res = List::equalLists(lfSide.head, rtSide.head);
+   return (!res);
 }
 
 // CPSC2150: copy constructor
 List::List(const List &other) : separator(other.separator)
 {
+   List res;
+   res.head = other.head;
+   Node *init = other.head;
+
+   while (init->link != nullptr)
+   {
+      res.insert(init->val);
+      init = init->link;
+   }
 }
 
 // CPSC2150: overload the assignment operator
 
 List &List::operator=(const List &other)
 {
+
+   List res;
+
+   res.set_sep(other.sep());
+   res.head = other.head;
+   Node *temp;
+   temp = other.head;
+
+   if (temp == NULL)
+   {
+      return res;
+   }
+
+   while (temp->link != nullptr)
+   {
+      res.insert(temp->val);
+      temp = temp->link;
+   }
+
+   return res;
 }
 
 // CPSC2150: destructor
 
 List::~List()
 {
+   Node *temp;
+   while (head != nullptr)
+   {
+      temp = head->link;
+      delete head;
+      head = temp;
+   }
+
+   delete temp;
 }
 
 bool List::equalLists(const Node *p, const Node *q)
 {
+   if (p->val != q->val || p->link != q->link)
+   {
+      return false;
+   };
+
+   Node *first;
+   first = p->link;
+   Node *second;
+   second = p->link;
+
+   while (first != NULL)
+   {
+      if (first->val == second->val)
+      {
+         first = first->link;
+         second = second->link;
+      }
+      else
+      {
+         return false;
+      }
+   };
+
+   return true;
 }
 
 // postcondition:
@@ -274,6 +361,21 @@ bool List::equalLists(const Node *p, const Node *q)
 //    return the nullptr
 List::Node *List::deleteList(Node *p)
 {
+   if (p->link == nullptr)
+   {
+      delete p;
+      return nullptr;
+   }
+
+   Node *temp;
+   while (p->link != nullptr)
+   {
+      temp = p->link;
+      delete p;
+      p = temp;
+   }
+
+   return p;
 }
 
 // copyright 2023 Gladys Monagan
