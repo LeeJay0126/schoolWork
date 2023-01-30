@@ -1,18 +1,19 @@
-/* 
-* Assignment #2, CPSC 2150, Test Program
-* Gladys Monagan
-* Testing does not depend on google test
-* Do not post anywhere
-* Does not test the class List completely (far from it!!!!!!) note even close
-* hardwired a blank instead of using sep()
-*/
+/*
+ * Assignment #2, CPSC 2150, Test Program
+ * Gladys Monagan
+ * Testing does not depend on google test
+ * Do not post anywhere
+ * Does not test the class List completely (far from it!!!!!!) note even close
+ * hardwired a blank instead of using sep()
+ */
 #include "List.h"
 #include "List.cpp"
 #include <iostream>
 #include <string>
-using std::cout, std::cin, std::endl, std::string;
+using namespace std;
 
-void testOverloadedAssignmentOp() {
+void testOverloadedAssignmentOp()
+{
    List a;
    a.insert(2);
    a.insert(1);
@@ -40,19 +41,23 @@ void testOverloadedAssignmentOp() {
 
 // test copy constructor, pass list by value
 // the values of the list being passed is hardcoded to be {11 22 33 55}
-void testCopyConstructor(List other) {
+void testCopyConstructor(List other)
+{
    cout << "\n\tinside of the function testCopyConstructor ... copy made\n\t";
    cout << other << endl;
    cout << "\n\tremove 22 from the copy \n";
-   if (!other.removeAll(22)) {
+   if (!other.removeAll(22))
+   {
       cout << "\tERROR: removed 22 should have returned true\n";
    }
    cout << "\tremove 11 from the copy \n";
-   if (!other.removeAll(11)) {
+   if (!other.removeAll(11))
+   {
       cout << "\tERROR: removed 11 should have returned true\n";
    }
    cout << "\tremove 55 from the copy \n";
-   if (!other.removeAll(55)) {
+   if (!other.removeAll(55))
+   {
       cout << "\tERROR: removed 55 should have returned true\n";
    }
    cout << "\tinsert 22 to the copy \n";
@@ -63,35 +68,42 @@ void testCopyConstructor(List other) {
 }
 
 // test insert into the list
-void testInsert(List& a, short x, string result) {
-   cout << endl; 
+void testInsert(List &a, short x, string result)
+{
+   cout << endl;
    a.insert(x);
    cout << "inserted '" << x << "' expecting: " << result << "\n";
-   cout << a << endl; 
+   cout << a << endl;
 }
 
 // see if removing x from the List a is correct
-void testRemove(List& a, short x, string result) {
+void testRemove(List &a, short x, string result)
+{
    cout << endl;
-   if (a.removeAll(x)) {
+   if (a.removeAll(x))
+   {
       cout << "removed '" << x << "' expecting: " << result << "\n";
    }
-   else {
+   else
+   {
       cout << "ERROR: removed '" << x << "' should have returned true\n";
    }
-   cout << a << endl ;
+   cout << a << endl;
 }
 
-void testSearch(List& a, short x, bool expectedValue) {
+void testSearch(List &a, short x, bool expectedValue)
+{
    cout << endl;
    cout << "searching for " << x << " in " << a;
-   if (expectedValue) {
+   if (expectedValue)
+   {
       if (a.search(x))
          cout << " search as expected";
       else
          cout << " NOT search which is an ERROR!!!!";
    }
-   else {
+   else
+   {
       if (!a.search(x))
          cout << " NOT search as expected";
       else
@@ -100,16 +112,16 @@ void testSearch(List& a, short x, bool expectedValue) {
    cout << endl;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // assumes that List::START is "{", List::END is "}" sep() is " "
 ////////////////////////////////////////////////////////////////////////////////
-int main() {
+int main()
+{
    // use the default constructor
    List a;
    cout << "expecting {}\n";
    cout << a << endl;
-   
+
    // 1 new list is an empty list
    cout << endl;
    if (a.isEmpty())
@@ -150,23 +162,22 @@ int main() {
       cout << "a and b are different as expected\n";
    // look for a removed element
    testSearch(a, 44, false);
-  
+
    // test the copy constructor
    cout << "\nbefore the copy constructor is called\n";
    cout << a << endl;
-   testCopyConstructor(a);   
+   testCopyConstructor(a);
    cout << "\nafter the copy constructor the original is still\n";
    cout << a << endl;
-  
+
    // remove 11 from original
    testRemove(a, 11, "{22 33 55}");
 
    testOverloadedAssignmentOp();
 
    // the destructors are called as a and b go out of scope
-  
+
    return 0;
 }
 
 // copyright 2023 Gladys Monagan
-

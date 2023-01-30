@@ -247,7 +247,7 @@ bool List::search(short x, const Node *p)
    {
       return false;
    }
-   search(x, p->link);
+   return search(x, p->link);
 }
 
 short List::first() const
@@ -298,9 +298,9 @@ std::ostream &operator<<(std::ostream &out, const List &list)
    out << List::START;
    List::Node *p = list.head;
 
-   if (!(p == NULL))
+   if (list.head)
    {
-      while (p->link != nullptr)
+      while (p->val != NULL)
       {
          out << p->val << std::endl;
          p = p->link;
