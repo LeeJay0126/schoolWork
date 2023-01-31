@@ -40,18 +40,21 @@ void List::set_sep(string sep)
 // CPSC2150: the separator variable is initialized correctly
 List::List() : separator(string(" "))
 {
+   head = nullptr;
 }
 
 // postcondition:
 //   returns true if the list is empty, false otherwise
 bool List::isEmpty() const
 {
-   if (head == NULL)
+   if (this->head == nullptr)
    {
       return true;
-   };
-
-   return false;
+   }
+   else
+   {
+      return false;
+   }
 }
 
 void List::insert(short x)
@@ -71,8 +74,14 @@ void List::insert(short x)
 List::Node *List::insert(short x, Node *p)
 {
    Node *start = p;
-   Node *newNode;
+   Node *newNode = new Node;
    newNode->val = x;
+
+   if (p == nullptr)
+   {
+      newNode->link = nullptr;
+      return newNode;
+   }
 
    if (start->val > x)
    {
@@ -105,11 +114,11 @@ int List::length() const
 // return the number of elements in p
 int List::length(const Node *p)
 {
-   const Node *cursor;
+   Node *cursor;
    int answer;
 
    answer = 0;
-   for (cursor = p; cursor != NULL; cursor = cursor->link)
+   for (cursor->link = p->link; cursor != nullptr; cursor = cursor->link)
       ++answer;
 
    return answer;
@@ -119,9 +128,9 @@ int List::length(const Node *p)
 //    return a copy of the linked list pointed to by p
 List::Node *List::copyList(const Node *p)
 {
-   Node *newList;
+   Node *newList = new Node;
 
-   if (p == NULL)
+   if (p == nullptr)
    {
       return newList;
    }
@@ -138,9 +147,9 @@ List::Node *List::copyList(const Node *p)
 //    returns a new list with the odd positioned values of this->head
 List List::odds() const
 {
-   List newList = List();
+   List newList;
 
-   if (head == NULL)
+   if (head == nullptr)
    {
       return newList;
    };
@@ -169,9 +178,9 @@ List List::odds() const
 //    returns a new list with the even positioned values of this->head
 List List::evens() const
 {
-   List newList = List();
+   List newList;
 
-   if (head == NULL)
+   if (head == nullptr)
    {
       return newList;
    };
@@ -204,25 +213,50 @@ bool List::removeAll(short x)
 
    bool validator = false;
 
-   while (current->link != nullptr)
+   if (head == nullptr)
+   {
+      return validator;
+   }
+
+   while (current != nullptr)
    {
       if (current->val == x)
       {
          if (current == head)
          {
-            head = head->link;
-            current = head;
-            prev = head;
+            if (head->link == nullptr)
+            {
+               head = nullptr;
+               validator = true;
+            }
+            else
+            {
+               head = head->link;
+               current = head;
+               prev = head;
+               validator = true;
+            }
          }
          else
          {
-            temp = current->link;
-            prev->link = temp;
-            delete current;
-            current = temp;
-            validator = true;
+            if (current->link != nullptr)
+            {
+               temp = current->link;
+               prev->link = temp;
+               delete current;
+               current = temp;
+               validator = true;
+            }
+            else
+            {
+               prev->link = nullptr;
+               delete current;
+               validator = true;
+            }
          }
       }
+      prev = current;
+      current = current->link;
    }
 
    return validator;
@@ -235,7 +269,7 @@ bool List::search(short x) const
 
 bool List::search(short x, const Node *p)
 {
-   if (p->link == nullptr || p == NULL)
+   if (p == nullptr)
    {
       return false;
    }
@@ -252,7 +286,7 @@ bool List::search(short x, const Node *p)
 
 short List::first() const
 {
-   if (head == NULL)
+   if (head == nullptr)
    {
       return List::NOT_DEFINED;
    };
@@ -265,7 +299,7 @@ short List::last() const
    Node *temp;
    temp = head;
 
-   if (head == NULL)
+   if (head == nullptr)
    {
       return List::NOT_DEFINED;
    };
@@ -298,11 +332,11 @@ std::ostream &operator<<(std::ostream &out, const List &list)
    out << List::START;
    List::Node *p = list.head;
 
-   if (list.head)
+   if (p != nullptr)
    {
-      while (p->val != NULL)
+      while (p != nullptr)
       {
-         out << p->val << std::endl;
+         out << p->val << list.sep();
          p = p->link;
       }
    }
@@ -333,14 +367,19 @@ bool operator!=(const List &lfSide, const List &rtSide)
 // CPSC2150: copy constructor
 List::List(const List &other) : separator(other.separator)
 {
-   List res;
-   res.head = other.head;
-   Node *init = other.head;
 
-   while (init->link != nullptr)
+   Node *newHead = new Node;
+   newHead->val = other.head->val;
+   newHead->link = nullptr;
+
+   this->head = newHead;
+
+   Node *temp = other.head->link;
+
+   while (temp != nullptr)
    {
-      res.insert(init->val);
-      init = init->link;
+      this->insert(temp->val);
+      temp = temp->link;
    }
 }
 
@@ -349,25 +388,31 @@ List::List(const List &other) : separator(other.separator)
 List &List::operator=(const List &other)
 {
 
-   List res;
+   this->set_sep(other.sep());
 
-   res.set_sep(other.sep());
-   res.head = other.head;
-   Node *temp;
-   temp = other.head;
+   delete this->head;
 
-   if (temp == NULL)
+   if (other.head != nullptr)
    {
-      return res;
-   }
 
-   while (temp->link != nullptr)
-   {
-      res.insert(temp->val);
-      temp = temp->link;
-   }
+      Node *newHead = new Node;
+      newHead->val = other.head->val;
+      newHead->link = nullptr;
 
-   return res;
+      this->head = newHead;
+
+      if (other.head->link != nullptr)
+      {
+         Node *temp;
+         temp = other.head->link;
+
+         while (temp != nullptr)
+         {
+            this->insert(temp->val);
+            temp = temp->link;
+         }
+      }
+   }
 }
 
 // CPSC2150: destructor

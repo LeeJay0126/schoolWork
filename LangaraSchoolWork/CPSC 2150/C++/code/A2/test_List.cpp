@@ -7,7 +7,6 @@
  * hardwired a blank instead of using sep()
  */
 #include "List.h"
-#include "List.cpp"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -129,7 +128,7 @@ int main()
    else
       cout << "ERROR: a should have been empty\n";
 
-   // insert into an empty list
+   // // insert into an empty list
    testInsert(a, 3, "{3}");
    testInsert(a, 2, "{2 3}");
    testInsert(a, 1, "{1 2 3}");
@@ -138,21 +137,21 @@ int main()
    testSearch(a, 2, true);
    testSearch(a, 3, true);
 
-   // test remove from middle of list
+   // // test remove from middle of list
    testRemove(a, 2, "{1 3}");
-   // remove 1 from the beginning of the list
+   // // remove 1 from the beginning of the list
    testRemove(a, 1, "{3}");
-   // remove 3 as the single element
+   // // remove 3 as the single element
    testRemove(a, 3, "{}");
 
-   // remove a middle element of the list
+   // // remove a middle element of the list
    testInsert(a, 22, "{22}");
    testInsert(a, 11, "{11 22}");
    testInsert(a, 33, "{11 22 33}");
    testInsert(a, 55, "{11 22 33 55}");
    testInsert(a, 44, "{11 22 33 44 55}");
 
-   // copy constructor
+   // // copy constructor
    List b = List(a);
    testRemove(a, 44, "{11 22 33 55}");
    cout << endl;
