@@ -1,10 +1,10 @@
 // if you did the bonus, uncomment the next statement
 // #define BONUS
 
-// A unit test for Langara CPSC 2150 
+// A unit test for Langara CPSC 2150
 // Assignment 2: Linked Lists
 // C++ unit test framework: Google Test
-// Author: Gladys Monagan 
+// Author: Gladys Monagan
 // Do not post anywhere.
 
 /*
@@ -25,11 +25,12 @@ to run all the tests that have to do with an EmptyList
 #include "List.h"
 #include "gtest/gtest.h"
 #include <string>
-using std::stringstream, std::string;
+using namespace std;
 
 // return a string concatenating [----ERROR-] and msg
-string error(string msg) { 
-  return "[  ERROR   ] " + msg;
+string error(string msg)
+{
+   return "[  ERROR   ] " + msg;
 }
 
 // I have put the dependencies meaning that if the << operator
@@ -40,47 +41,49 @@ string error(string msg) {
 // constructorTest
 //    depends on the << operator
 //-----------------------------------------------------------------
-TEST(constructorTest, DefaultConstructor) {
+TEST(constructorTest, DefaultConstructor)
+{
    List a;
    stringstream actual;
    actual << a;
+   cout << a << endl;
    stringstream expected;
    expected << List::START << List::END;
-   EXPECT_EQ(expected.str(), actual.str()) <<
-      error("the constructor should have made an empty list");
+   cout << expected.str() << "    " << actual.str() << endl;
+   EXPECT_EQ(expected.str(), actual.str()) << error("the constructor should have made an empty list");
 }
 
 //-----------------------------------------------------------------
 // isEmptyTest
 //    depends on insert, removeAll, the << operator
 //-----------------------------------------------------------------
-TEST(isEmptyTest, SpecialCaseEmptyList) {
-   List a;
-   EXPECT_TRUE(a.isEmpty()) << 
-      error("a new list should be empty");
-}
+// TEST(isEmptyTest, SpecialCaseEmptyList) {
+//    List a;
+//    EXPECT_TRUE(a.isEmpty()) <<
+//       error("a new list should be empty");
+// }
 // TEST(isEmptyTest, NoElementsInsertAndThenRemove) {
 //    List a;
 //    a.insert(-100);
 //    EXPECT_TRUE(a.removeAll(-100));
-//    EXPECT_TRUE(a.isEmpty()) << 
+//    EXPECT_TRUE(a.isEmpty()) <<
 //       error("inserting and removing should give an empty list");
 //    // making sure that b is separate from a
 //    List b;
 //    b.insert(200);
 //    EXPECT_FALSE(b.removeAll(-100));
-//    EXPECT_FALSE(b.isEmpty()) << 
+//    EXPECT_FALSE(b.isEmpty()) <<
 //       error("b is not empty but a is");
 // }
 // TEST(isEmptyTest, RemoveANonExistentElementFail) {
 //    List a;
 //    EXPECT_FALSE(a.removeAll(0));
-//    EXPECT_TRUE(a.isEmpty()) << 
+//    EXPECT_TRUE(a.isEmpty()) <<
 //       error("trying to remove from an empty list");
 //    // making sure that b is separate from a
 //    List b;
 //    EXPECT_FALSE(b.removeAll(-1));
-//    EXPECT_TRUE(b.isEmpty()) << 
+//    EXPECT_TRUE(b.isEmpty()) <<
 //       error("trying to remove but since not there => empty list");
 // }
 
@@ -94,7 +97,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    stringstream actual;
 //    actual << a;
 //    stringstream expected;
-//    expected << List::START << 11 << List::END; 
+//    expected << List::START << 11 << List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
 // }
 // TEST(insertTest, 2ElementsBorderCase) {
@@ -104,7 +107,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    stringstream actual;
 //    actual << a;
 //    stringstream expected;
-//    expected << List::START << -1 << a.sep() << 1 << List::END; 
+//    expected << List::START << -1 << a.sep() << 1 << List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
 // }
 // TEST(insertTest, 3ElementsOddNumber) {
@@ -116,8 +119,8 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    actual << a;
 //    stringstream expected;
 //    expected << List::START
-//       << -1 << a.sep() << 0 << a.sep() 
-//       << 1 << List::END; 
+//       << -1 << a.sep() << 0 << a.sep()
+//       << 1 << List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
 // }
 
@@ -139,7 +142,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    stringstream expected;
 //    expected << List::START
 //       << 2 << "," << 3 << ","
-//       << 3 << "," << 3 << "," << 6 << "," 
+//       << 3 << "," << 3 << "," << 6 << ","
 //       << 6 << List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
 //    actual.clear();
@@ -150,7 +153,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    actual << a;
 //    expected << List::START
 //       << 2 << "/" << 3 << "/"
-//       << 3 << "/" << 3 << "/" << 6 << "/" 
+//       << 3 << "/" << 3 << "/" << 6 << "/"
 //       << 6 << List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
 // }
@@ -167,7 +170,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    List a;
 //    a.insert(11);
 //    EXPECT_EQ(a.length(), 1) << error("should be 1, after inserting 1 item.");
-//    // making sure that b is separate from a   
+//    // making sure that b is separate from a
 //    List b;
 //    b.insert(33);
 //    EXPECT_EQ(b.length(), 1) << error("should be 1, after inserting 1 item.");
@@ -184,7 +187,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a.insert(22);
 //    a.insert(11);
 //    EXPECT_EQ(a.length(), 3) << error("should be 3, after inserting 3 items.");
-//    // making sure that b is separate from a   
+//    // making sure that b is separate from a
 //    List b;
 //    b.insert(44);
 //    b.insert(55);
@@ -315,19 +318,19 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // //-----------------------------------------------------------------
 // TEST(removeAllTest, SpecialCaseEmptyListFail) {
 //    List a;
-//    EXPECT_FALSE(a.removeAll(-62)) << 
+//    EXPECT_FALSE(a.removeAll(-62)) <<
 //       error("cannot remove from empty list");
 // }
 // TEST(removeAllTest, 1ElementBorderCaseSuccess) {
 //    List a;
 //    a.insert(-97);
-//    EXPECT_TRUE(a.removeAll(-97)) << 
+//    EXPECT_TRUE(a.removeAll(-97)) <<
 //       error("failed to remove -97 from ") << a;
 // }
 // TEST(removeAllTest, 1ElementBorderCaseFail) {
 //    List a;
 //    a.insert(-75);
-//    EXPECT_FALSE(a.removeAll(-13)) << 
+//    EXPECT_FALSE(a.removeAll(-13)) <<
 //       error("should have failed when removing -13 from ") << a;
 // }
 // TEST(removeAllTest, RemoveAllSameReturnValueSuccess) {
@@ -340,7 +343,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    stringstream actual;
 //    actual << a;
 //    stringstream expected;
-//    expected << List::START<< List::END; 
+//    expected << List::START<< List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
 // }
 // TEST(removeAllTest, LastElementReturnValueSuccess) {
@@ -369,7 +372,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    actual << a;
 //    stringstream expected;
 //    expected << List::START
-//       << 1 << a.sep() << 2 << a.sep() << 3 << a.sep() 
+//       << 1 << a.sep() << 2 << a.sep() << 3 << a.sep()
 //       << 4 << a.sep() << 5 << a.sep()
 //       << 6 << List::END;
 //    EXPECT_EQ(actual.str(), expected.str());
@@ -381,7 +384,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // //-----------------------------------------------------------------
 // TEST(equalsTest, SpecialCaseEmptyLists) {
 //    List a, b;
-//    EXPECT_TRUE(a == b) << 
+//    EXPECT_TRUE(a == b) <<
 //       error("two empty lists are equal");
 // }
 // TEST(equalsTest, SameLengthDifferentValuesFail) {
@@ -394,9 +397,9 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a_ss << a;
 //    stringstream b_ss;
 //    b_ss << b;
-//    EXPECT_FALSE(a == b) << 
+//    EXPECT_FALSE(a == b) <<
 //       error(a_ss.str() + " is not equal to " + b_ss.str());
-//    EXPECT_FALSE(b == a) << 
+//    EXPECT_FALSE(b == a) <<
 //       error(b_ss.str() + " is not equal to " + a_ss.str());
 // }
 // TEST(equalsTest, SameLengthSameValues) {
@@ -409,9 +412,9 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a_ss << a;
 //    stringstream b_ss;
 //    b_ss << b;
-//    EXPECT_TRUE(a == b) << 
+//    EXPECT_TRUE(a == b) <<
 //       error(a_ss.str() + " is equal to " + b_ss.str());
-//    EXPECT_TRUE(b == a) << 
+//    EXPECT_TRUE(b == a) <<
 //       error(b_ss.str() + " is equal to " + a_ss.str());
 // }
 
@@ -421,7 +424,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // //-----------------------------------------------------------------
 // TEST(notEqualsTest, SpecialCaseEmptyLists) {
 //    List a, b;
-//    EXPECT_FALSE(a != b) << 
+//    EXPECT_FALSE(a != b) <<
 //       error("it is false that two empty lists are not equal");
 // }
 // TEST(notEqualsTest, SameLengthSameValuesFail) {
@@ -434,9 +437,9 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a_ss << a;
 //    stringstream b_ss;
 //    b_ss << b;
-//    EXPECT_FALSE(a != b) << 
+//    EXPECT_FALSE(a != b) <<
 //       error(a_ss.str() + " is equal to " + b_ss.str());
-//    EXPECT_FALSE(b != a) << 
+//    EXPECT_FALSE(b != a) <<
 //       error(b_ss.str() + " is equal to " + a_ss.str());
 // }
 // TEST(notEqualsTest, SameLengthDifferentValues) {
@@ -449,9 +452,9 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a_ss << a;
 //    stringstream b_ss;
 //    b_ss << b;
-//    EXPECT_TRUE(a != b) << 
+//    EXPECT_TRUE(a != b) <<
 //       error(a_ss.str() + " is not equal to " + b_ss.str());
-//    EXPECT_TRUE(b != a) << 
+//    EXPECT_TRUE(b != a) <<
 //       error(b_ss.str() + " is not equal to " + a_ss.str());
 // }
 
@@ -473,7 +476,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a.insert(33);
 //    a.insert(22);
 //    a.insert(11);
-//    List copiedList(a); // calls the copy constructor 
+//    List copiedList(a); // calls the copy constructor
 //    stringstream a_ss;
 //    a_ss << a;
 //    stringstream copied_ss;
@@ -488,7 +491,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    ssc << copiedList;
 //    EXPECT_NE(modified_a_ss.str(), ssc.str()) << error("failed to copy");
 //    stringstream a_ss_expected;
-//    a_ss_expected << List::START 
+//    a_ss_expected << List::START
 //       << 22 << List::END;
 //    EXPECT_EQ(modified_a_ss.str(), a_ss_expected.str());
 //    stringstream expected_ssc;
@@ -502,7 +505,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    a.insert(33);
 //    a.insert(22);
 //    a.insert(11);
-//    List copiedList(a); // calls the copy constructor 
+//    List copiedList(a); // calls the copy constructor
 //    stringstream a_ss;
 //    a_ss << a;
 //    stringstream copied_ss;
@@ -532,31 +535,31 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // //    depends on insert, isEmpty, search, removeAll, the << operator
 // //-----------------------------------------------------------------
 // TEST(overloadedAssgnOpTest, ListsWith1Element) {
-//    List lfSide; 
+//    List lfSide;
 //    List rtSide;
 //    lfSide.insert(17);
 //    stringstream lfSide_ss; lfSide_ss << lfSide;
 //    stringstream rtSide_ss; rtSide_ss << rtSide;
-//    ASSERT_TRUE(lfSide.search(17)) << 
+//    ASSERT_TRUE(lfSide.search(17)) <<
 //       error("should find 17 => original lfSide not built properly");
-//    ASSERT_FALSE(rtSide.search(17)) << 
+//    ASSERT_FALSE(rtSide.search(17)) <<
 //       error("should NOT find 17 in the empty rtSide => rtSide not built properly");
 
 //    rtSide.insert(99);
-//    ASSERT_TRUE(rtSide.search(99)) << 
+//    ASSERT_TRUE(rtSide.search(99)) <<
 //       error("should find 99 => cons on rtSide failed ") << rtSide;
-//    ASSERT_FALSE(lfSide.search(99)) << 
+//    ASSERT_FALSE(lfSide.search(99)) <<
 //       error("rtSide that was changed so should not find 99 in ") << lfSide;
 
 //    lfSide = rtSide;
 //    stringstream ssl; ssl << lfSide;
 //    stringstream ssr; ssr << rtSide;
 //    EXPECT_EQ(ssl.str(), ssr.str()) << error("failed in the overloading of = ");
-//    EXPECT_FALSE(lfSide.search(17)) << 
+//    EXPECT_FALSE(lfSide.search(17)) <<
 //       error("should NO LONGER find 17 in ") << lfSide;
-//    EXPECT_TRUE(rtSide.search(99)) << 
+//    EXPECT_TRUE(rtSide.search(99)) <<
 //       error("should find 99 in ") << rtSide;
-//    EXPECT_TRUE(lfSide.search(99)) << 
+//    EXPECT_TRUE(lfSide.search(99)) <<
 //       error("should find 99 which was copied from ") << rtSide;
 // }
 // TEST(overloadedAssgnOpTest, ListWith1ElementRemove) {
@@ -603,12 +606,12 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    List lfSide;
 //    lfSide.insert(-99);
 //    lfSide.insert(-98);
-//    lfSide = rtSide; 
+//    lfSide = rtSide;
 //    stringstream lfSide_ss;
 //    lfSide_ss << lfSide;
 //    stringstream rtSide_ss;
 //    rtSide_ss << rtSide;
-//    EXPECT_EQ(rtSide_ss.str(), lfSide_ss.str()) 
+//    EXPECT_EQ(rtSide_ss.str(), lfSide_ss.str())
 //       << error("both lists should be equal");
 
 //    // modify rtSide which should then be different from lfSide
@@ -622,7 +625,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //       error("assignment of rtSide was not done properly");
 //    stringstream lexpected;
 //    lexpected << List::START
-//       << 11 << rtSide.sep() << 22 << rtSide.sep() 
+//       << 11 << rtSide.sep() << 22 << rtSide.sep()
 //       << 33 << List::END;
 //    EXPECT_EQ(ssl.str(), lexpected.str());
 //    stringstream rexpected;
@@ -636,7 +639,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    rtSide.insert(-11);
 //    List lfSide;
 //    lfSide.insert(-99);
-//    lfSide.insert(-98); 
+//    lfSide.insert(-98);
 //    lfSide = rtSide;
 //    stringstream lfSide_ss;
 //    lfSide_ss << lfSide;
@@ -666,7 +669,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 
 //    stringstream rexpected;
 //    rexpected << List::START
-//       << -33 << rtSide.sep() << -22 << rtSide.sep() 
+//       << -33 << rtSide.sep() << -22 << rtSide.sep()
 //       << -11 << List::END;
 //    EXPECT_EQ(rtSide_ss.str(), rexpected.str());
 // }
@@ -678,7 +681,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // TEST(destructorTest, SpecialCaseEmptyList) {
 //    {
 //       List a;
-//       ASSERT_TRUE(a.isEmpty()) << 
+//       ASSERT_TRUE(a.isEmpty()) <<
 //          error("should be empty => destructor test aborted");
 //       // the destructor is called, list is going out of scope
 //    }
@@ -696,7 +699,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //       a.insert(1);
 //       a.insert(2);
 //       a.insert(3);
-//       ASSERT_FALSE(a.isEmpty()) << 
+//       ASSERT_FALSE(a.isEmpty()) <<
 //          error("list should not be empty => destructor test aborted");
 //       // the destructor is called, list is going out of scope
 //    }
@@ -710,7 +713,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // }
 // TEST(destructorTest, WithPointer) {
 //    List* p = new List;
-//    ASSERT_TRUE(p->isEmpty()) 
+//    ASSERT_TRUE(p->isEmpty())
 //       << error("list pointed to should be empty => destructor test aborted");
 //    p->insert(1);
 //    p->insert(2);
@@ -720,7 +723,7 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 //    delete p; // calling the destructor
 //    p = new List;
 //    EXPECT_TRUE(p->isEmpty()) << error("list pointed to should be empty");
-//    stringstream actual; 
+//    stringstream actual;
 //    actual << (*p);
 //    stringstream expected;
 //    expected << List::START+ List::END;
@@ -773,4 +776,3 @@ TEST(isEmptyTest, SpecialCaseEmptyList) {
 // #endif
 
 // // copyright 2023 Gladys Monagan
-

@@ -51,10 +51,8 @@ bool List::isEmpty() const
    {
       return true;
    }
-   else
-   {
-      return false;
-   }
+
+   return false;
 }
 
 void List::insert(short x)
@@ -332,13 +330,14 @@ std::ostream &operator<<(std::ostream &out, const List &list)
    out << List::START;
    List::Node *p = list.head;
 
-   if (p != nullptr)
+   while (p != nullptr)
    {
-      while (p != nullptr)
+      out << p->val;
+      if (p->link != nullptr)
       {
-         out << p->val << list.sep();
-         p = p->link;
+         out << list.sep();
       }
+      p = p->link;
    }
 
    out << List::END;
@@ -419,8 +418,8 @@ List &List::operator=(const List &other)
 
 List::~List()
 {
-   Node *temp;
-   while (head != nullptr)
+   Node *temp = new Node;
+   while (temp != nullptr)
    {
       temp = head->link;
       delete head;
