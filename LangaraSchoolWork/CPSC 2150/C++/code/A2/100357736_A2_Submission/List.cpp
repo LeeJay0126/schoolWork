@@ -47,7 +47,11 @@ List::List() : separator(string(" "))
 //   returns true if the list is empty, false otherwise
 bool List::isEmpty() const
 {
-   if (this->head == nullptr)
+   // if (head == nullptr)
+   // {
+   //    std::cout << "hi" << std::endl;
+   // }
+   if (head == nullptr)
    {
       return true;
    }
@@ -76,10 +80,10 @@ List::Node *List::insert(short x, Node *p)
    Node *start = p;
    Node *newNode = new Node;
    newNode->val = x;
+   newNode->link = nullptr;
 
    if (p == nullptr)
    {
-      newNode->link = nullptr;
       return newNode;
    }
 
@@ -91,7 +95,9 @@ List::Node *List::insert(short x, Node *p)
 
    while (start->link != nullptr)
    {
-      if (start->val <= x && start->link->val >= x)
+      Node *next;
+      next = start->link;
+      if (start->val <= x && next->val >= x)
       {
          newNode->link = start->link;
          start->link = newNode;
@@ -114,12 +120,27 @@ int List::length() const
 // return the number of elements in p
 int List::length(const Node *p)
 {
-   Node *cursor;
-   int answer;
+   Node *cursor = new Node;
+   int answer = 0;
 
-   answer = 0;
-   for (cursor->link = p->link; cursor != nullptr; cursor = cursor->link)
-      ++answer;
+   if (p == nullptr)
+   {
+      return answer;
+   }
+   else
+   {
+      cursor->val = p->val;
+      cursor->link = p->link;
+      answer += 1;
+   }
+   // for (cursor->link = p->link; cursor != nullptr; cursor = cursor->link)
+   //    ++answer;
+
+   while (cursor->link != nullptr)
+   {
+      cursor = cursor->link;
+      answer += 1;
+   }
 
    return answer;
 }
@@ -154,20 +175,23 @@ List List::odds() const
       return newList;
    };
 
-   Node *newNode;
-   newNode = head;
+   Node *trackNode;
+   trackNode = head;
 
-   newList.head = head;
+   Node *newNode = new Node;
+   newNode->val = head->val;
+   newNode->link = nullptr;
+   newList.head = newNode;
 
    int count = 1;
 
-   while (newNode->link != nullptr)
+   while (trackNode->link != nullptr)
    {
       count += 1;
-      newNode = newNode->link;
+      trackNode = trackNode->link;
       if (count % 2 == 1)
       {
-         newList.insert(newNode->val);
+         newList.insert(trackNode->val);
       }
    }
 
@@ -185,20 +209,23 @@ List List::evens() const
       return newList;
    };
 
-   Node *newNode;
-   newNode = head;
+   Node *trackNode;
+   trackNode = head->link;
 
-   newList.head = head;
+   Node *newNode = new Node;
+   newNode->val = trackNode->val;
+   newNode->link = nullptr;
+   newList.head = newNode;
 
-   int count = 1;
+   int count = 2;
 
-   while (newNode->link != nullptr)
+   while (trackNode->link != nullptr)
    {
       count += 1;
-      newNode = newNode->link;
+      trackNode = trackNode->link;
       if (count % 2 == 0)
       {
-         newList.insert(newNode->val);
+         newList.insert(trackNode->val);
       }
    }
 
@@ -232,8 +259,6 @@ bool List::removeAll(short x)
             else
             {
                head = head->link;
-               current = head;
-               prev = head;
                validator = true;
             }
          }
@@ -332,13 +357,14 @@ std::ostream &operator<<(std::ostream &out, const List &list)
    out << List::START;
    List::Node *p = list.head;
 
-   if (p != nullptr)
+   while (p != nullptr)
    {
-      while (p != nullptr)
+      out << p->val;
+      if (p->link != nullptr)
       {
-         out << p->val << list.sep();
-         p = p->link;
+         out << list.sep();
       }
+      p = p->link;
    }
 
    out << List::END;
@@ -420,6 +446,7 @@ List &List::operator=(const List &other)
 List::~List()
 {
    Node *temp;
+
    while (head != nullptr)
    {
       temp = head->link;
@@ -432,17 +459,22 @@ List::~List()
 
 bool List::equalLists(const Node *p, const Node *q)
 {
-   if (p->val != q->val || p->link != q->link)
+
+   Node *first;
+   Node *second;
+
+   if (p->link != nullptr && q->link != nullptr)
+   {
+      first = p->link;
+      second = p->link;
+   }
+
+   if (p->val != q->val || first->val != second->val)
    {
       return false;
    };
 
-   Node *first;
-   first = p->link;
-   Node *second;
-   second = p->link;
-
-   while (first != NULL)
+   while (first != nullptr)
    {
       if (first->val == second->val)
       {
