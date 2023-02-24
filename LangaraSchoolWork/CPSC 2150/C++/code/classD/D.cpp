@@ -206,19 +206,25 @@ bool operator==(const D &dA, const D &dB)
    {
       return true;
    }
-   else if (aHead->val != dHead->val)
+
+   if ((aHead == nullptr && dHead != nullptr) || (aHead != nullptr && dHead == nullptr))
    {
       return false;
    }
 
    while (aHead != nullptr)
    {
-      if (aHead->next->val != dHead->next->val)
+      if (aHead != dHead)
       {
          return false;
       }
       aHead = aHead->next;
       dHead = dHead->next;
+   }
+
+   if (dHead != nullptr)
+   {
+      return false;
    }
 
    return true;

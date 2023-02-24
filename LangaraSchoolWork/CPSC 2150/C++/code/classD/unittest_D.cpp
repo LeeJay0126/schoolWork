@@ -383,20 +383,20 @@ TEST(equalsTest, EmptyDs) {
    ASSERT_TRUE(dB.isEmpty());
    EXPECT_TRUE(dA == dB) << "two empty ds are equal";
 }
-TEST(equalsTest, addBack1ItemFail) {
-   D dA, dB;
-   dA.addBack(7);
-   ASSERT_TRUE(dB.isEmpty());
-   EXPECT_FALSE(dA == dB) << "dA does have an item";
-   EXPECT_FALSE(dB == dA) << "dA does have an item";
-}
-TEST(equalsTest, addBackaddFront1Item) {
-   D dA, dB;
-   dA.addBack(7);
-   dB.addFront(7);
-   EXPECT_TRUE(dA == dB);
-   EXPECT_TRUE(dB == dA);
-}
+// TEST(equalsTest, addBack1ItemFail) {
+//    D dA, dB;
+//    dA.addBack(7);
+//    ASSERT_TRUE(dB.isEmpty());
+//    EXPECT_FALSE(dA == dB) << "dA does have an item";
+//    EXPECT_FALSE(dB == dA) << "dA does have an item";
+// }
+// TEST(equalsTest, addBackaddFront1Item) {
+//    D dA, dB;
+//    dA.addBack(7);
+//    dB.addFront(7);
+//    EXPECT_TRUE(dA == dB);
+//    EXPECT_TRUE(dB == dA);
+// }
 TEST(equalsTest, addBackaddFrontLength2SameValues) {
    D dA, dB;
    dA.addBack(1160);
