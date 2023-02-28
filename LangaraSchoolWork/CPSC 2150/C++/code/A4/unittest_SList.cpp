@@ -123,7 +123,7 @@ TEST(numberOfElementsTest, 2ElementsBottomList) {
 }
 TEST(numberOfElementsTest, 3ElementsBottomList) {
    SList sList;
-   int A[] = {-8, 2'345, 1};
+   int A[] = {-8, 2345, 1};
    unsigned n = 3;
    for (unsigned i = 0; i < n; i++) {
       sList.insert(A[i]);

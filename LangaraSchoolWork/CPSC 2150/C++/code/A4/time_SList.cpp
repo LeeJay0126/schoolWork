@@ -15,11 +15,35 @@ int main()
 
    SList list;
    list.insert(5);
-   std::cout << list;
+   std::cout << " inserted" << std::endl;
+   list.insert(3);
+   std::cout << " inserted" << std::endl;
+   list.insert(2);
+   std::cout << " inserted" << std::endl;
+   list.insert(2);
+   std::cout << " inserted" << std::endl;
+   list.insert(3);
+   std::cout << " inserted" << std::endl;
+   std::cout << list <<std::endl;
+   // list.reset();
    list.insert(7);
-   std::cout << list;
-   list.reset();
-   std::cout << list;
+   std::cout << " inserted" << std::endl;
+   list.insert(8);
+   std::cout << " inserted" << std::endl;
+   list.insert(9);
+   std::cout << " inserted" << std::endl;
+   list.insert(5);
+   std::cout << " inserted" << std::endl;
+   list.insert(7);
+   std::cout << " inserted" << std::endl;
+   // list.insert(7);
+   // list.insert(7);
+   // list.insert(7);
+   std::cout << list <<std::endl;
+
+   // list.setTopListOutput(true);
+   // std::cout << list << std::endl;
+
    std::cout << "a";
 
    return 0;

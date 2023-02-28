@@ -42,9 +42,7 @@ void SList::insert(int x)
         newNode->next = nullptr;
 
         Node *temp;
-        Node *prev;
         temp = ListOne;
-        prev = ListOne;
         bool flag = false;
 
         if (x <= temp->val)
@@ -54,32 +52,30 @@ void SList::insert(int x)
         }
         else
         {
-            while (temp != nullptr)
+            while (temp->next != nullptr)
             {
-                if (x <= temp->val)
+                Node *next = temp->next;
+                if (x >= temp->val && x <= next->val)
                 {
-                    prev->next = newNode;
-                    newNode->next = temp;
+                    temp->next = newNode;
+                    newNode->next = next;
                     flag = true;
                 }
-                prev = temp;
-                temp = temp->next;
             }
-
             if (flag == false)
             {
-                prev->next = newNode;
+                temp->next = newNode;
             }
         }
     }
     count += 1;
 
-    // if (count == threshhold)
-    // {
-    //     restate();
-    //     square += 1;
-    //     threshhold = square * square;
-    // }
+    if (square == threshhold)
+    {
+        restate();
+        square += 1;
+        threshhold = square * square;
+    }
 }
 
 void SList::restate()
@@ -289,8 +285,7 @@ SList &SList::operator=(const SList &other)
 
 std::ostream &operator<<(std::ostream &out, const SList &list)
 {
-    bool top = list.getTopListOutput();
-    if (top)
+    if (list.toplist)
     {
         SList::Node2 *temp;
         temp = list.ListTwo;
@@ -310,6 +305,6 @@ std::ostream &operator<<(std::ostream &out, const SList &list)
             temp = temp->next;
         }
     }
-    // out << list.count;
+
     return out;
 }

@@ -71,24 +71,22 @@ public:
 private:
    struct Node
    {
-      Node *prev;
       Node *next;
       int val;
    };
 
    struct Node2
    {
-      Node2 *prev;
       Node2 *next;
       Node *link;
       int val;
    };
 
    Node *ListOne;
-   Node *L1Tail;
    Node2 *ListTwo;
-   Node2 *L2Tail;
    int count;
+   int square;
+   int threshhold;
    bool toplist;
 };
 #endif // SLIST_H
