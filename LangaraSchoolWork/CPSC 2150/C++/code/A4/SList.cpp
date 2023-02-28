@@ -42,6 +42,7 @@ void SList::insert(int x)
         newNode->next = nullptr;
 
         Node *temp;
+        // Node *next;
         Node *prev;
         temp = ListOne;
         prev = ListOne;
@@ -54,21 +55,26 @@ void SList::insert(int x)
         }
         else
         {
-            while (temp != nullptr)
+            if (temp->next != nullptr)
+            {
+                temp = temp->next;
+                prev = ListOne;
+            }
+            while (temp->next != nullptr)
             {
                 if (x <= temp->val)
                 {
-                    prev->next = newNode;
                     newNode->next = temp;
+                    prev->next = newNode;
                     flag = true;
                 }
-                prev = temp;
                 temp = temp->next;
+                prev = prev->next;
             }
 
             if (flag == false)
             {
-                prev->next = newNode;
+                temp->next = newNode;
             }
         }
     }
@@ -76,6 +82,7 @@ void SList::insert(int x)
 
     // if (count == threshhold)
     // {
+    //     // std::cout << "restate!" << std::endl;
     //     restate();
     //     square += 1;
     //     threshhold = square * square;
@@ -86,6 +93,7 @@ void SList::restate()
 {
     if (ListTwo != nullptr)
     {
+        // std::cout << "delete!" << std::endl;
         if (ListTwo->next == nullptr)
         {
             delete ListTwo;
@@ -112,10 +120,18 @@ void SList::restate()
 
     if (anchor->next != nullptr)
     {
+        anchor = anchor->next;
+    }
+
+    if (anchor->next != nullptr)
+    {
         for (int i = 1; i < count; i++)
         {
             if (i % square == 0)
             {
+                std::cout << i << std::endl;
+                std::cout << anchor->val << std::endl;
+
                 Node2 *temp = new Node2();
                 temp->val = anchor->val;
                 temp->link = anchor;

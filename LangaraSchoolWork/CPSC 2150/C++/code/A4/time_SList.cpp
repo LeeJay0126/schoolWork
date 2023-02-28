@@ -24,7 +24,7 @@ int main()
    std::cout << " inserted" << std::endl;
    list.insert(3);
    std::cout << " inserted" << std::endl;
-   std::cout << list <<std::endl;
+   // std::cout << list <<std::endl;
    // list.reset();
    list.insert(7);
    std::cout << " inserted" << std::endl;
@@ -36,13 +36,21 @@ int main()
    std::cout << " inserted" << std::endl;
    list.insert(7);
    std::cout << " inserted" << std::endl;
+   list.insert(7);
+   list.insert(7);
    // list.insert(7);
    // list.insert(7);
-   // list.insert(7);
+   // list.insert(8);
+   // list.insert(8);
+   // list.insert(8);
+   // list.insert(8);
+   // list.insert(8);
+   // list.insert(8);
+   // list.insert(12);
    std::cout << list <<std::endl;
 
-   // list.setTopListOutput(true);
-   // std::cout << list << std::endl;
+   list.setTopListOutput(true);
+   std::cout << list << std::endl;
 
    std::cout << "a";
 
