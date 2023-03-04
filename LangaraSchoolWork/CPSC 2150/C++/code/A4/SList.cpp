@@ -42,11 +42,9 @@ void SList::insert(int x)
         newNode->next = nullptr;
 
         Node *temp;
-        // Node *next;
         Node *prev;
         temp = ListOne;
         prev = ListOne;
-        bool flag = false;
 
         if (x <= temp->val)
         {
@@ -55,45 +53,42 @@ void SList::insert(int x)
         }
         else
         {
-            if (temp->next != nullptr)
+            while (temp != nullptr)
             {
-                temp = temp->next;
-                prev = ListOne;
-            }
-            while (temp->next != nullptr)
-            {
-                if (x <= temp->val)
+                if (temp->next == nullptr)
                 {
-                    newNode->next = temp;
-                    prev->next = newNode;
-                    flag = true;
+                    if (temp->val <= x)
+                    {
+                        temp->next = newNode;
+                        break;
+                    }
+                    else
+                    {
+                        prev->next = newNode;
+                        newNode->next = temp;
+                    }
                 }
+                else if (x <= temp->val)
+                {
+                    prev->next = newNode;
+                    newNode->next = temp;
+                    break;
+                }
+                prev = temp;
                 temp = temp->next;
-                prev = prev->next;
-            }
-
-            if (flag == false)
-            {
-                temp->next = newNode;
             }
         }
     }
     count += 1;
+    // std::cout << ListOne->val << std::endl;
 
-    // if (count == threshhold)
-    // {
-    //     // std::cout << "restate!" << std::endl;
-    //     restate();
-    //     square += 1;
-    //     threshhold = square * square;
-    // }
+    restate();
 }
 
 void SList::restate()
 {
     if (ListTwo != nullptr)
     {
-        // std::cout << "delete!" << std::endl;
         if (ListTwo->next == nullptr)
         {
             delete ListTwo;
@@ -112,34 +107,36 @@ void SList::restate()
         }
     }
 
+    if (count == threshhold)
+    {
+        square += 1;
+        threshhold = (square + 1) * (square + 1);
+    }
+
     ListTwo = new Node2();
     Node *anchor = ListOne;
     ListTwo->val = anchor->val;
     ListTwo->next = nullptr;
-    Node2 *current = ListTwo;
+    ListTwo->link = ListOne;
+    Node2 *current;
+    current = ListTwo;
 
     if (anchor->next != nullptr)
     {
         anchor = anchor->next;
     }
 
-    if (anchor->next != nullptr)
+    for (int i = 1; i < count; i++)
     {
-        for (int i = 1; i < count; i++)
+        if (i % square == 0 && i != 0)
         {
-            if (i % square == 0)
-            {
-                std::cout << i << std::endl;
-                std::cout << anchor->val << std::endl;
-
-                Node2 *temp = new Node2();
-                temp->val = anchor->val;
-                temp->link = anchor;
-                current->next = temp;
-                current = temp;
-            }
-            anchor = anchor->next;
+            Node2 *temp = new Node2();
+            temp->val = anchor->val;
+            temp->link = anchor;
+            current->next = temp;
+            current = temp;
         }
+        anchor = anchor->next;
     }
 }
 
@@ -157,37 +154,45 @@ bool SList::search(int x) const
     prev = ListTwo;
     anchor = ListTwo;
 
-    if (anchor == nullptr)
-    {
-        return false;
-    }
-
-    if (anchor->val >= x)
+    if (anchor == nullptr || anchor->val > x)
     {
         return false;
     }
 
     while (anchor != nullptr)
     {
-        if (x <= anchor->val)
+        if (x == anchor->val)
+        {
+            return true;
+        }
+        if (anchor->next == nullptr)
+        {
+            if (anchor->val >= x)
+            {
+                address = prev->link;
+            }
+            else
+            {
+                address = anchor->link;
+            }
+        }
+        else if (x <= anchor->val)
         {
             address = prev->link;
+            // std::cout << address->val << std::endl;
+            break;
         }
         prev = anchor;
         anchor = anchor->next;
     }
-
-    if (address == nullptr)
-    {
-        address = prev->link;
-    }
-
+    // std::cout << address->val << std::endl;
     while (address != nullptr)
     {
         if (address->val == x)
         {
             return true;
         }
+        address = address->next;
     }
 
     return false;

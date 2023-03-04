@@ -416,7 +416,8 @@ TEST(insertDescendingTest, 5ElementsTopList) {
    stringstream expected_a;
    expected_a
       << A[4] << SList::SEP
-      << A[2] << SList::SEP;
+      << A[2] << SList::SEP
+      << A[0] << SList::SEP;
    stringstream expected_b;
    expected_b
       << A[4] << SList::SEP
