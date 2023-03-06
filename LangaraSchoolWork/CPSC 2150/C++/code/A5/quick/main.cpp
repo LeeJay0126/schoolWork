@@ -130,9 +130,9 @@ int main()
     for (int i = 0; i < bigTrial; i++)
     {
         int j = 0;
-        for (int i = 999; i >= 0; i--)
+        for (int k = 999; k >= 0; k--)
         {
-            desc[i] = j;
+            desc[k] = j;
             j++;
         }
         start = std::chrono::steady_clock::now();
@@ -145,9 +145,9 @@ int main()
     desc1000 /= bigTrial;
 
     int j = 0;
-    for (int i = 999; i >= 0; i--)
+    for (int k = 999; k >= 0; k--)
     {
-        desc[i] = j;
+        desc[k] = j;
         j++;
     }
 
@@ -157,13 +157,13 @@ int main()
     for (int i = 0; i < bigTrial; i++)
     {
         j = 0;
-        for (int i = 1999; i > 0; i--)
+        for (int k = 1999; k > 0; k--)
         {
-            desc[i] = j;
+            desc[k] = j;
             j++;
         }
         start = std::chrono::steady_clock::now();
-        quickSort(desc, 1999);
+        quickSort(desc, 2000);
         end = std::chrono::steady_clock::now();
         diff = end - start;
         desc2000 += diff.count();
@@ -184,13 +184,13 @@ int main()
     for (int i = 0; i < smallTrial; i++)
     {
         j = 0;
-        for (int i = 3999; i > 0; i--)
+        for (int k = 3999; k > 0; k--)
         {
-            desc[i] = j;
+            desc[k] = j;
             j++;
         }
         start = std::chrono::steady_clock::now();
-        quickSort(desc, 3999);
+        quickSort(desc, 4000);
         end = std::chrono::steady_clock::now();
         diff = end - start;
         desc4000 += diff.count();
@@ -217,7 +217,7 @@ int main()
             j++;
         }
         start = std::chrono::steady_clock::now();
-        quickSort(desc, 7999);
+        quickSort(desc, 8000);
         end = std::chrono::steady_clock::now();
         diff = end - start;
         desc8000 += diff.count();
@@ -233,6 +233,71 @@ int main()
     }
 
     cout << setw(15) << "Descending" << setw(15) << desc1000 << setw(15) << desc2000 << setw(15) << desc4000 << setw(15) << desc8000 << endl;
+
+    int random[8000];
+    // for 1000 iterations
+    double rand1000 = 0;
+    for (int i = 0; i < bigTrial; i++)
+    {
+        for (int k = 0; k < 1000; k++)
+        {
+            random[k] = rand();
+        }
+        start = std::chrono::steady_clock::now();
+        quickSort(random, 1000);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        rand1000 += diff.count();
+    }
+    rand1000 /= bigTrial;
+
+    // for 2000 iterations
+    double rand2000 = 0;
+    for (int i = 0; i < bigTrial; i++)
+    {
+        for (int k = 0; k < 2000; k++)
+        {
+            random[k] = rand();
+        }
+        start = std::chrono::steady_clock::now();
+        quickSort(random, 2000);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        rand2000 += diff.count();
+    }
+    rand2000 /= bigTrial;
+    // for 4000 iterations
+    double rand4000 = 0;
+    for (int i = 0; i < smallTrial; i++)
+    {
+        for (int k = 0; k < 4000; k++)
+        {
+            random[k] = rand();
+        }
+        start = std::chrono::steady_clock::now();
+        quickSort(random, 4000);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        rand4000 += diff.count();
+    }
+    rand4000 /= smallTrial;
+    // for 8000 iterations
+    double rand8000 = 0;
+    for (int i = 0; i < smallTrial; i++)
+    {
+        for (int k = 0; k < 8000; k++)
+        {
+            random[k] = rand();
+        }
+        start = std::chrono::steady_clock::now();
+        quickSort(random, 8000);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        rand8000 += diff.count();
+    }
+    rand8000 /= smallTrial;
+
+    cout << setw(15) << "Random" << setw(15) << rand1000 << setw(15) << rand2000 << setw(15) << rand4000 << setw(15) << rand8000 << endl;
 
     return 0;
 }
