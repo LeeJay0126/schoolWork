@@ -9,7 +9,7 @@ Insert::Insert()
 
 void Insert::insert(int x)
 {
-
+    // std::cout << x << std::endl;
     if (head == nullptr)
     {
         head = new Node();
@@ -42,27 +42,50 @@ void Insert::sort()
     Node *previous;
     previous = tail->prev;
 
-    while (temp->value >= previous->value)
+    // test
+    Node *test;
+    test = head;
+    while (test != nullptr)
     {
-        Node *t;
-        t = previous->prev;
-        if (temp->next == nullptr)
+        std::cout << test->value;
+        test = test->next;
+    }
+    std::cout << std::endl;
+
+    if (temp->value <= head->value)
+    {
+        temp->next = head;
+        head->prev = temp;
+        head = temp;
+    }
+    else
+    {
+
+        while (temp->value > previous->value)
         {
-            t->next = temp;
-            temp->prev = t;
-            temp->next = previous;
-            previous->prev = temp;
-            previous->next = nullptr;
-            tail = previous;
-        }
-        else
-        {
-            t->next = temp;
-            temp->prev = t;
-            temp->next = previous;
-            previous->prev = temp;
-            previous->next = nullptr;
-            previous = t;
+            Node *t;
+            if(previous == head){
+                break;
+            }
+            t = previous->prev;
+            if (temp->next == nullptr)
+            {
+                t->next = temp;
+                temp->prev = t;
+                temp->next = previous;
+                previous->prev = temp;
+                previous->next = nullptr;
+                tail = previous;
+            }
+            else
+            {
+                t->next = temp;
+                temp->prev = t;
+                temp->next = previous;
+                previous->prev = temp;
+                previous->next = nullptr;
+                previous = t;
+            }
         }
     }
 }
