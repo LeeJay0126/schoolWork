@@ -6,6 +6,77 @@
 
 using namespace std;
 
+struct Node
+{
+    int val;
+    Node *next;
+};
+
+int bigTrial = 1000;
+int smallTrial = 100;
+
+// Common Node Functions
+Node *mergeHead = nullptr;
+Node *insertHead = nullptr;
+
+Node *cons(int x, Node *node)
+{
+    Node *p = new Node();
+    p->val = x;
+    p->next = node;
+
+    return p;
+}
+
+void addToBeginningM(Node *&p, int x)
+{
+    Node *temp = p;
+    temp = cons(x, temp);
+    mergeHead = temp;
+}
+
+void addToBeginningI(Node *&p, int x)
+{
+    Node *temp = p;
+    temp = cons(x, temp);
+    insertHead = temp;
+}
+
+void addToEnd(Node *&p, int x)
+{
+    if (p == nullptr)
+    {
+        p = cons(x, nullptr);
+    }
+    else
+    {
+        Node *newNode = cons(x, nullptr);
+        Node *temp;
+        temp = p;
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+
+void destruct(Node *&p)
+{
+    Node *q;
+    q = p;
+    if (p != nullptr)
+    {
+        while (p != nullptr)
+        {
+            q = p->next;
+            delete p;
+            p = q;
+        }
+    }
+}
+
+// Quick Sort Section
 // class notes (quickSort algorithm given with the assignment) used
 int partition(int A[], int low, int high)
 {
@@ -55,7 +126,7 @@ void quickSort(int A[], int n)
     quickSort(A, 0, n - 1);
 }
 
-int main()
+void displayQuickSort()
 {
     // ascending array initialization
     // We will be making a reference of this array and reuse it through out the experiment
@@ -69,8 +140,6 @@ int main()
     cout << fixed << setprecision(4) << left;
 
     cout << setw(15) << "Quick Sort" << setw(15) << "1000 times" << setw(15) << "2000 times" << setw(15) << "4000 times" << setw(15) << "8000 times" << endl;
-    int bigTrial = 1000;
-    int smallTrial = 100;
 
     // finding 1000 iteration average time with big trial
     auto start = std::chrono::steady_clock::now();
@@ -298,6 +367,166 @@ int main()
     rand8000 /= smallTrial;
 
     cout << setw(15) << "Random" << setw(15) << rand1000 << setw(15) << rand2000 << setw(15) << rand4000 << setw(15) << rand8000 << endl;
+}
+
+// Merge Sort Section;
+// Used class notes
+
+Node *merge(Node *p, Node *q)
+{
+    if (p == nullptr)
+    {
+        if (q == nullptr)
+        {
+            return nullptr;
+        }
+        else
+        {
+            return cons(q->val, merge(nullptr, q->next));
+        }
+    }
+    else if (q == nullptr)
+    {
+        return merge(q, p);
+    }
+    if (p->val <= q->val)
+    {
+        return cons(p->val, merge(p->next, q));
+    }
+    else
+    {
+        return cons(q->val, merge(p, q->next));
+    }
+}
+
+void displayMerge()
+{
+    // Ascending
+    Node *p = nullptr;
+    Node *q = nullptr;
+
+    cout << fixed << setprecision(4) << left;
+    cout << endl;
+    cout << setw(15) << "Merge Sort" << setw(15) << "1000 times" << setw(15) << "2000 times" << setw(15) << "4000 times" << setw(15) << "8000 times" << endl;
+
+    for (int i = 0; i < 500; i++)
+    {
+        addToEnd(p, i);
+    }
+
+    for (int i = 500; i < 1000; i++)
+    {
+        addToEnd(q, i);
+    }
+
+    double asc1 = 0;
+    auto start = std::chrono::steady_clock::now();
+    auto end = std::chrono::steady_clock::now();
+    std::chrono::duration<double> diff = (end - start);
+
+    for (int i = 0; i < bigTrial; i++)
+    {
+
+        start = std::chrono::steady_clock::now();
+        mergeHead = merge(p, q);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        asc1 += diff.count();
+    }
+
+    asc1 /= bigTrial;
+
+    destruct(p);
+    destruct(q);
+    destruct(mergeHead);
+
+    for (int i = 0; i < 1000; i++)
+    {
+        addToEnd(p, i);
+    }
+
+    for (int i = 1000; i < 2000; i++)
+    {
+        addToEnd(q, i);
+    }
+
+    double asc2 = 0;
+
+    for (int i = 0; i < bigTrial; i++)
+    {
+
+        start = std::chrono::steady_clock::now();
+        mergeHead = merge(p, q);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        asc2 += diff.count();
+    }
+
+    asc2 /= bigTrial;
+
+    destruct(p);
+    destruct(q);
+    destruct(mergeHead);
+
+    for (int i = 0; i < 2000; i++)
+    {
+        addToEnd(p, i);
+    }
+
+    for (int i = 2000; i < 4000; i++)
+    {
+        addToEnd(q, i);
+    }
+
+    double asc3 = 0;
+
+    for (int i = 0; i < smallTrial; i++)
+    {
+
+        start = std::chrono::steady_clock::now();
+        mergeHead = merge(p, q);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        asc3 += diff.count();
+    }
+
+    asc3 /= smallTrial;
+
+    destruct(p);
+    destruct(q);
+    destruct(mergeHead);
+
+    for (int i = 0; i < 4000; i++)
+    {
+        addToEnd(p, i);
+    }
+
+    for (int i = 4000; i < 8000; i++)
+    {
+        addToEnd(q, i);
+    }
+
+    double asc4 = 0;
+
+    for (int i = 0; i < smallTrial; i++)
+    {
+
+        start = std::chrono::steady_clock::now();
+        mergeHead = merge(p, q);
+        end = std::chrono::steady_clock::now();
+        diff = end - start;
+        asc4 += diff.count();
+    }
+
+    asc4 /= smallTrial;
+
+    cout << setw(15) << "Ascending Sort" << setw(15) << asc1 << setw(15) << asc2 << setw(15) << asc3 << setw(15) << asc4 << endl;
+}
+
+int main()
+{
+    displayQuickSort();
+    displayMerge();
 
     return 0;
 }
