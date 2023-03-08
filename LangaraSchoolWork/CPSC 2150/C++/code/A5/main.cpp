@@ -118,7 +118,7 @@ void displayQuickSort()
     // We will be making a reference of this array and reuse it through out the experiment
     // But for ascending arrays we don't have to do that.
     int ascArray[8000];
-    for (int asc = 0; asc < 8000; asc++)
+    for (int asc = 0; asc < 1000; asc++)
     {
         ascArray[asc] = asc;
     }
@@ -139,6 +139,11 @@ void displayQuickSort()
     std::chrono::duration<double> diff = (end - start) / bigTrial;
 
     // finding 2000 iteration average time with big trial
+
+    for (int asc = 0; asc < 2000; asc++)
+    {
+        ascArray[asc] = asc;
+    }
     auto start2 = std::chrono::steady_clock::now();
 
     for (int i = 0; i < bigTrial; i++)
@@ -150,6 +155,10 @@ void displayQuickSort()
     std::chrono::duration<double> diff2 = (end2 - start2) / bigTrial;
 
     // finding 4000 iteration average time with small trial
+    for (int asc = 0; asc < 4000; asc++)
+    {
+        ascArray[asc] = asc;
+    }
     auto start3 = std::chrono::steady_clock::now();
 
     for (int i = 0; i < smallTrial; i++)
@@ -161,6 +170,10 @@ void displayQuickSort()
     std::chrono::duration<double> diff3 = (end3 - start3) / smallTrial;
 
     // finding 8000 iteration average time with small trial
+    for (int asc = 0; asc < 8000; asc++)
+    {
+        ascArray[asc] = asc;
+    }
     auto start4 = std::chrono::steady_clock::now();
 
     for (int i = 0; i < smallTrial; i++)
@@ -796,7 +809,7 @@ void insertSort(Node *p)
         t = next;
     }
 
-    insertHead = p;
+    // insertHead = p;
 }
 
 void displayInsert()
@@ -1018,11 +1031,39 @@ void displayInsert()
     cout << setw(15) << "Random" << setw(15) << asc1 << setw(15) << asc2 << setw(15) << asc3 << setw(15) << asc4 << endl;
 }
 
+// Function used to test insert sort. Works as expected.
+// void testInsert()
+// {
+//     Node *p = nullptr;
+//     for (int i = 19; i >= 0; i--)
+//     {
+//         addToEnd(p, i);
+//     }
+
+//     Node *temp = p;
+//     while (temp != nullptr)
+//     {
+//         cout << temp->val << endl;
+//         temp = temp->next;
+//     }
+//     cout << endl;
+//     insertSort(p);
+
+//     temp = insertHead;
+//     while (temp != nullptr)
+//     {
+//         cout << temp->val << endl;
+//         temp = temp->next;
+//     }
+// }
+
 int main()
 {
     displayQuickSort();
     displayMerge();
     displayInsert();
+
+    // testInsert();
 
     return 0;
 }
