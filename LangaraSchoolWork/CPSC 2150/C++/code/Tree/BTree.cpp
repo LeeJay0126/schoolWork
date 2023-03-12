@@ -1,0 +1,43 @@
+// Student Name:
+
+#include "BTree.h"
+#include <iostream>
+
+///////////////////////////////////////////////////////////////////////////////
+// part A)
+Node *makeBalBST(Node *tree)
+{
+   int n = 0;
+   Node *temp = tree;
+   while (temp != nullptr)
+   {
+      temp = temp->next;
+      n += 1;
+   }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// part B) the complexity of makeBalBST when the tree has n nodes
+// in big O notation the complexity is
+// because
+//
+//
+// was a new tree made?
+//
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+// part C)
+int nodeSum(const Node *tree)
+{
+   std::cerr << "******* not implemented\n";
+   return -9999; // fix
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// part D)
+bool isB(const Node *tree)
+{
+   std::cerr << "******* not implemented\n";
+   return false; // fix
+}
