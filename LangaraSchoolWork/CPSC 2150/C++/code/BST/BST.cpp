@@ -4,43 +4,49 @@
 #include "BST.h"
 
 ///////////////////////////////////////////////////////////////////////////////
+//
+
 bool sameVals(const Node *p, const Node *q)
 {
-    int numP = numNodes(p);
-    int numQ = numNodes(q);
+    bool lh;
+    if (p == nullptr && q == nullptr)
+    {
+        return true;
+    }
 
-    if(numP != numQ){
+    if (p->left != nullptr && p->val > q->val)
+    {
+        lh = sameVals(p->left, q);
+    }
+    else if (q->left != nullptr && p->val < q->val)
+    {
+        lh = sameVals(p, q->left);
+    }
+    else if ((p == nullptr && q != nullptr) || (p != nullptr && q == nullptr))
+    {
+        return false;
+    }
+    else
+    {
+        lh = sameVals(p->left, q->left);
+    }
+
+    if ((p->val != q->val))
+    {
         return false;
     }
 
-    int * arrayP = new int 
+    bool rh = sameVals(p->right, q->right);
 
+    if (lh && rh)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
-
-
-// bool sameVals(const Node *p, const Node *q)
-// {
-//     if (p == nullptr && q == nullptr)
-//     {
-//         return true;
-//     }
-//     if ((p == nullptr && q != nullptr) || (p != nullptr && q == nullptr) || (p->val != q->val))
-//     {
-//         return false;
-//     }
-
-//     bool lh = sameVals(p->left, q->left);
-//     bool rh = sameVals(p->right, q->right);
-
-//     if (lh && rh)
-//     {
-//         return true;
-//     }
-//     else
-//     {
-//         return false;
-//     }
-// }
 
 ///////////////////////////////////////////////////////////////////////////////
 bool heightBalanced(const Node *tree)
