@@ -7,90 +7,124 @@
 // part A)
 Node *makeBalBST(Node *tree)
 {
-   int size = treeSize(tree);
-   int *arr = new int(size);
-
-   arr = storeArray(arr, tree);
-
-   int temp = 0;
-   for (int i = 0; i < size - 1; i++)
+   if (tree == nullptr)
    {
-      for (int j = 0; j < size - i - 1; j++)
+      return nullptr;
+   }
+   int size = NumNodes(tree);
+   int *arr = new int[size];
+
+   makeArr(arr, 0, tree);
+
+   // sort using bubble sort
+   for (int i = 0; i < size; i++)
+   {
+      for (int j = 0; j < size - 1; j++)
       {
          if (arr[j] > arr[j + 1])
          {
-            temp = arr[j];
+            int temp = arr[j];
             arr[j] = arr[j + 1];
-            arr[j + 1] = arr[j];
+            arr[j + 1] = temp;
          }
       }
    }
 
-   int coreNode = arr[size / 2];
+   int mid = arr[size / 2];
+   arr[size / 2] = -9999;
+   Node *newTree = cons(mid);
 
-   Node *newTree = makeLeaf(arr[coreNode]);
+   insert(newTree, size, arr);
 
-   
+   return newTree;
 }
 
-Node *makeLeaf(int x)
+Node *cons(int x)
 {
    return new Node{nullptr, x, nullptr};
 }
-Node *makeEmptyBinTree()
-{
-   return nullptr;
-}
-Node *insertRight(Node *p, int x)
-{
-   if (p == nullptr)
-      p = makeLeaf(x);
-   else
-      p->right = insertRight(p->right, x);
-   return p;
-}
-Node *insertLeft(Node *p, int x)
-{
-   if (p == nullptr)
-      p = makeLeaf(x);
-   else
-      p->left = insertLeft(p->left, x);
-   return p;
-}
 
-void push(int arr[], int x)
+void insert(Node *tree, int size, int arr[])
 {
-   int i = 0;
-   while (arr[i] != NULL)
+   for (int i = 0; i < size; i++)
    {
-      i += 1;
+      if (!(arr[i] == -9999))
+      {
+         insert(tree, arr[i]);
+      }
    }
-   arr[i] = x;
 }
 
-int treeSize(Node *tree)
+void insert(Node *tree, int x)
+{
+   if (x > tree->val)
+   {
+      Node *next = tree->right;
+      Node *newNode = cons(x);
+      if (next == nullptr)
+      {
+         tree->right = newNode;
+      }
+      else
+      {
+         if (next->val > x)
+         {
+            tree->right = newNode;
+            newNode->right = next;
+         }
+         else
+         {
+            insert(tree->right, x);
+         }
+      }
+   }
+   else
+   {
+      Node *next = tree->left;
+      Node *newNode = cons(x);
+      if (next == nullptr)
+      {
+         tree->left = newNode;
+      }
+      else
+      {
+         if (next->val > x)
+         {
+            insert(tree, x);
+         }
+         else
+         {
+            tree->left = newNode;
+            newNode->left = next;
+         }
+      }
+   }
+}
+
+int makeArr(int arr[], int index, Node *tree)
+{
+   if (tree == nullptr)
+   {
+      return index;
+   }
+   arr[index] = tree->val;
+   index++;
+   index = makeArr(arr, index, tree->left);
+   index = makeArr(arr, index, tree->right);
+
+   return index;
+}
+
+int NumNodes(Node *tree)
 {
    if (tree == nullptr)
    {
       return 0;
    }
-   int lh = treeSize(tree->left);
-   int rh = treeSize(tree->right);
+   int lh = NumNodes(tree->left);
+   int rh = NumNodes(tree->right);
 
    return lh + rh + 1;
-}
-
-int *storeArray(int arr[], Node *tree)
-{
-   if (tree == nullptr)
-   {
-      return;
-   }
-   storeArray(arr, tree->left);
-   push(arr, tree->val);
-   storeArray(arr, tree->right);
-
-   return arr;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -107,14 +141,59 @@ int *storeArray(int arr[], Node *tree)
 // part C)
 int nodeSum(const Node *tree)
 {
-   std::cerr << "******* not implemented\n";
-   return -9999; // fix
+   if (tree == nullptr)
+   {
+      return 0;
+   }
+
+   int lh = nodeSum(tree->left);
+   int rh = nodeSum(tree->right);
+
+   return lh + rh + tree->val;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // part D)
 bool isB(const Node *tree)
 {
-   std::cerr << "******* not implemented\n";
+   if (tree == nullptr)
+   {
+      return true;
+   }
+
+   bool lhb = isB(tree->left);
+   bool rhb = isB(tree->right);
+
+   if (!(lhb && rhb))
+   {
+      return false;
+   }
+
+   int lh = height(tree->left);
+   int rh = height(tree->right);
+
+   if ((lh - rh >= -1 && lh - rh <= 0) || (lh - rh >= 0 && lh - rh <= 1))
+   {
+      return true;
+   }
+
    return false; // fix
+}
+
+int height(Node *tree)
+{
+   if (tree == nullptr)
+   {
+      return 0;
+   }
+
+   int lh = height(tree->left);
+   int rh = height(tree->right);
+
+   if (lh > rh)
+   {
+      return lh + 1;
+   }
+
+   return rh + 1;
 }

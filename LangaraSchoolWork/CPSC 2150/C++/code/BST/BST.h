@@ -18,7 +18,10 @@ bool heightBalanced(const Node *tree);
 int numNodes(const Node *tree);
 
 int median(const Node *tree);
+int height(Node *tree);
+int toArray(int arr[], int index, const Node *p);
+void sort(int arr[], int size);
 
-int store(Node* tree, int num);
+
 
 #endif

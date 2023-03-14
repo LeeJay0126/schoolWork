@@ -8,44 +8,61 @@
 
 bool sameVals(const Node *p, const Node *q)
 {
-    bool lh;
-    if (p == nullptr && q == nullptr)
-    {
-        return true;
-    }
+    int sizep = numNodes(p);
+    int sizeq = numNodes(q);
 
-    if (p->left != nullptr && p->val > q->val)
-    {
-        lh = sameVals(p->left, q);
-    }
-    else if (q->left != nullptr && p->val < q->val)
-    {
-        lh = sameVals(p, q->left);
-    }
-    else if ((p == nullptr && q != nullptr) || (p != nullptr && q == nullptr))
-    {
-        return false;
-    }
-    else
-    {
-        lh = sameVals(p->left, q->left);
-    }
-
-    if ((p->val != q->val))
+    if (sizep != sizeq)
     {
         return false;
     }
 
-    bool rh = sameVals(p->right, q->right);
+    int *arrp = new int[sizep];
+    int *arrq = new int[sizeq];
 
-    if (lh && rh)
+    toArray(arrp, 0, p);
+    toArray(arrq, 0, q);
+
+    sort(arrp, sizep);
+    sort(arrq, sizeq);
+
+    for (int i = 0; i < sizep; i++)
     {
-        return true;
+        if (arrp[i] != arrq[i])
+        {
+            return false;
+        }
     }
-    else
+
+    return true;
+}
+
+void sort(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
     {
-        return false;
+        for (int j = 0; j < size - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
     }
+}
+
+int toArray(int arr[], int index, const Node *p)
+{
+    if (p == nullptr)
+    {
+        return index;
+    }
+    arr[index] = p->val;
+    index++;
+    index = toArray(arr, index, p->left);
+    index = toArray(arr, index, p->right);
+    return index;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -56,17 +73,40 @@ bool heightBalanced(const Node *tree)
         return true;
     }
 
-    int lh = numNodes(tree->left);
-    int rh = numNodes(tree->right);
+    bool lhb = heightBalanced(tree->left);
+    bool rhb = heightBalanced(tree->right);
 
-    if ((lh - rh) <= 1 || (rh - lh) <= 1)
-    {
-        return true;
-    }
-    else
+    if (!(lhb && rhb))
     {
         return false;
     }
+
+    int lh = height(tree->left);
+    int rh = height(tree->right);
+
+    if ((lh - rh >= -1 && lh - rh <= 0) || (lh - rh >= 0 && lh - rh <= 1))
+    {
+        return true;
+    }
+
+    return false;
+}
+
+int height(Node *tree)
+{
+    if (tree == nullptr)
+    {
+        return 0;
+    }
+    int lh = height(tree->left);
+    int rh = height(tree->right);
+
+    if (lh > rh)
+    {
+        return lh + 1;
+    }
+
+    return rh + 1;
 }
 
 int numNodes(const Node *tree)
@@ -75,48 +115,17 @@ int numNodes(const Node *tree)
     {
         return 0;
     }
+    int lh = numNodes(tree->left);
+    int rh = numNodes(tree->right);
 
-    int lefth = numNodes(tree->left);
-    int righth = numNodes(tree->right);
-
-    if (lefth > righth)
-    {
-        return lefth + 1;
-    }
-    else
-    {
-        return righth + 1;
-    }
+    return lh + rh + 1;
 }
 
 int median(const Node *tree)
 {
-    int num = numNodes(tree);
-    Node *temp;
-    temp->val = tree->val;
-    temp->left = tree->left;
-    temp->right = tree->right;
-
-    int res = store(temp, num / 2);
-
-    return res;
-}
-
-int store(Node *tree, int num)
-{
-
-    if (tree == nullptr)
-    {
-        return 0;
-    }
-
-    int lh = store(tree->left, num);
-    int rh = store(tree->right, num);
-
-    if (num == lh + rh)
-    {
-        return tree->val;
-    }
-
-    return lh + rh + 1;
+    int size = numNodes(tree);
+    int *arr = new int[size];
+    toArray(arr, 0, tree);
+    
+    return arr[size / 2];
 }
