@@ -1,0 +1,450 @@
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a =  - 3x^5 + 7x^4 + 7x^2 + 6
+b =  + 3x^4
+degree of a = 5
+degree of b = 4
+
+command: sum
+a =  - 3x^5 + 7x^4 + 7x^2 + 6
+b =  + 3x^4
+a+b =  - 3x^5 + 10x^4 + 7x^2 + 6
+degree of a = 5
+degree of b = 4
+degree of a+b = 5
+
+command: number
+4 term(s) in a =  - 3x^5 + 7x^4 + 7x^2 + 6
+1 term(s) in b =  + 3x^4
+4 term(s) in sum =  - 3x^5 + 10x^4 + 7x^2 + 6
+
+command: mention
+the resulting sum has 4 terms which are - 3x^5 + 10x^4 + 7x^2 + 6
+
+command: evaluate
+enter the value of x: -2
+when x = -2
+a =  - 3x^5 + 7x^4 + 7x^2 + 6 = 242
+b =  + 3x^4 = 48
+a+b =  - 3x^5 + 10x^4 + 7x^2 + 6 = 290
+evaluate for another value of x? (y/n) : yes
+enter the value of x: 4
+when x = 4
+a =  - 3x^5 + 7x^4 + 7x^2 + 6 = -1162
+b =  + 3x^4 = 768
+a+b =  - 3x^5 + 10x^4 + 7x^2 + 6 = -394
+evaluate for another value of x? (y/n) : no
+
+command: print
+a =  - 3x^5 + 7x^4 + 7x^2 + 6
+b =  + 3x^4
+a+b =  - 3x^5 + 10x^4 + 7x^2 + 6
+degree of a = 5
+degree of b = 4
+degree of a+b = 5
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 4
+in a, 7 is the coefficient of the term of degree 4
+in b, 3 is the coefficient of the term of degree 4
+in a+b, 10 is the coefficient of the term of degree 4
+continue getting coefficients? (y/n): yes
+enter the degree of a term whose coefficient is needed 3
+in a, 0 is the coefficient of the term of degree 3
+in b, 0 is the coefficient of the term of degree 3
+in a+b, 0 is the coefficient of the term of degree 3
+continue getting coefficients? (y/n): yes
+enter the degree of a term whose coefficient is needed 7
+in a, 0 is the coefficient of the term of degree 7
+in b, 0 is the coefficient of the term of degree 7
+in a+b, 0 is the coefficient of the term of degree 7
+continue getting coefficients? (y/n): yes
+enter the degree of a term whose coefficient is needed 2
+in a, 7 is the coefficient of the term of degree 2
+in b, 0 is the coefficient of the term of degree 2
+in a+b, 7 is the coefficient of the term of degree 2
+continue getting coefficients? (y/n): no
+
+command: reset
+
+command: mention
+b will be the zero polynomial
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a =  - 3x^5 + 2x^4 + 7x^2 + 6
+b = 0
+degree of a = 5
+degree of b = -1
+
+command: sum
+a =  - 3x^5 + 2x^4 + 7x^2 + 6
+b = 0
+a+b =  - 3x^5 + 2x^4 + 7x^2 + 6
+degree of a = 5
+degree of b = -1
+degree of a+b = 5
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 7
+in a, 0 is the coefficient of the term of degree 7
+in b, 0 is the coefficient of the term of degree 7
+in a+b, 0 is the coefficient of the term of degree 7
+continue getting coefficients? (y/n): yes
+enter the degree of a term whose coefficient is needed 1
+in a, 0 is the coefficient of the term of degree 1
+in b, 0 is the coefficient of the term of degree 1
+in a+b, 0 is the coefficient of the term of degree 1
+continue getting coefficients? (y/n): no
+
+command: evaluate
+enter the value of x: 1
+when x = 1
+a =  - 3x^5 + 2x^4 + 7x^2 + 6 = 12
+b = 0 = 0
+a+b =  - 3x^5 + 2x^4 + 7x^2 + 6 = 12
+evaluate for another value of x? (y/n) : no
+
+command: reset
+
+command: mention
+a will be the zero polynomial
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a = 0
+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+degree of a = -1
+degree of b = 9
+
+command: sum
+a = 0
+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+a+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+degree of a = -1
+degree of b = 9
+degree of a+b = 9
+
+command: evaluate
+enter the value of x: -1
+when x = -1
+a = 0 = 0
+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3 = -2
+a+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3 = -2
+evaluate for another value of x? (y/n) : no
+
+command: number
+1 term(s) in a = 0
+5 term(s) in b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+5 term(s) in sum =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+
+command: print
+a = 0
+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+a+b =  + 2x^9 + 2x^7 + 2x^5 + 2x^4 - 2x^3
+degree of a = -1
+degree of b = 9
+degree of a+b = 9
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 28
+in a, 0 is the coefficient of the term of degree 28
+in b, 0 is the coefficient of the term of degree 28
+in a+b, 0 is the coefficient of the term of degree 28
+continue getting coefficients? (y/n): no
+
+command: reset
+
+command: variable
+enter the character that will be used as variable y
+a = 0
+b = 0
+
+command: mention
+line 73
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a =  + 4y
+b =  + 2y
+degree of a = 1
+degree of b = 1
+
+command: sum
+a =  + 4y
+b =  + 2y
+a+b =  + 6y
+degree of a = 1
+degree of b = 1
+degree of a+b = 1
+
+command: number
+1 term(s) in a =  + 4y
+1 term(s) in b =  + 2y
+1 term(s) in sum =  + 6y
+
+command: evaluate
+enter the value of x: -10
+when x = -10
+a =  + 4y = -40
+b =  + 2y = -20
+a+b =  + 6y = -60
+evaluate for another value of x? (y/n) : no
+
+command: reset
+
+command: mention
+line 85
+
+command: mention
+the sum of a and b result in zero coefficients (which are eliminated)
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a =  + 5y^2 + 7y + 2
+b =  + 3y^2 - 2
+degree of a = 2
+degree of b = 2
+
+command: sum
+a =  + 5y^2 + 7y + 2
+b =  + 3y^2 - 2
+a+b =  + 8y^2 + 7y
+degree of a = 2
+degree of b = 2
+degree of a+b = 2
+
+command: evaluate
+enter the value of x: 1
+when x = 1
+a =  + 5y^2 + 7y + 2 = 14
+b =  + 3y^2 - 2 = 1
+a+b =  + 8y^2 + 7y = 15
+evaluate for another value of x? (y/n) : no
+
+command: number
+3 term(s) in a =  + 5y^2 + 7y + 2
+2 term(s) in b =  + 3y^2 - 2
+2 term(s) in sum =  + 8y^2 + 7y
+
+command: print
+a =  + 5y^2 + 7y + 2
+b =  + 3y^2 - 2
+a+b =  + 8y^2 + 7y
+degree of a = 2
+degree of b = 2
+degree of a+b = 2
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 2
+in a, 5 is the coefficient of the term of degree 2
+in b, 3 is the coefficient of the term of degree 2
+in a+b, 8 is the coefficient of the term of degree 2
+continue getting coefficients? (y/n): yes
+enter the degree of a term whose coefficient is needed 0
+in a, 2 is the coefficient of the term of degree 0
+in b, -2 is the coefficient of the term of degree 0
+in a+b, 0 is the coefficient of the term of degree 0
+continue getting coefficients? (y/n): no
+
+command: differentiate
+da/dx =  + 10y + 7
+db/dx =  + 6y
+
+command: reset
+
+command: mention
+line 106
+
+command: mention
+both a and b are zero polynomials
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a = 0
+b = 0
+degree of a = -1
+degree of b = -1
+
+command: sum
+a = 0
+b = 0
+a+b = 0
+degree of a = -1
+degree of b = -1
+degree of a+b = -1
+
+command: evaluate
+enter the value of x: 1
+when x = 1
+a = 0 = 0
+b = 0 = 0
+a+b = 0 = 0
+evaluate for another value of x? (y/n) : no
+
+command: number
+1 term(s) in a = 0
+1 term(s) in b = 0
+1 term(s) in sum = 0
+
+command: print
+a = 0
+b = 0
+a+b = 0
+degree of a = -1
+degree of b = -1
+degree of a+b = -1
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 1
+in a, 0 is the coefficient of the term of degree 1
+in b, 0 is the coefficient of the term of degree 1
+in a+b, 0 is the coefficient of the term of degree 1
+continue getting coefficients? (y/n): no
+
+command: differentiate
+da/dx = 0
+db/dx = 0
+
+command: reset
+
+command: mention
+line 125
+
+command: mention:
+negative value polynomial
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a =  + 2y^5 - 9y^2 - 7y
+b =  - y^4 - 5y^3
+degree of a = 5
+degree of b = 4
+
+command: sum
+a =  + 2y^5 - 9y^2 - 7y
+b =  - y^4 - 5y^3
+a+b =  + 2y^5 - y^4 - 5y^3 - 9y^2 - 7y
+degree of a = 5
+degree of b = 4
+degree of a+b = 5
+
+command: variable
+enter the character that will be used as variable x
+a =  + 2x^5 - 9x^2 - 7x
+b =  - x^4 - 5x^3
+a+b =  + 2x^5 - x^4 - 5x^3 - 9x^2 - 7x
+
+command: print
+a =  + 2x^5 - 9x^2 - 7x
+b =  - x^4 - 5x^3
+a+b =  + 2x^5 - x^4 - 5x^3 - 9x^2 - 7x
+degree of a = 5
+degree of b = 4
+degree of a+b = 5
+
+command: evaluate
+enter the value of x: -2
+when x = -2
+a =  + 2x^5 - 9x^2 - 7x = -86
+b =  - x^4 - 5x^3 = 24
+a+b =  + 2x^5 - x^4 - 5x^3 - 9x^2 - 7x = -62
+evaluate for another value of x? (y/n) : yes
+enter the value of x: 2
+when x = 2
+a =  + 2x^5 - 9x^2 - 7x = 14
+b =  - x^4 - 5x^3 = -56
+a+b =  + 2x^5 - x^4 - 5x^3 - 9x^2 - 7x = -42
+evaluate for another value of x? (y/n) : no
+
+command: number
+3 term(s) in a =  + 2x^5 - 9x^2 - 7x
+2 term(s) in b =  - x^4 - 5x^3
+5 term(s) in sum =  + 2x^5 - x^4 - 5x^3 - 9x^2 - 7x
+
+command: print
+a =  + 2x^5 - 9x^2 - 7x
+b =  - x^4 - 5x^3
+a+b =  + 2x^5 - x^4 - 5x^3 - 9x^2 - 7x
+degree of a = 5
+degree of b = 4
+degree of a+b = 5
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 1
+in a, -7 is the coefficient of the term of degree 1
+in b, 0 is the coefficient of the term of degree 1
+in a+b, -7 is the coefficient of the term of degree 1
+continue getting coefficients? (y/n): no
+
+command: differentiate
+da/dx =  + 10x^4 - 18x - 7
+db/dx =  - 4x^3 - 15x^2
+
+command: reset
+
+command: mention
+line 149
+
+command: mention
+constant values
+
+command: input
+for polynomial a, enter # of terms, then "coefficient degree" pairs:
+for polynomial b, enter # of terms, then "coefficient degree" pairs:
+a =  + 16
+b =  + 40
+degree of a = 0
+degree of b = 0
+
+command: sum
+a =  + 16
+b =  + 40
+a+b =  + 56
+degree of a = 0
+degree of b = 0
+degree of a+b = 0
+
+command: evaluate
+enter the value of x: 1
+when x = 1
+a =  + 16 = 16
+b =  + 40 = 40
+a+b =  + 56 = 56
+evaluate for another value of x? (y/n) : no
+
+command: number
+1 term(s) in a =  + 16
+1 term(s) in b =  + 40
+1 term(s) in sum =  + 56
+
+command: print
+a =  + 16
+b =  + 40
+a+b =  + 56
+degree of a = 0
+degree of b = 0
+degree of a+b = 0
+
+command: coefficient
+enter the degree of a term whose coefficient is needed 0
+in a, 16 is the coefficient of the term of degree 0
+in b, 40 is the coefficient of the term of degree 0
+in a+b, 56 is the coefficient of the term of degree 0
+continue getting coefficients? (y/n): no
+
+command: differentiate
+da/dx = 0
+db/dx = 0
+
+command: reset
+
+command: quit

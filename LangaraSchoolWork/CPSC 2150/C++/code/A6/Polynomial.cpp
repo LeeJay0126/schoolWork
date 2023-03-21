@@ -66,7 +66,7 @@ void Polynomial::insert(Term *t)
             temp->term->setDegree(res);
             flag = true;
          }
-         else if (cmp(temp->term->degree(),t->degree()))
+         else if (cmp(temp->term->degree(), t->degree()))
          {
             if (temp->left == nullptr)
             {
@@ -208,11 +208,47 @@ const Polynomial Polynomial::operator+(const Polynomial &b)
 {
    Polynomial newPoly(cmp);
 
+   Node *temp = root;
+   addHelper(b.root, temp, newPoly);
+
    return newPoly;
 }
 
-Term Polynomial::degreeSearch(Node* tree, int x){
-   
+// calling degreesearch and inserting to new Polynomial object while traversing through the nodes
+// using recursion
+void Polynomial::addHelper(Node *otherRoot, Node *tree, Polynomial &res)
+{
+   if (tree != nullptr && tree->term->degree() != 0)
+   {
+      Term *foundTerm = degreeSearch(otherRoot, tree->term->degree());
+      foundTerm->setCoeff(tree->term->coeff() + foundTerm->coeff());
+      foundTerm->setDegree(tree->term->degree() + foundTerm->degree());
+      res.insert(foundTerm);
+      addHelper(otherRoot, tree->right, res);
+      addHelper(otherRoot, tree->left, res);
+   }
+}
+
+// Searching for a node with the same degree
+Term *Polynomial::degreeSearch(Node *tree, int x)
+{
+   while (tree != nullptr)
+   {
+      if (tree->term->degree() == x)
+      {
+         return tree->term;
+      }
+      else if (cmp(tree->term->degree(), x))
+      {
+         tree = tree->left;
+      }
+      else
+      {
+         tree = tree->right;
+      }
+   }
+   Node *temp = cons(0, 0);
+   return temp->term;
 }
 
 // copy constructor
@@ -223,17 +259,46 @@ Term Polynomial::degreeSearch(Node* tree, int x){
 Polynomial::Polynomial(const Polynomial &p)
 {
    cmp = p.cmp;
+   copyHelper(p.root);
+}
+
+void Polynomial::copyHelper(Node *otherRoot)
+{
+   if (otherRoot != nullptr)
+   {
+      if (otherRoot != 0)
+      {
+         insert(otherRoot->term);
+      }
+      copyHelper(otherRoot->right);
+      copyHelper(otherRoot->left);
+   }
 }
 
 // destructor
 Polynomial::~Polynomial()
 {
+   destructHelper(root);
+}
+
+void Polynomial::destructHelper(Node *root)
+{
+   if (root != nullptr)
+   {
+      destructHelper(root->left);
+      destructHelper(root->right);
+      delete root->term;
+      delete root;
+   }
 }
 
 // overloaded assignment operator
 Polynomial &Polynomial::operator=(const Polynomial &rtSide)
 {
    cmp = rtSide.cmp;
+   root = rtSide.root;
+
+   return *this;
 }
 
 // postcondition:
