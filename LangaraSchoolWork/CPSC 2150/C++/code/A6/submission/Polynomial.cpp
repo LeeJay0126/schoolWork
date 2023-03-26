@@ -48,50 +48,76 @@ Polynomial::Polynomial(int c, int d, std::function<bool(int, int)> fct)
 //
 void Polynomial::insert(Term *t)
 {
-   Node *temp = cons(t->coeff(), t->degree());
+   Node *newNode = cons(t->coeff(), t->degree());
 
    if (root == nullptr)
    {
-      root = temp;
+      root = newNode;
    }
    else
    {
       bool flag = false;
       Node *temp = root;
+
       while (flag == false)
       {
          if (temp->term->degree() == t->degree())
          {
-            int res = temp->term->degree() + t->degree();
-            temp->term->setDegree(res);
+            // int res = temp->term->degree() + t->degree();
+            int coef = temp->term->coeff() + t->coeff();
+            // temp->term->setDegree(res);
+            temp->term->setCoeff(coef);
             flag = true;
          }
-         else if (cmp(temp->term->degree(), t->degree()))
+         else if (cmp(t->degree(), temp->term->degree()))
          {
             if (temp->left == nullptr)
             {
-               temp->left = temp;
+               temp->left = newNode;
                flag = true;
             }
             else
             {
-               temp = temp->left;
+               Node *next = temp->left;
+               if (cmp(t->degree(), next->term->degree()))
+               {
+                  temp = temp->left;
+               }
+               else
+               {
+                  temp->left = newNode;
+                  newNode->left = next;
+                  flag = true;
+               }
             }
          }
          else
          {
             if (temp->right == nullptr)
             {
-               temp->right = temp;
+               temp->right = newNode;
                flag = true;
             }
             else
             {
-               temp = temp->right;
+               Node *next = temp->left;
+               if (cmp(t->degree(), next->term->degree()))
+               {
+                  temp = temp->right;
+               }
+               else
+               {
+                  temp->right = newNode;
+                  newNode->right = next;
+                  flag = true;
+               }
             }
          }
       }
    }
+
+   // std::cout << temp->term->degree() << std::endl;
+   // std::cout << temp->term->coeff() << std::endl;
 }
 
 // postcondition:
@@ -210,6 +236,7 @@ const Polynomial Polynomial::operator+(const Polynomial &b)
 
    Node *temp = root;
    addHelper(b.root, temp, newPoly);
+   addHelper(temp, b.root, newPoly);
 
    return newPoly;
 }
@@ -218,19 +245,55 @@ const Polynomial Polynomial::operator+(const Polynomial &b)
 // using recursion
 void Polynomial::addHelper(Node *otherRoot, Node *tree, Polynomial &res)
 {
-   if (tree != nullptr && tree->term->degree() != 0)
+   if (tree != nullptr)
    {
-      Term *foundTerm = degreeSearch(otherRoot, tree->term->degree());
-      foundTerm->setCoeff(tree->term->coeff() + foundTerm->coeff());
-      foundTerm->setDegree(tree->term->degree() + foundTerm->degree());
-      res.insert(foundTerm);
+      Term *foundTerm = degreeSearchA(otherRoot, tree->term->degree());
+      Node *temp = cons(foundTerm->coeff() + tree->term->coeff(), foundTerm->degree());
+      res.insert(temp->term);
       addHelper(otherRoot, tree->right, res);
       addHelper(otherRoot, tree->left, res);
    }
 }
 
+void Polynomial::addHelper2(Node *otherRoot, Node *tree, Polynomial &res)
+{
+   if (tree != nullptr)
+   {
+      Term *foundTerm = degreeSearchB(otherRoot, tree->term->degree());
+      if (foundTerm != nullptr)
+      {
+         Node *temp = cons(foundTerm->coeff() + tree->term->coeff(), foundTerm->degree());
+         res.insert(temp->term);
+         addHelper2(otherRoot, tree->right, res);
+         addHelper2(otherRoot, tree->left, res);
+      }
+   }
+}
+
+Term *Polynomial::degreeSearchB(Node *tree, int x)
+{
+   while (tree != nullptr)
+   {
+      if (tree->term->degree() == x)
+      {
+         return nullptr;
+      }
+      else if (cmp(tree->term->degree(), x))
+      {
+         tree = tree->left;
+      }
+      else
+      {
+         tree = tree->right;
+      }
+   }
+
+   return tree->term;
+}
+
 // Searching for a node with the same degree
-Term *Polynomial::degreeSearch(Node *tree, int x)
+// Used to get all the matching values from poly a from poly b
+Term *Polynomial::degreeSearchA(Node *tree, int x)
 {
    while (tree != nullptr)
    {
@@ -247,6 +310,7 @@ Term *Polynomial::degreeSearch(Node *tree, int x)
          tree = tree->right;
       }
    }
+
    Node *temp = cons(0, 0);
    return temp->term;
 }
@@ -305,14 +369,20 @@ Polynomial &Polynomial::operator=(const Polynomial &rtSide)
 //    outputs the polynomial, starting with the highest degree
 void Polynomial::printer(Node *tree, std::ostream &out)
 {
-   if (tree != nullptr)
+   // Term ter2 = Term(tree->left->term->coeff(), tree->left->term->degree());
+   // std::cout << ter2 << std::endl;
+   if (tree->left != nullptr)
+   {
+      printer(tree->left, out);
+   }
+   if (tree->term->coeff() != 0)
+   {
+      Term ter = Term(tree->term->coeff(), tree->term->degree());
+      out << ter;
+   }
+   if (tree->right != nullptr)
    {
       printer(tree->right, out);
-      if (tree->term->degree() != 0)
-      {
-         out << tree->term;
-      }
-      printer(tree->left, out);
    }
 }
 
@@ -342,7 +412,9 @@ std::istream &operator>>(std::istream &in, Polynomial &poly)
    for (int i = 0; i < n; i++)
    {
       in >> coeff;
+      // std::cout << coeff << std::endl;
       in >> degree;
+      // std::cout << degree << std::endl;
       poly.insert(new Term(coeff, degree));
    }
 

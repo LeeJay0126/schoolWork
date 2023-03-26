@@ -110,10 +110,13 @@ private:
    int termNum(Node *tree) const;
    double treeSum(double x, Node *tree) const;
    static void printer(Node *tree, std::ostream &out);
-   Term *degreeSearch(Node *tree, int x);
+   Term *degreeSearchA(Node *tree, int x);
    void addHelper(Node *otherRoot, Node *tree, Polynomial &res);
    void copyHelper(Node *otherRoot);
    void destructHelper(Node *root);
+   Term *degreeSearchB(Node *tree, int x);
+   void addHelper2(Node *otherRoot, Node *tree, Polynomial &res);
+
 };
 #endif
 
