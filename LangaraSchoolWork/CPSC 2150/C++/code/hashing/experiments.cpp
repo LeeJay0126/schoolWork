@@ -80,8 +80,41 @@ int main()
 
    // Linear Probing
    // Load factor 0.2
-   linearFunction(lightLoad, T);
+   auto start = std::chrono::steady_clock::now();
+   for (int i = 0; i < 100; i++)
+   {
+      linearFunction(lightLoad, T);
+      clearHash(T, lightLoad);
+   }
+   auto end = std::chrono::steady_clock::now();
+   std::chrono::duration<double> diff = (end - start) / 100;
+   auto lightLin = diff.count();
+   cout << fixed << setprecision(4) << left;
+   cout << setw(20) << "Linear" << setw(20) << "0.2 load factor" << setw(20) << lightLin << endl;
 
+   // Load factor 0.5
+   start = std::chrono::steady_clock::now();
+   for (int i = 0; i < 100; i++)
+   {
+      linearFunction(medLoad, T);
+      clearHash(T, medLoad);
+   }
+   end = std::chrono::steady_clock::now();
+   std::chrono::duration<double> diff = (end - start) / 100;
+   auto medLin = diff.count();
+   cout << setw(20) << "Linear" << setw(20) << "0.5 load factor" << setw(20) << medLin << endl;
+
+   // Load factor 0.8
+   start = std::chrono::steady_clock::now();
+   for (int i = 0; i < 100; i++)
+   {
+      linearFunction(largeLoad, T);
+      clearHash(T, largeLoad);
+   }
+   end = std::chrono::steady_clock::now();
+   std::chrono::duration<double> diff = (end - start) / 100;
+   auto largeLin = diff.count();
+   cout << setw(20) << "Linear" << setw(20) << "0.5 load factor" << setw(20) << largeLin << endl;
 
    return 0;
 }
