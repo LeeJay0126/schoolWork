@@ -26,6 +26,7 @@ string getKey()
    char e = 65 + rand() % 26;
    char f = 65 + rand() % 26;
    char g = 65 + rand() % 26;
+
    return "" + a + b + c + d + e + f + g;
 }
 
