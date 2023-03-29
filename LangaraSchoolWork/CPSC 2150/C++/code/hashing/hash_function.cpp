@@ -19,15 +19,18 @@ int hash_fct(const std::string &k, int m)
 
 string getKey()
 {
-   char a = 65 + rand() % 26;
-   char b = 65 + rand() % 26;
-   char c = 65 + rand() % 26;
-   char d = 65 + rand() % 26;
-   char e = 65 + rand() % 26;
-   char f = 65 + rand() % 26;
-   char g = 65 + rand() % 26;
+   int random = 3 + rand() % 15;
+   string res;
+   char randChar;
 
-   return "" + a + b + c + d + e + f + g;
+   for (int i = 0; i < random; i++)
+   {
+      randChar = 'A' + rand() % 26;
+      res += randChar;
+   }
+
+   // + h + i + j + k + l + m
+   return res;
 }
 
 // copyright 2023 Gladys Monagan
