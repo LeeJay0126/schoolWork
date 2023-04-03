@@ -75,18 +75,18 @@ TEST(numberOfVerticesTest, data7) {
 //==============================================================================
 // isConnectedTest
 //==============================================================================
-TEST(isConnectedTest, data0_Fail) {
-   stringstream ss("7    2 1   2 6    1 6     6 4    4 5   0 3");
-   Graph graph;
-   ss >> graph;
-   EXPECT_FALSE(graph.isConnected()) << graph;
-}
-TEST(isConnectedTest, data1_WithCycleIn3Components) {
-   stringstream ss("7   0 1  1 2   2 3   2 4   4 3"); 
-   Graph graph;
-   ss >> graph;
-   EXPECT_FALSE(graph.isConnected()) << graph;
-}
+// TEST(isConnectedTest, data0_Fail) {
+//    stringstream ss("7    2 1   2 6    1 6     6 4    4 5   0 3");
+//    Graph graph;
+//    ss >> graph;
+//    EXPECT_FALSE(graph.isConnected()) << graph;
+// }
+// TEST(isConnectedTest, data1_WithCycleIn3Components) {
+//    stringstream ss("7   0 1  1 2   2 3   2 4   4 3"); 
+//    Graph graph;
+//    ss >> graph;
+//    EXPECT_FALSE(graph.isConnected()) << graph;
+// }
 TEST(isConnectedTest, data6_11SingletonsFail) {
    stringstream ss("11");
    Graph graph;

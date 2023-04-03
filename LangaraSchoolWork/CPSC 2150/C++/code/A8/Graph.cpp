@@ -37,51 +37,54 @@ std::istream &operator>>(std::istream &in, Graph &graph)
    int start;
    bool flag;
 
-   for (int i = 0; i < n; i++)
+   if (!in.fail())
    {
-      in >> start;
-      in >> destination;
-
-      flag = false;
-
-      if (graph.vertextList[start] == nullptr)
+      while (in)
       {
-         graph.vertextList[start] = new Graph::Node{destination, nullptr};
-      }
-      else
-      {
-         Graph::Node *temp = graph.vertextList[start];
-         while (temp->next != nullptr)
+         in >> start;
+         in >> destination;
+
+         flag = false;
+
+         if (graph.vertextList[start] == nullptr)
          {
-            if (temp->vertext == destination)
-            {
-               flag = true;
-            }
-            temp = temp->next;
+            graph.vertextList[start] = new Graph::Node{destination, nullptr};
          }
-         if (flag == false)
+         else
          {
-            Graph::Node *newNode = new Graph::Node{destination, nullptr};
-            temp->next = newNode;
-         }
-      }
-
-      if (graph.vertextList[destination] == nullptr)
-      {
-         graph.vertextList[destination] = new Graph::Node{start, nullptr};
-      }
-      else
-      {
-         if (flag == false)
-         {
-            Graph::Node *temp = graph.vertextList[destination];
+            Graph::Node *temp = graph.vertextList[start];
             while (temp->next != nullptr)
             {
+               if (temp->vertext == destination)
+               {
+                  flag = true;
+               }
                temp = temp->next;
             }
+            if (flag == false)
+            {
+               Graph::Node *newNode = new Graph::Node{destination, nullptr};
+               temp->next = newNode;
+            }
+         }
 
-            Graph::Node *newNode = new Graph::Node{start, nullptr};
-            temp->next = newNode;
+         if (graph.vertextList[destination] == nullptr)
+         {
+            graph.vertextList[destination] = new Graph::Node{start, nullptr};
+         }
+         else
+         {
+            if (flag == false)
+            {
+               Graph::Node *temp = graph.vertextList[destination];
+               while (temp->next != nullptr)
+               {
+                  temp = temp->next;
+               }
+
+               Graph::Node *newNode = new Graph::Node{start, nullptr};
+               temp->next = newNode;
+            }
          }
       }
    }
@@ -100,13 +103,16 @@ std::ostream &operator<<(std::ostream &out, const Graph &graph)
 
    for (int i = 0; i < n; i++)
    {
+      std::cout << "c" << std::endl;
+
       temp = graph.vertextList[i];
       if (temp != nullptr)
       {
-         out << temp->vertext << "     ";
+         out << i << "     ";
          while (temp != nullptr)
          {
             out << temp->vertext << " ";
+            temp = temp->next;
          }
          out << std::endl;
       }
@@ -126,10 +132,46 @@ int Graph::numberOfVertices() const
 // *****************************************************************
 bool Graph::isConnected() const
 {
+   int n = vertices;
+   std::cout << "A" << std::endl;
+   for (int i = 0; i < n; i++)
+   {
+      if (vertextList[i] == nullptr)
+      {
+         return false;
+      }
+      Graph::recursiveConnect(marker, vertextList[i]);
+   }
 
+   bool flag = true;
+   for (int i = 0; i < n; i++)
+   {
+      if (marker[i] == false)
+      {
+         flag = false;
+      }
+   }
+   std::cout << "a" << std::endl;
+
+   if (flag == true)
+   {
+      return true;
+   }
+   return false;
 }
 
-
+void Graph::recursiveConnect(bool *marker, Node *vertext) const
+{
+   if (vertext != nullptr)
+   {
+      int temp = vertext->vertext;
+      if (marker[temp] == false)
+      {
+         marker[temp] = true;
+      }
+      recursiveConnect(marker, vertext->next);
+   }
+}
 
 bool Graph::hasCycle() const
 {
