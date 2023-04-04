@@ -105,7 +105,10 @@ private:
    // postcondition:
    //    "in" is not in the fail state and the buffer is cleared
    static void clearClean(std::istream &);
-   void recursiveConnect(bool *marker, Node *vertext) const;
+   void recursiveConnect(bool *marker, int s) const;
+   bool cycleHelper(int k, bool visited[], int parent) const;
+   int getNum(Node *p) const;
+   // int boolCount(bool arr[], int n) const;
 };
 
 #endif

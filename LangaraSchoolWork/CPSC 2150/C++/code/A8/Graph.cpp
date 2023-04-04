@@ -4,6 +4,7 @@
 #include <limits> // for declaration of 'numeric_limits' for in
 #include <ios>    // for declaration of 'streamsize' for in
 #include "Graph.h"
+#include <queue>
 
 Graph::Graph()
 {
@@ -39,11 +40,8 @@ std::istream &operator>>(std::istream &in, Graph &graph)
 
    if (!in.fail())
    {
-      while (in)
+      while (in >> start >> destination)
       {
-         in >> start;
-         in >> destination;
-
          flag = false;
 
          if (graph.vertextList[start] == nullptr)
@@ -90,6 +88,7 @@ std::istream &operator>>(std::istream &in, Graph &graph)
    }
 
    Graph::clearClean(in);
+   in.ignore();
    // might want to call
    // clearClean(in);
    // either here or in a helper function
@@ -103,8 +102,6 @@ std::ostream &operator<<(std::ostream &out, const Graph &graph)
 
    for (int i = 0; i < n; i++)
    {
-      std::cout << "c" << std::endl;
-
       temp = graph.vertextList[i];
       if (temp != nullptr)
       {
@@ -133,53 +130,163 @@ int Graph::numberOfVertices() const
 bool Graph::isConnected() const
 {
    int n = vertices;
-   std::cout << "A" << std::endl;
+   if (vertices <= 2)
+   {
+      return true;
+   }
+
    for (int i = 0; i < n; i++)
    {
       if (vertextList[i] == nullptr)
       {
          return false;
       }
-      Graph::recursiveConnect(marker, vertextList[i]);
    }
+   Graph::recursiveConnect(marker, 0);
 
-   bool flag = true;
+   bool isConnected = true;
    for (int i = 0; i < n; i++)
    {
       if (marker[i] == false)
       {
-         flag = false;
+         isConnected = false;
       }
    }
-   std::cout << "a" << std::endl;
 
-   if (flag == true)
+   for (int i = 0; i < n; i++)
    {
-      return true;
+      marker[i] = false;
    }
-   return false;
+
+   return (isConnected);
 }
 
-void Graph::recursiveConnect(bool *marker, Node *vertext) const
+void Graph::recursiveConnect(bool *marker, int s) const
 {
-   if (vertext != nullptr)
+   marker[s] = true;
+   std::queue<int> que;
+   que.push(s);
+
+   while (!que.empty())
    {
-      int temp = vertext->vertext;
-      if (marker[temp] == false)
+      int i = que.front();
+      que.pop();
+      int o = Graph::getNum(vertextList[i]);
+      Node *temp = vertextList[i];
+      for (int k = 0; k < o; k++)
       {
-         marker[temp] = true;
+         if (!marker[temp->vertext])
+         {
+            marker[temp->vertext] = true;
+            que.push(temp->vertext);
+         }
+         temp = temp->next;
       }
-      recursiveConnect(marker, vertext->next);
    }
+}
+
+int Graph::getNum(Node *p) const
+{
+   int res = 0;
+   while (p != nullptr)
+   {
+      res += 1;
+      p = p->next;
+   }
+   return res;
 }
 
 bool Graph::hasCycle() const
 {
+   if (vertices < 2 || vertextList == nullptr)
+   {
+      return false;
+   }
+
+   int parent = -1;
+   bool *visited = new bool[vertices];
+
+   for (int i = 0; i < vertices; i++)
+   {
+      visited[i] = false;
+   }
+
+   for (int k = 0; k < vertices; k++)
+   {
+      if (!visited[k])
+      {
+         if (cycleHelper(k, visited, parent))
+         {
+            return true;
+         }
+      }
+   }
+   return false;
+}
+
+bool Graph::cycleHelper(int k, bool visited[], int parent) const
+{
+   visited[k] = true;
+   Node *temp = vertextList[k];
+   while (temp != nullptr)
+   {
+      int p = temp->vertext;
+      if (!visited[p])
+      {
+         if (cycleHelper(p, visited, k))
+         {
+            return true;
+         }
+         else if (visited[p] == true && p != parent)
+         {
+            return true;
+         }
+      }
+      temp = temp->next;
+   }
+   return false;
 }
 
 void Graph::listComponents(std::ostream &out) const
 {
+   int *arr = new int[vertices];
+   for (int i = 0; i < vertices; i++)
+   {
+      arr[i] = i;
+   }
+   int total = 0;
+   for (int i = 0; i < vertices; i++)
+   {
+      if (marker[i] == false)
+      {
+         recursiveConnect(marker, i);
+         // int q = boolCount(marker, vertices);
+         for (int t = 0; t < vertices; t++)
+         {
+            if (marker[t] != NULL && arr[t] != -1)
+            {
+               out << t << " ";
+               arr[t] = -1;
+               // gotta find a way to print , after each print except for the last one (new arrays?)
+            }
+         }
+         out << "\n";
+      }
+   }
 }
+
+// int Graph::boolCount(bool arr[], int n) const
+// {
+//    int res = 0;
+//    for (int i = 0; i < n; i++)
+//    {
+//       if (arr[i] == false)
+//       {
+//          res += 1;
+//       }
+//    }
+//    return res;
+// }
 
 int Graph::pathLength(int from, int to) const
 {
@@ -189,6 +296,9 @@ int Graph::pathLength(int from, int to) const
 //    deep copy the rtSide
 Graph &Graph::operator=(const Graph &rtSide)
 {
+   vertextList = rtSide.vertextList;
+   marker = rtSide.marker;
+   vertices = rtSide.vertices;
 
    return *this;
 }
@@ -198,11 +308,49 @@ Graph &Graph::operator=(const Graph &rtSide)
 //    the instance variables are initialized using other
 Graph::Graph(const Graph &other)
 {
+   vertices = other.vertices;
+   marker = new bool[vertices];
+   vertextList = new Node *[vertices];
+
+   for (int i = 0; i < vertices; i++)
+   {
+      if (other.vertextList[i] != nullptr)
+      {
+         Node *temp = other.vertextList[i];
+         Node *newNode = new Node{temp->vertext, nullptr};
+         vertextList[i] = newNode;
+         temp = temp->next;
+         Node *q = newNode;
+         while (temp != nullptr)
+         {
+            Node *t = new Node{temp->vertext, nullptr};
+            q->next = t;
+            temp = temp->next;
+            q = q->next;
+         }
+      }
+   }
 }
 
 // destructor frees up the memory on the heap
 Graph::~Graph()
 {
+   if (vertextList != nullptr)
+   {
+      for (int i = 0; i < vertices; i++)
+      {
+         if (vertextList[i] != nullptr)
+         {
+            Node *temp = vertextList[i];
+            while (temp != nullptr)
+            {
+            }
+         }
+      }
+   }
+   vertices = 0;
+   delete[] marker;
+   marker = NULL;
 }
 
 //==============================================================================
