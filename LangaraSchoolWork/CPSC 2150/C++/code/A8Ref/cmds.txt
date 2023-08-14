@@ -1,0 +1,114 @@
+input
+data1.txt
+number
+mention
+this graph has a cycle, is NOT connected and has as components
+connected
+find
+list
+twin
+number
+connected
+list
+mention
+exit the 'twin mode' with the first reset
+reset
+mention
+reset to finish with the first graph and to build another graph from a file
+reset
+
+mention
+line 21
+input
+data0.txt
+mention
+this graph is NOT connected, has at least one cycle, and 2 components
+connected
+find
+list
+reset
+
+mention
+line 32
+input
+data2.txt
+connected
+find
+list
+reset
+
+mention
+line 41
+input 
+data8.txt
+apath 0 13
+mention 
+vertex 0 to vertex 13 expecting 4, NOT 10
+apath 13 0
+mention 
+vertex 13 to vertex 0 expecting 4, NOT 12
+apath 0 8
+mention 
+vertex 0 to vertex 8 expecting 4, NOT 8
+apath 8 0
+mention 
+vertex 8 to vertex 0 expecting 4, NOT 12
+reset
+
+mention
+line 59
+input
+data7.txt
+list
+apath 7 5
+mention
+vertex 7 to vertex 5 expecting 2
+apath 5 7
+mention
+vertex 5 to vertex 7 expecting 2
+apath 7 6
+mention
+vertex 7 to vertex 6 expecting 1
+apath 6 7
+mention
+vertex 6 to vertex 7 expecting 1
+apath 1 7
+mention
+vertex 1 to vertex 7 expecting 6
+apath 7 1
+mention
+vertex 7 to vertex 1 expecting 6
+reset
+
+mention
+line 84
+input 
+data5.txt
+number
+find
+connected
+list
+twin
+number
+list
+reset
+reset
+
+mention
+line 98
+input
+data6.txt
+number
+mention
+g6.txt is a file of singletons and there are no edges
+connected
+find
+list
+twin
+number
+connected
+reset
+reset
+mention
+exit the program
+quit 

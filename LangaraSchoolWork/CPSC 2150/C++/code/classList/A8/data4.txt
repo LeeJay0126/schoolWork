@@ -1,0 +1,4 @@
+2
+0 1
+this graph has NO cycle, is connected and has as components
+0 1

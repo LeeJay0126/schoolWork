@@ -8,80 +8,69 @@
 
 Graph::Graph()
 {
-   marker = NULL;
-   vertextList = nullptr;
    vertices = 0;
+   vertextList = nullptr;
+}
+
+Graph::Node *Graph::cons(int vert)
+{
+   Node *newNode = new Node{vert, nullptr};
+   return newNode;
 }
 
 // read the graph by first deleting the current graph if it is not empty
 std::istream &operator>>(std::istream &in, Graph &graph)
 {
    int n;
-
    in >> n;
-
    graph.vertices = n;
-   graph.marker = new bool[n];
-
-   for (int i = 0; i < n; i++)
-   {
-      graph.marker[i] = false;
-   }
-
    graph.vertextList = new Graph::Node *[n];
+   Graph::Node **v = graph.vertextList;
+
    for (int i = 0; i < n; i++)
    {
-      graph.vertextList[i] = nullptr;
+      v[i] = nullptr;
    }
-
-   int destination;
-   int start;
-   bool flag;
 
    if (!in.fail())
    {
+      int start;
+      int destination;
+
       while (in >> start >> destination)
       {
-         flag = false;
-
-         if (graph.vertextList[start] == nullptr)
+         // storing the value for the first number
+         if (v[start] == nullptr)
          {
-            graph.vertextList[start] = new Graph::Node{destination, nullptr};
+            v[start] = graph.cons(destination);
          }
          else
          {
-            Graph::Node *temp = graph.vertextList[start];
-            while (temp->next != nullptr)
+            Graph::Node *t = v[start];
+            while (t->next != nullptr && t->vertext != destination)
             {
-               if (temp->vertext == destination)
-               {
-                  flag = true;
-               }
-               temp = temp->next;
+               t = t->next;
             }
-            if (flag == false)
+            if (t->vertext != destination)
             {
-               Graph::Node *newNode = new Graph::Node{destination, nullptr};
-               temp->next = newNode;
+               t->next = graph.cons(destination);
             }
          }
-
-         if (graph.vertextList[destination] == nullptr)
+         // storing the value for the second number
+         if (v[destination] == nullptr)
          {
-            graph.vertextList[destination] = new Graph::Node{start, nullptr};
+            v[destination] = graph.cons(start);
          }
          else
          {
-            if (flag == false)
+            Graph::Node *t = v[destination];
+            while (t->next != nullptr && t->vertext != start)
             {
-               Graph::Node *temp = graph.vertextList[destination];
-               while (temp->next != nullptr)
-               {
-                  temp = temp->next;
-               }
-
-               Graph::Node *newNode = new Graph::Node{start, nullptr};
-               temp->next = newNode;
+               t = t->next;
+            }
+            if (t->vertext != start)
+            {
+               t->next = graph.cons(start);
             }
          }
       }
@@ -103,16 +92,13 @@ std::ostream &operator<<(std::ostream &out, const Graph &graph)
    for (int i = 0; i < n; i++)
    {
       temp = graph.vertextList[i];
+      out << i << "     ";
       if (temp != nullptr)
       {
-         out << i << "     ";
-         while (temp != nullptr)
-         {
-            out << temp->vertext << " ";
-            temp = temp->next;
-         }
-         out << std::endl;
+         out << temp->vertext << "  ";
+         temp = temp->next;
       }
+      out << std::endl;
    }
 
    return out;
@@ -130,10 +116,7 @@ int Graph::numberOfVertices() const
 bool Graph::isConnected() const
 {
    int n = vertices;
-   if (vertices <= 2)
-   {
-      return true;
-   }
+   bool *marker = new bool[n];
 
    for (int i = 0; i < n; i++)
    {
@@ -142,47 +125,50 @@ bool Graph::isConnected() const
          return false;
       }
    }
-   Graph::recursiveConnect(marker, 0);
 
-   bool isConnected = true;
-   for (int i = 0; i < n; i++)
-   {
-      if (marker[i] == false)
-      {
-         isConnected = false;
-      }
-   }
+   // if (n < 2)
+   // {
+   //    return true;
+   // }
 
    for (int i = 0; i < n; i++)
    {
       marker[i] = false;
    }
 
-   return (isConnected);
-}
-
-void Graph::recursiveConnect(bool *marker, int s) const
-{
-   marker[s] = true;
    std::queue<int> que;
-   que.push(s);
 
-   while (!que.empty())
+   for (int i = 0; i < n; i++)
    {
-      int i = que.front();
-      que.pop();
-      int o = Graph::getNum(vertextList[i]);
-      Node *temp = vertextList[i];
-      for (int k = 0; k < o; k++)
+      que.push(i);
+
+      while (!que.empty())
       {
-         if (!marker[temp->vertext])
+         int k = que.front();
+         que.pop();
+         if (!marker[k])
          {
-            marker[temp->vertext] = true;
-            que.push(temp->vertext);
+            marker[k] = true;
+            int o = getNum(vertextList[k]);
+            Node *p = vertextList[k];
+            for (int i = 0; i < o; i++)
+            {
+               que.push(p->vertext);
+            }
+            p = p->next;
          }
-         temp = temp->next;
       }
    }
+
+   for (int i = 0; i < n; i++)
+   {
+      if (marker[i] == false)
+      {
+         return false;
+      }
+   }
+
+   return true;
 }
 
 int Graph::getNum(Node *p) const
@@ -198,24 +184,18 @@ int Graph::getNum(Node *p) const
 
 bool Graph::hasCycle() const
 {
-   if (vertices < 2 || vertextList == nullptr)
-   {
-      return false;
-   }
-
-   int parent = -1;
-   bool *visited = new bool[vertices];
-
+   bool *marker = new bool[vertices];
    for (int i = 0; i < vertices; i++)
    {
-      visited[i] = false;
+      marker[i] = false;
    }
-
-   for (int k = 0; k < vertices; k++)
+   bool cycleFlag = false;
+   for (int i = 0; i < vertices; i++)
    {
-      if (!visited[k])
+      if (vertextList[i] != nullptr)
       {
-         if (cycleHelper(k, visited, parent))
+         cycleFlag = cycleHelper(marker, i);
+         if (cycleFlag)
          {
             return true;
          }
@@ -224,133 +204,60 @@ bool Graph::hasCycle() const
    return false;
 }
 
-bool Graph::cycleHelper(int k, bool visited[], int parent) const
+bool Graph::cycleHelper(bool *marker, int parent) const
 {
-   visited[k] = true;
-   Node *temp = vertextList[k];
-   while (temp != nullptr)
+   if (marker[parent] == false)
    {
-      int p = temp->vertext;
-      if (!visited[p])
+      marker[parent] = true;
+      std::queue<int> que;
+      que.push(parent);
+      while (!que.empty())
       {
-         if (cycleHelper(p, visited, k))
+         int o = que.front();
+         que.pop();
+         if (!marker[o])
          {
-            return true;
-         }
-         else if (visited[p] == true && p != parent)
-         {
-            return true;
+            marker[o] = true;
+            parent = o;
+            int k = getNum(vertextList[o]);
+            Node *p = vertextList[o];
+            for (int i = 0; i < k; i++)
+            {
+               if (marker[p->vertext] == true && p->vertext != parent)
+               {
+                  return true;
+               }
+               else
+               {
+                  que.push(p->vertext);
+                  p = p->next;
+               }
+            }
          }
       }
-      temp = temp->next;
    }
    return false;
 }
 
 void Graph::listComponents(std::ostream &out) const
 {
-   int *arr = new int[vertices];
-   for (int i = 0; i < vertices; i++)
-   {
-      arr[i] = i;
-   }
-   int total = 0;
-   for (int i = 0; i < vertices; i++)
-   {
-      if (marker[i] == false)
-      {
-         recursiveConnect(marker, i);
-         // int q = boolCount(marker, vertices);
-         for (int t = 0; t < vertices; t++)
-         {
-            if (marker[t] != NULL && arr[t] != -1)
-            {
-               out << t << " ";
-               arr[t] = -1;
-               // gotta find a way to print , after each print except for the last one (new arrays?)
-            }
-         }
-         out << "\n";
-      }
-   }
 }
-
-// int Graph::boolCount(bool arr[], int n) const
-// {
-//    int res = 0;
-//    for (int i = 0; i < n; i++)
-//    {
-//       if (arr[i] == false)
-//       {
-//          res += 1;
-//       }
-//    }
-//    return res;
-// }
 
 int Graph::pathLength(int from, int to) const
 {
 }
 
-// postcondition:
-//    deep copy the rtSide
 Graph &Graph::operator=(const Graph &rtSide)
 {
-   vertextList = rtSide.vertextList;
-   marker = rtSide.marker;
-   vertices = rtSide.vertices;
-
-   return *this;
 }
 
-// other is the Graph we are copying from
-// postcondition:
-//    the instance variables are initialized using other
 Graph::Graph(const Graph &other)
 {
-   vertices = other.vertices;
-   marker = new bool[vertices];
-   vertextList = new Node *[vertices];
-
-   for (int i = 0; i < vertices; i++)
-   {
-      if (other.vertextList[i] != nullptr)
-      {
-         Node *temp = other.vertextList[i];
-         Node *newNode = new Node{temp->vertext, nullptr};
-         vertextList[i] = newNode;
-         temp = temp->next;
-         Node *q = newNode;
-         while (temp != nullptr)
-         {
-            Node *t = new Node{temp->vertext, nullptr};
-            q->next = t;
-            temp = temp->next;
-            q = q->next;
-         }
-      }
-   }
 }
 
 // destructor frees up the memory on the heap
 Graph::~Graph()
 {
-   if (vertextList != nullptr)
-   {
-      for (int i = 0; i < vertices; i++)
-      {
-         if (vertextList[i] != nullptr)
-         {
-            Node *temp = vertextList[i];
-            while (temp != nullptr)
-            {
-            }
-         }
-      }
-   }
-   vertices = 0;
-   delete[] marker;
-   marker = NULL;
 }
 
 //==============================================================================

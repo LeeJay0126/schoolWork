@@ -96,14 +96,20 @@ private:
       Node *next;
    };
 
+   bool *marker;
+
+   Node **vertextList;
+
+   int vertices;
+
    // postcondition:
    //    "in" is not in the fail state and the buffer is cleared
    static void clearClean(std::istream &);
-   Node *cons(int vert);
-   int vertices;
-   Node **vertextList;
+   void recursiveConnect(bool *marker, int s) const;
+   bool cycleHelper(int k, bool visited[], int parent) const;
    int getNum(Node *p) const;
-   bool cycleHelper(bool *marker, int parent) const;
+   int pathHelper(int s, int d) const;
+   // int boolCount(bool arr[], int n) const;
 };
 
 #endif

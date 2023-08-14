@@ -1,0 +1,307 @@
+
+command: input
+enter the file name that has the graph: data1.txt
+
+command: number
+the graph has 7 vertices
+
+command: mention
+this graph has a cycle, is NOT connected and has as components
+
+command: connected
+the graph is NOT connected
+
+command: find
+the graph has at least one cycle
+
+command: list
+0 1 2 4 3 
+5 
+6 
+
+command: twin
+
+for twin graph 
+command: number
+the graph has 7 vertices
+
+for twin graph 
+command: connected
+the graph is NOT connected
+
+for twin graph 
+command: list
+0 1 2 4 3 
+5 
+6 
+
+for twin graph 
+command: mention
+exit the 'twin mode' with the first reset
+
+for twin graph 
+command: reset
+
+command: mention
+reset to finish with the first graph and to build another graph from a file
+
+command: reset
+
+command: mention
+line 21
+
+command: input
+enter the file name that has the graph: data0.txt
+
+command: mention
+this graph is NOT connected, has at least one cycle, and 2 components
+
+command: connected
+the graph is NOT connected
+
+command: find
+the graph has at least one cycle
+
+command: list
+0 3 
+1 6 4 5 2 
+
+command: reset
+
+command: mention
+line 32
+
+command: input
+enter the file name that has the graph: data2.txt
+
+command: connected
+the graph is NOT connected
+
+command: find
+no cycles
+
+command: list
+0 1 
+2 
+3 4 
+
+command: reset
+
+command: mention
+line 41
+
+command: input
+enter the file name that has the graph: data8.txt
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 0
+destination vertex = 13
+path length from vertex 0 to vertex 13 is 4
+
+command: mention
+vertex 0 to vertex 13 expecting 4, NOT 10
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 13
+destination vertex = 0
+path length from vertex 13 to vertex 0 is 4
+
+command: mention
+vertex 13 to vertex 0 expecting 4, NOT 12
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 0
+destination vertex = 8
+path length from vertex 0 to vertex 8 is 4
+
+command: mention
+vertex 0 to vertex 8 expecting 4, NOT 8
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 8
+destination vertex = 0
+path length from vertex 8 to vertex 0 is 4
+
+command: mention
+vertex 8 to vertex 0 expecting 4, NOT 12
+
+command: reset
+
+command: mention
+line 59
+
+command: input
+enter the file name that has the graph: data7.txt
+
+command: list
+0 1 2 3 4 5 6 7 
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 7
+destination vertex = 5
+path length from vertex 7 to vertex 5 is 2
+
+command: mention
+vertex 7 to vertex 5 expecting 2
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 5
+destination vertex = 7
+path length from vertex 5 to vertex 7 is 2
+
+command: mention
+vertex 5 to vertex 7 expecting 2
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 7
+destination vertex = 6
+path length from vertex 7 to vertex 6 is 1
+
+command: mention
+vertex 7 to vertex 6 expecting 1
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 6
+destination vertex = 7
+path length from vertex 6 to vertex 7 is 1
+
+command: mention
+vertex 6 to vertex 7 expecting 1
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 1
+destination vertex = 7
+path length from vertex 1 to vertex 7 is 6
+
+command: mention
+vertex 1 to vertex 7 expecting 6
+
+command: apath
+enter the starting vertex and the destination vertex: 
+     source vertex = 7
+destination vertex = 1
+path length from vertex 7 to vertex 1 is 6
+
+command: mention
+vertex 7 to vertex 1 expecting 6
+
+command: reset
+
+command: mention
+line 84
+
+command: input
+enter the file name that has the graph: data5.txt
+
+command: number
+the graph has 9 vertices
+
+command: find
+the graph has at least one cycle
+
+command: connected
+the graph is NOT connected
+
+command: list
+0 
+1 2 4 5 3 
+6 8 7 
+
+command: twin
+
+for twin graph 
+command: number
+the graph has 9 vertices
+
+for twin graph 
+command: list
+0 
+1 2 4 5 3 
+6 8 7 
+
+for twin graph 
+command: reset
+
+command: reset
+
+command: mention
+line 98
+
+command: input
+enter the file name that has the graph: data6.txt
+
+command: number
+the graph has 33 vertices
+
+command: mention
+g6.txt is a file of singletons and there are no edges
+
+command: connected
+the graph is NOT connected
+
+command: find
+no cycles
+
+command: list
+0 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+
+command: twin
+
+for twin graph 
+command: number
+the graph has 33 vertices
+
+for twin graph 
+command: connected
+the graph is NOT connected
+
+for twin graph 
+command: reset
+
+command: reset
+
+command: mention
+exit the program
+
+command: quit
